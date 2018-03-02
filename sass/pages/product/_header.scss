@@ -1,0 +1,78 @@
+.product-header {
+  position: relative;
+  width: 100%;
+  color: $color-primary;
+
+  @media #{$mobile-only} {
+    margin: 1em 0;
+  }
+
+  @media #{$desktop-only} {
+    @include span(5);
+    max-width: 380px;
+    margin-right: 0;
+    margin-top: 10px;
+  }
+}
+
+.product-header-details.is-reviewable {
+  margin-right: 100px;
+}
+
+.product-header-fabric-benefit {
+  font-family: $font-family-heading;
+  font-size: 14px;
+
+  @media #{$mobile-only} {
+    font-size: 12px;
+  }
+}
+
+.product-header-name {
+  margin: 0 0 3px;
+  font-size: 26px;
+  line-height: 1;
+
+  @media #{$mobile-only} {
+    font-size: 18px;
+  }
+}
+
+.product-header-price {
+  font-size: 20px;
+
+  @media #{$mobile-only} {
+    font-size: 14px;
+  }
+}
+
+.product-regular-price {
+  text-decoration: line-through;
+}
+
+.product-discount-price {
+  color: $color-accent;
+}
+
+.product-header-rating {
+  @include heading-style;
+  @include position(absolute, 2px 0 null null);
+  color: $color-primary;
+  text-decoration: none;
+  font-size: 12px;
+  margin-top: 4px;
+
+  @media #{$mobile-only} {
+    margin-top: 0;
+    font-size: 10px;
+  }
+
+  .count {
+    text-decoration: underline;
+    font-size: 11px;
+  }
+
+  .has-fabric-benefit & {
+    top: 26px;
+  }
+}

@@ -1,0 +1,17 @@
+@import "video_header";
+@import "the_solution";
+@import "guarantee";
+@import "gifs";
+
+.big-adjustment-page {
+  .main-content {
+    /* Reset main-content to allow full-width sections */
+    @include padding(null 0);
+  }
+
+  .main-footer {
+    // Don't want the space above the footer because the last item has a
+    // different background-color.
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,34 @@
+@import "variables";
+@import "mixins";
+@import "normalize";
+@import "typography";
+@import "utility";
+// @import "animation";
+@import "base";
+// @import "./layout/index";
+// @import "./pages/index";
+//@import "application";
+
+$font-stack: Arial, sans-serif;
+$primary-color: #333;
+$testing: 2rem;
+
+// .main-footer {
+//   color: yellow;
+// }
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+li {
+  border: 2px solid $color-product-warm;
+  font-family: $font-stack;
+  color: $color-blue-grass;
+}
+
+#box {
+  background-color:blue;;
+}

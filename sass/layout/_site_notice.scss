@@ -1,0 +1,33 @@
+.site-notice {
+  position: relative;
+  background: $color-primary;
+  color: $white;
+  font-family: $font-family-heading;
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 1rem;
+  text-align: center;
+  z-index: $z-index-main-header;
+
+  @media #{$desktop-only} {
+    margin-bottom: 20px;
+    @include padding(null 3rem);
+  }
+
+  .content {
+    @include clear-margins;
+  }
+
+  a {
+    color: $white;
+  }
+}
+
+.site-notice-code {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.site-notice-disclaimer {
+  font-weight: normal;
+}

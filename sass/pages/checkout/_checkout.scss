@@ -1,0 +1,22 @@
+@import "order_summary";
+@import "steps";
+@import "addresses";
+@import "payments";
+
+.checkout-errors,
+.payment-errors {
+  font-size: 14px;
+  color: $color-accent;
+
+  a {
+    color: inherit;
+  }
+}
+
+.checkout-messages {
+  color: $color-primary;
+
+  > div {
+    margin-bottom: 2rem;
+  }
+}

@@ -1,0 +1,142 @@
+.category-tiles {
+  @include display(flex);
+  @include flex-wrap(wrap);
+  @include justify-content(space-around);
+  @include margin(null -2px);
+
+  @media only screen and (max-width: 768px) {
+    @include margin(1px (-$padding-site-mobile));
+  }
+}
+
+.category-tile {
+  position: relative;
+  width: calc(50% - 4px);
+  margin: 2px;
+  font-family: $font-family-heading;
+  background-size: cover;
+
+  @media only screen and (max-width: 480px) {
+    @include flex(1 1 100%);
+  }
+
+  &::before {
+    content: "";
+    display: inline-block;
+    padding-top: calc(100% - 8px);
+  }
+}
+
+.category-tile-content {
+  h2 {
+    @include margin(0 null);
+    line-height: 1;
+  }
+}
+
+.category-tile:first-child .category-tile-content {
+  @include position(absolute, 50% null null 50%);
+  @include transform(translate(-50%, -50%));
+  width: 80%;
+  text-align: center;
+
+
+  @media only screen and (max-width: 768px) {
+    h2 {
+      font-size: 32px;
+    }
+
+    p {
+      margin-top: 5px;
+    }
+  }
+}
+
+.category-tile:not(:first-child) .category-tile-content {
+  @include display(flex);
+  @include justify-content(space-between);
+  @include align-items(center);
+  @include position(absolute, null 0 0 null);
+  width: 100%;
+  min-height: 5em;
+  padding: 15px 18px;
+
+  h2 {
+    font-size: 25px;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 22px;
+    }
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+  }
+}
+
+.category-tile-content-details {
+  @include flex(0 1 auto);
+}
+
+.category-tile-cta {
+  font-size: 12px;
+
+  a {
+    color: inherit;
+  }
+
+  .mobile {
+    font-size: 2em;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .desktop {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  @media only screen and (min-width: 769px) {
+    .mobile {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  button {
+    white-space: nowrap;
+    padding: 0.75em 1.75em;
+    font-size: 12px;
+  }
+}
+
+.category-tile-main {
+  overflow: hidden;
+
+  @media only screen and (max-width: 480px) {
+    &::after {
+      text-align: center;
+      @include position(absolute, null null -30px 50%);
+      @include size(60px);
+      @include transform(translateX(-50%));
+      content: $character-down-open-mini;
+      display: inline-block;
+      border-radius: 50%;
+      border-width: 2px;
+      border-style: solid;
+      font-family: "fontello";
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 48px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}

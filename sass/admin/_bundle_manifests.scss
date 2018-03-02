@@ -1,0 +1,39 @@
+.bundle-manifest {
+  & + & {
+    margin-top: 3em;
+    padding-top: 2em;
+    border-top: 1px solid #dedede;
+  }
+
+  .ui-state-error-text {
+    text-align: center;
+  }
+
+  .indicators {
+    float: right;
+    line-height: 1;
+
+    .indicator {
+      border: 1px solid transparent;
+      font-size: 0.8rem;
+      padding: 0.5rem 0.75rem;
+      margin: 0 0.25rem;
+
+      .fa:before {
+        padding-right: 0;
+      }
+
+      &.active {
+        background: $color-action-edit-bg;
+        border-color: $color-success;
+        color: $color-success;
+      }
+
+      &.inactive {
+        background: $color-action-remove-bg;
+        border-color: $color-error;
+        color: $color-error;
+      }
+    }
+  }
+}

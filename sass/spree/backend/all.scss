@@ -1,0 +1,16 @@
+/*
+ * Unfortunately, we can't import backend with Sass.
+ *
+ *= require spree/backend
+ *= require_self
+ */
+
+// Helpful mixins!
+@import "bourbon";
+
+// Get access to Solidus variables
+@import "spree/backend/globals/_functions.scss";
+@import "spree/backend/globals/_variables.scss";
+
+// Require all files in this directory and below. Just like we did before.
+@import "../../admin/**/*";

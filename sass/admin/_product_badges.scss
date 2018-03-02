@@ -1,0 +1,49 @@
+.product-badge-selections {
+  @include display(flex);
+  @include justify-content(space-between);
+  @include flex-wrap(wrap);
+}
+
+.product-badge-selection {
+  @include display(flex);
+  @include align-items(center);
+
+  box-sizing: border-box;
+  width: 50%;
+  text-transform: none;
+  font-size: 14px;
+
+  &:nth-child(odd) {
+    padding-right: 1.5em;
+  }
+
+  &:nth-child(even) {
+    padding-left: 1.5em;
+  }
+
+  a, span {
+    padding-left: 1em;
+  }
+}
+
+.product-badge-selection-title {
+  @include flex(1);
+  display: block;
+  margin: 0.2em;
+  padding: 0.5em;
+  border-radius: 3px;
+  cursor: pointer;
+
+  :checked + label > &,
+  .selected > & {
+    box-shadow: 0 0 0 2px #5498da;
+  }
+
+  :not(:checked) + label:hover > & {
+    box-shadow: 0 0 0 2px rgba(#5498da, 0.5);
+  }
+}
+
+.product-badge-selection-form input[type=radio] {
+  display: none;
+}

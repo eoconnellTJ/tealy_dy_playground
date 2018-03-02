@@ -1,0 +1,10 @@
+.variant-autocomplete-item {
+  thead, tbody {
+    background-color: very-light($color-3, 5);
+    color: $color-body-text;
+  }
+
+  tbody tr {
+    background: white;
+  }
+}

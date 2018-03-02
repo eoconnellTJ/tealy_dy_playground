@@ -1,0 +1,108 @@
+$font-size-promo: 12px;
+
+.promo-bar {
+  z-index: $z-index-main-header + 1;
+  background: $white;
+  font-size: $font-size-promo;
+  padding-top: 4px;
+
+  @media #{$mobile-only} {
+    text-align: center;
+
+    &.promo-bar {
+      // Override .content
+      @include margin(null (-($padding-site-mobile / 2)));
+    }
+  }
+}
+
+.rotating-banner-messages {
+  position: relative;
+  z-index: $z-index-main-header + 1;
+
+  @media #{$mobile-only} {
+    height: 40px;
+  }
+}
+
+.rotating-banner-message {
+  position: absolute;
+  top: 0;
+  padding: 1em 0;
+  color: $color-primary;
+  font-family: $font-family-heading;
+  @include transition(transform 0.4s ease-in, opacity 0.4s linear);
+
+  &:not(.active) {
+    @include transform(translateY(-100%));
+    opacity: 0;
+
+    @media #{$mobile-only} {
+      @include transform(translateY(0));
+    }
+  }
+
+  @media #{$mobile-only} {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.account-navigation {
+  margin: 0;
+  font-family: $font-family-heading;
+
+  > li {
+    position: relative;
+
+    &:not(:last-child) {
+      // For the two dropdowns
+      padding: 1em 0;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.account-navigation .dropdown {
+  z-index: $z-index-main-header + 1;
+  @include calc(top, "100% - 4px");
+  right: 50%;
+  margin: 0 -50px 0 0;
+  padding: 1em 2em;
+  width: 200px;
+  border: 1px solid $color-grey-light;
+  background: $white;
+  list-style: none;
+  font-size: $font-size-promo;
+
+  &:before,
+  &:after {
+    position: absolute;
+    bottom: 100%;
+    width: 0;
+    height: 0;
+    content: "";
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  }
+
+  &:before {
+    right: 50px - 1px; // for the extra border
+    border-left-width: 6px;
+    border-right-width: 6px;
+    border-bottom: 6px solid $color-grey-light;
+  }
+
+  &:after {
+    right: 50px;
+    border-bottom: 5px solid $white;
+  }
+
+  a {
+    display: block;
+    padding: 0.8em 0;
+  }
+}

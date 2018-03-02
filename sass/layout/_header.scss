@@ -1,0 +1,25 @@
+.main-header {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+  @include padding(null $padding-site-mobile / 2);
+  z-index: $z-index-main-header;
+  background: $white;
+
+  // The about page shouldn't have a margin on both desktop and mobile.
+  body.about-page & {
+    margin-bottom: 0;
+  }
+
+  @media #{$desktop-only} {
+    margin-bottom: 30px;
+    @include padding(null $padding-site);
+
+    body.category-page &,
+    body.home-page &,
+    body.account-page &,
+    body.fabric-page & {
+      margin-bottom: 0;
+    }
+  }
+}

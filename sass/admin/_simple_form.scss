@@ -1,0 +1,19 @@
+.simple-form {
+  label {
+    display: block;
+  }
+
+  .input-wrapper {
+    margin: 1.5em 0;
+  }
+
+  .input-wrapper,
+  #{$all-text-inputs} {
+    width: 100%;
+  }
+
+  .form-field-error-message {
+    color: red;
+    display: block;
+  }
+}

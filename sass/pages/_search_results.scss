@@ -1,0 +1,125 @@
+.nxt-logo {
+  display: none;
+}
+
+.sort-menu {
+  margin-bottom: 2rem;
+}
+
+div.nxt-sort-by, .sort-menu {
+  float: right;
+  display: flex;
+  align-items: center;
+
+  .select-wrapper {
+    flex: 1;
+
+    &::after {
+      pointer-events: none;
+    }
+  }
+
+  select {
+    opacity: 1;
+    background-color: $white;
+    padding: 0 30px 0 5px;
+    font-size: 14px;
+    border-radius: 0;
+    border: 0;
+    // remove firefox caret
+    -moz-appearance: none;
+  }
+
+  label {
+    margin: 0 5px 0 0;
+  }
+
+  @media #{$mobile-only} {
+    margin: 0 0 2rem 0;
+
+    .select-wrapper {
+      height: 55px;
+      border: solid $color-primary 2px;
+
+      &:after {
+        right: 2rem;
+        color: $color-primary;
+      }
+    }
+
+    select {
+      border: 0;
+      height: 51px;
+      font-weight: bold;
+      color: $color-primary;
+      font-size: 12px;
+      padding-left: 30px;
+    }
+  }
+}
+
+.nxt-showing-results {
+  font-size: 14px;
+  margin-top: 0;
+
+  @media #{$mobile-only} {
+    text-align: center;
+  }
+}
+
+.refine-search-header {
+  margin-top: 0;
+
+  @media #{$mobile-only} {
+    display: none;
+  }
+}
+
+.nxt-pagination svg {
+  height: 12px;
+  fill: $color-link;
+
+  &:hover {
+    fill: $color-link-hover;
+  }
+}
+
+#nxt-content .three-per-row {
+  // inline block hack
+  font-size: 0;
+}
+
+div.nxt-address > div.product-filters.off-canvas.open {
+  min-width: 100%;
+}
+
+.nxt-refine-search-tools {
+  position: sticky;
+  top: 0;
+  background-color: $white;
+  display: flex;
+  align-items: center;
+
+  > div {
+    flex: 1;
+  }
+
+  .clear-refinements {
+    text-align: center;
+    font-family: basetica;
+    padding: 7px;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  button.button-bare.product-filters-trigger.mobile-only {
+    position: static;
+  }
+}
+
+div.nxt-toolbar {
+  padding-bottom: 0;
+  margin: 2rem 0;
+}

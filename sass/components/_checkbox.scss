@@ -1,0 +1,52 @@
+[type="checkbox"] {
+  position: absolute;
+  visibility: hidden;
+
+  + label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+
+    // replacement box
+    &:before {
+      content: '';
+      @include position(absolute, 2px null null 0);
+      width: 17px;
+      height: 17px;
+      border: 1px solid $color-grey;
+      border-radius: 2px;
+
+      &:hover {
+        border-color: $color-primary-light;
+      }
+    }
+
+    // replacement checkmark
+    &:after {
+      content: '✓';
+      font-size: 14px;
+      @include position(absolute, 1px null null 3px);
+      color: $color-primary-light;
+      transition: all .2s;
+    }
+  }
+
+  &:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  &:disabled {
+    + label {
+      color: $color-grey;
+
+      &:before {
+        background-color: $color-grey-light;
+      }
+
+      &:after {
+        color: $color-grey;
+      }
+    }
+  }
+}

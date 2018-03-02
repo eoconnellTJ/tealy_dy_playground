@@ -1,0 +1,134 @@
+.wishlist-wrapper {
+  max-width: $width-max;
+  margin: 0 auto;
+
+  h1 {
+    @include margin(0 null);
+
+    @media #{$mobile-only} {
+      font-size: 20px;
+    }
+  }
+}
+
+.wishlist-variants {
+  margin-top: 2rem;
+  border-color: $color-grey-light;
+  font-family: $font-family-heading;
+
+  &,
+  th,
+  td {
+    border-color: $color-grey-light;
+  }
+
+  tr:nth-child(even) td {
+    background: none;
+  }
+
+  thead {
+    font-size: 12px;
+  }
+
+  th {
+    background: none;
+    padding: 1.5rem 0 1rem;
+
+    &:first-child {
+      padding-left: 3rem;
+    }
+
+    &:last-child {
+      padding-left: 2rem;
+    }
+  }
+}
+
+.wishlist-variant {
+  &:first-child td:first-child {
+    @media #{$mobile-only} {
+      border-top: 0;
+    }
+  }
+
+  td {
+    padding: 2rem;
+
+    @media #{$mobile-only} {
+      display: block;
+      padding: 1.5rem 0.5rem;
+
+      &:not(:first-child) {
+        border-top: 0;
+      }
+    }
+  }
+}
+
+td.wishlist-variant-details {
+  @media #{$desktop-only} {
+    padding-left: 3rem;
+  }
+}
+
+.wishlist-variant-details-content {
+  @include calc(margin-left, "60px + 2rem"); // width of the image plus some spacing
+  @include clear-margins;
+  font-size: 12px;
+
+  @media #{$mobile-only} {
+    @include calc(margin-left, "60px + 1rem");
+  }
+
+  h3 {
+    @include margin(0 null 0.3rem);
+    font-size: 16px;
+  }
+
+  p {
+    margin: 0;
+
+    &:first-child {
+      color: $color-primary;
+    }
+
+    &:last-child {
+      margin-top: 0.6rem;
+      font-size: 14px;
+    }
+  }
+}
+
+td.wishlist-variant-price {
+  padding: 0;
+}
+
+td.wishlist-variant-actions {
+  @media #{$mobile-only} {
+    padding-top: 0;
+    @include clearfix;
+
+    button {
+      @include calc(width, "50% - 0.25rem");
+      float: left;
+
+      &:last-child {
+        float: right;
+      }
+    }
+  }
+
+  @media #{$desktop-only} {
+    // a little hack to make this cell only be as wide as the buttons
+    width: 1%;
+    white-space: nowrap;
+
+    button:first-child {
+      margin-right: 0.25rem;
+    }
+
+    button:last-child {
+      margin-left: 0.25rem;
+    }
+  }
+}

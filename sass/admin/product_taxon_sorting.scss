@@ -1,0 +1,11 @@
+.product-taxon-sorting {
+  tr td {
+    &:nth-child(1) {
+      width: 50px;
+    }
+
+    &:nth-child(2) {
+      width: 30%;
+    }
+  }
+}

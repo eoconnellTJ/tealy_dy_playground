@@ -1,0 +1,19 @@
+.dropdown-indicator {
+  @include open-indicator;
+}
+
+.dropdown-wrapper {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  z-index: $z-index-dropdowns;
+  background-color: $white;
+  padding: 1rem;
+  border: 1px solid $color-grey;
+
+  &:not(.open) {
+    display: none;
+  }
+}

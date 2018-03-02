@@ -1,0 +1,37 @@
+#new_credit_card:not(.ready) {
+  .hosted-field {
+    background: $color-grey;
+  }
+
+  input[type=submit] {
+    background: $color-grey;
+    border-color: $color-grey;
+  }
+}
+
+#new_credit_card {
+  .inline-inputs {
+    margin-bottom: 2em;
+  }
+}
+
+.hosted-field {
+  height: 50px;
+  margin: 1em 0;
+  margin-top: 0;
+  border: 1px solid $color-grey;
+  padding: 0 0.5em;
+
+  .inline-inputs .input-wrapper & {
+    width: 100%;
+    margin: 0;
+  }
+
+  &.braintree-hosted-fields-focused {
+    border-color: $black;
+  }
+
+  &.braintree-hosted-fields-invalid {
+    border-color: $color-accent;
+  }
+}

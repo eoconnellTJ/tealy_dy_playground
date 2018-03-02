@@ -1,0 +1,248 @@
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.inline-inputs {
+  margin: 1em 0;
+  // @include clearfix;
+}
+
+.input-wrapper,
+.input-group-wrapper,
+.input-combo-wrapper {
+  margin: 1em 0;
+
+  .inline-inputs & {
+    float: left;
+    // @include calc(width, "50% - 0.5em");
+    margin: 0;
+
+    &:first-child {
+      margin-right: 0.5em;
+    }
+
+    &:last-child {
+      margin-left: 0.5em;
+    }
+  }
+}
+
+.input-combo-wrapper {
+  @media screen and (min-width: $breakpoint-input-combo) {
+    // @include display(flex);
+    display: flex;
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3em;
+  font-family: $font-family-heading;
+  font-size: 14px;
+  color: $color-grey-dark;
+
+  &.required:before {
+    content: "*";
+    margin-right: 3px;
+  }
+
+  &.label-featured {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .input-group-wrapper & {
+    font-weight: normal;
+  }
+
+  .input-group-wrapper:not(.inline-options) & {
+    margin: 1em 0;
+  }
+
+  .inline-options & {
+    display: inline-block;
+
+    &:not(:first-of-type) {
+      margin-left: 1em;
+    }
+  }
+
+  .input-combo-wrapper & {
+    @media screen and (min-width: $breakpoint-input-combo) {
+      margin-bottom: 0;
+      padding-right: 1em;
+    }
+  }
+
+  html:not(.no-placeholder) .placeholder-as-label & {
+    display: none;
+  }
+}
+
+// Text inputs and our custom select wrapper should all have a
+// height of 45px.
+// border + padding + (font-size * line-height) = 45
+// (1px * 2) + (13px + 11px) + (16px * 1.2) = 45px
+// #{$all-text-inputs},
+.select-wrapper {
+  width: 100%;
+  padding: 13px 1.2em 11px; // imbalance due to font's awkward line-height
+  border: 1px solid $color-grey;
+  line-height: 1.5;
+  font-family: $font-family-heading;
+  color: $color-grey-dark;
+  -webkit-appearance: none; // removes box-shadow on iOS
+  border-radius: 0; // removes border radius on iOS
+  background-color: $white;
+
+  @media #{$desktop-only} {
+    // Tweak the font size on desktop to be smaller. We can't do this on mobile
+    // because it will cause awkward zooming for mobile devices.
+    // (1px * 2) + (14px + 13px) + (14px * 1.2) = 45px
+    // @include padding(14px null 13px);
+    padding: 14px null;
+    font-size: 14px;
+  }
+
+  &:focus,
+  &.focused {
+    outline: none;
+    border-color: $black;
+  }
+
+  .input-combo-wrapper & {
+    @media screen and (min-width: $breakpoint-input-combo) {
+      // @include flex(1);
+      flex: 1;
+    }
+  }
+
+  // @include placeholder {
+  //   color: lighten($color-grey-text, 20%);
+  // }
+
+  .form-field-has-errors > & {
+    border-color: $color-accent;
+  }
+}
+
+// Disable arrows on number fields (Webkit)
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+// Disable arrows on number fields (Firefox)
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+// .simple-form is added to increase precedence
+.simple-form {
+  .form-field-has-errors label,
+  .error {
+    color: $color-accent;
+  }
+}
+
+.form-field-error-message {
+  display: block;
+  margin-top: 0.3em;
+  font-size: 14px;
+  color: $color-accent;
+  font-family: $font-family-heading;
+
+  a {
+    color: inherit;
+  }
+}
+
+textarea {
+  line-height: 1.6em;
+}
+
+.select-wrapper {
+  @include open-indicator;
+
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  padding-right: 3em;
+
+  &:after {
+    // @include position(absolute, 50% 1em null null);
+    position: (absolute, 50% 1em null null);
+    // @include transform(translateY(-50%));
+    transform: translateY(-50%);
+  }
+
+  select {
+    // @include position(absolute, 0 0 0 0);
+    position: absolute;
+    max-width: 100%; // don't allow super long options to break out
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-appearance: none; // allow the select element to stretch
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 0.33em;
+}
+
+.attempted-submit .error {
+  position: relative;
+  // @include animation(shake 0.5s);
+}
+
+.ng-submitted {
+  .error {
+    border-color: $color-accent;
+    background: tint($color-accent, 90%);
+  }
+
+  .input-wrapper.error {
+    background-color: transparent;
+
+    label {
+      color: $color-accent;
+    }
+
+    // #{$all-text-inputs} {
+    //   border-color: $color-accent;
+    // }
+  }
+}
+
+.form-error-messages {
+  color: $color-accent;
+}
+
+label.optional:after {
+  color: $color-grey-text;
+  font-size: 0.9em;
+  font-weight: normal;
+  content: " (Optional)";
+}
+
+.input-inline-wrapper {
+  .input-wrapper {
+    display: inline;
+  }
+}
+
+.selected-text {
+  white-space: nowrap;
+  overflow: hidden;
+
+  &.disabled {
+    color: $color-grey-text;
+  }
+}

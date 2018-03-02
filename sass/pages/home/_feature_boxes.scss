@@ -1,0 +1,114 @@
+$breakpoint-feature-box: 568px; // iPhone 5 in lanscape
+$feature-box-mobile-only: "only screen and (max-width: #{$breakpoint-feature-box - 1})";
+$feature-box-desktop-only: "only screen and (min-width: #{$breakpoint-feature-box})";
+
+.feature-boxes {
+  @include margin(null -0.75rem);
+
+  @media #{$feature-box-desktop-only} {
+    @include display(flex);
+    @include justify-content(space-between);
+    @include flex-wrap(wrap);
+  }
+}
+
+.feature-box {
+  position: relative;
+  margin-top: 1rem;
+  padding: 0 0.75rem;
+
+  @media #{$feature-box-desktop-only} {
+    margin-top: 3rem;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &:not(.full-width) {
+    @include flex-basis(50%);
+  }
+}
+
+.feature-box-image {
+  height: 0;
+  padding-top: 100%; // square
+  background-size: cover;
+
+  .full-width & {
+    padding-top: aspect-ratio(568, 852);
+
+    @media #{$feature-box-desktop-only} {
+      padding-top: aspect-ratio(1180, 500);
+    }
+  }
+}
+
+.feature-box-content {
+  @include vertical-align($position: absolute);
+  @include padding(null 3rem);
+  left: 0;
+  width: 100%;
+  text-align: center;
+
+  h2,
+  p {
+    margin: 0;
+    line-height: 1.1;
+    color: white;
+  }
+
+  h2 {
+    @include responsive-font-size(
+      $font-size-min: 20,
+      $font-size-max: 32
+    );
+  }
+
+  p {
+    @include responsive-font-size(
+      $font-size-min: 14,
+      $font-size-max: 16
+    );
+    margin-top: 0.5rem;
+  }
+
+  .button {
+    @include button-color(white);
+    @include padding(null 20px);
+    margin-top: 1rem;
+
+    @media #{$feature-box-mobile-only} {
+      width: 100%;
+    }
+  }
+
+  .video-play-button {
+    margin-bottom: 1rem;
+    color: white;
+
+    &:before {
+      @include responsive-font-size(
+        $font-size-min: 40,
+        $font-size-max: 80
+      )
+    }
+  }
+}
+
+// TODO: remove this customizations once the feature boxes
+// have an admin interface.
+.feature-box.smart-fabrics .feature-box-content {
+  @media #{$feature-box-mobile-only} {
+    top: 75%;
+  }
+
+  h2,
+  p {
+    color: $color-grey-dark;
+  }
+
+  .button {
+    @include button-color($color-grey-dark);
+  }
+}

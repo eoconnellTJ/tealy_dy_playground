@@ -1,0 +1,83 @@
+$gutter-featured-product: 1.5rem;
+
+.featured-products {
+  @include margin(null (-$gutter-featured-product / 2));
+}
+
+.featured-product {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  margin-top: $gutter-featured-product;
+  @include padding(null $gutter-featured-product / 2);
+
+  @media screen and (min-width: 400px) {
+    width: 50%;
+  }
+
+  .four-per-row & {
+    @media screen and (min-width: 850px) {
+      width: 25%;
+    }
+  }
+
+  .three-per-row & {
+    @media screen and (min-width: 650px) {
+      width: 33.33%;
+    }
+  }
+}
+
+.featured-product-image {
+  display: block;
+  width: 100%;
+}
+
+html.no-touchevents .featured-product-content-wrapper {
+  @include position(absolute, 0 $gutter-featured-product / 2);
+  background: rgba($color-primary, 0.98);
+  opacity: 0;
+  @include transition(opacity, 0.2s);
+}
+
+html.no-touchevents .featured-product:hover .featured-product-content-wrapper {
+  opacity: 0.98;
+}
+
+.featured-product-content {
+  @include padding(null $gutter-featured-product / 2);
+  text-align: center;
+  font-family: $font-family-heading;
+
+  html.touchevents & {
+    margin-top: 0.5rem;
+  }
+
+  html.no-touchevents & {
+    @include position(absolute, 50% null null);
+    @include transform(translateY(-50%));
+    width: 100%;
+    color: $white;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 14px;
+    @include small-caps;
+    color: inherit;
+
+    html.touchevents & {
+      font-size: 12px;
+    }
+  }
+
+  p {
+    @include margin(5px null 0);
+    font-size: 12px;
+
+    html.touchevents & {
+      display: none;
+    }
+  }
+}

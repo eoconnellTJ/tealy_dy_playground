@@ -1,0 +1,132 @@
+.account-page {
+  h1 {
+    font-size: 28px;
+
+    @media #{$mobile-only} {
+      font-size: 20px;
+    }
+  }
+}
+
+.account-page-content {
+  @media #{$desktop-only} {
+    @include padding(2rem $padding-site);
+    border: 1px solid $color-grey-light;
+  }
+}
+
+.account-page-section {
+  padding-bottom: 2rem;
+
+  @media #{$desktop-only} {
+    @include padding(2rem null 3rem);
+  }
+
+  h2,
+  p {
+    margin: 0;
+  }
+
+  h2 {
+    margin-bottom: 0.5em;
+    font-size: 20px;
+
+    @media #{$mobile-only} {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    a {
+      padding-left: 2em;
+      color: $color-link;
+      font-size: 14px;
+      font-weight: normal;
+      text-decoration: underline;
+    }
+  }
+
+  &.bordered {
+    @media #{$desktop-only} {
+      border-bottom: 1px solid $color-grey-light;
+    }
+  }
+
+  table {
+    border: 1px solid $color-grey-light;
+    font-family: $font-family-heading;
+  }
+
+  thead {
+    font-size: 12px;
+  }
+
+  tbody {
+    font-size: 14px;
+
+    @media #{$mobile-only} {
+      font-size: 10px;
+    }
+  }
+
+  tr {
+    border-bottom: 1px solid $color-grey-light;
+  }
+
+  th,
+  td {
+    padding: 1.5em;
+    text-align: center;
+  }
+}
+
+.account-page-login-information,
+.account-page-store-credits {
+  @media #{$desktop-only} {
+    float: left;
+    width: 50%;
+  }
+}
+
+.account-page-login-information {
+  @media #{$mobile-only} {
+    padding-bottom: 2rem;
+  }
+
+  p:last-of-type {
+    margin-bottom: 1em;
+
+    @media #{$mobile-only} {
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
+.account-page-payment-methods {
+  th,
+  td {
+    text-align: left;
+
+    &:first-child {
+      @media #{$desktop-only} {
+        padding-left: 3rem;
+      }
+    }
+
+    &:last-child {
+      text-align: right;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .expiration-date {
+      padding-left: 3em;
+
+      @media #{$mobile-only} {
+        float: right;
+        padding-left: 0;
+      }
+    }
+  }
+}

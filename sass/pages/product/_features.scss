@@ -1,0 +1,122 @@
+$breakpoint-features-desktop: 1000px;
+
+@mixin desktop-features {
+  @media screen and (min-width: $breakpoint-features-desktop) {
+    @content;
+  }
+}
+
+@mixin mobile-features {
+  @media screen and (max-width: $breakpoint-features-desktop - 1) {
+    @content;
+  }
+}
+
+.product-features {
+  @include escape-site-padding;
+  padding: 0;
+}
+
+.product-features-content-wrapper,
+.product-features-image {
+  @include desktop-features {
+    float: left;
+  }
+}
+
+.product-features-content-wrapper {
+  @include mobile-features {
+    @include site-padding;
+  }
+
+  @include desktop-features {
+    width: 40%;
+    padding: 0 $padding-site;
+  }
+}
+
+.product-features-content {
+  margin-top: 1rem;
+
+  @include desktop-features {
+    max-width: 540px;
+    float: right;
+    @include clear-margins;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+}
+
+.product-features-image {
+  @include desktop-features {
+    width: 60%;
+  }
+
+  img {
+    display: block;
+    max-width: none;
+
+    @include mobile-features {
+      width: 100%;
+    }
+
+    &.full-width {
+      max-width: 100%;
+    }
+  }
+}
+
+.product-features-popover-anchor {
+  position: relative;
+
+  @include mobile-features {
+    // Re-Override the width override on mobile, as the image is always
+    // 100% with in mobile
+    width: auto !important;
+  }
+}
+
+.product-features-image-point {
+  position: absolute;
+
+  .circle-plus-border,
+  .circle-plus-line-up,
+  .circle-plus-line-across {
+    stroke: $white;
+  }
+
+  .popover-trigger {
+    @media #{$mobile-only} {
+      box-sizing: content-box;
+      margin: -10px; // fix for the padding adjustment
+      padding: 10px;
+    }
+
+    @media #{$desktop-only} {
+      @include size(30px);
+    }
+  }
+
+  .tooltip-content {
+    padding-top: 20px;
+
+    svg {
+      fill: $color-primary;
+      max-height: 60px;
+    }
+
+    h4 {
+      margin-top: 5px;
+    }
+  }
+}
+
+.undershirts .product-features-image-point {
+  .circle-plus-border,
+  .circle-plus-line-up,
+  .circle-plus-line-across {
+    stroke: $color-grey-text;
+  }
+}

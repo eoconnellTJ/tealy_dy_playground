@@ -1,0 +1,41 @@
+.founders-video-wrapper {
+  position: relative;
+
+  @media #{$mobile-only} {
+    @include escape-site-padding;
+  }
+}
+
+.founders-video-content {
+  position: relative;
+  height: 0;
+  padding-top: aspect-ratio(1280, 720);
+}
+
+.founders-video-poster {
+  @include position(absolute, 0);
+  background: image-url("about/founders-video-poster.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+
+  .video-play-button {
+    @include position(absolute, 50% null null 50%);
+    @include transform(translate(-50%, -50%));
+    color: white;
+    pointer-events: auto;
+
+    &:before {
+      font-size: 5rem;
+    }
+  }
+}
+
+.founders-video {
+  @include position(absolute, 0);
+  width: 100%;
+
+  .founders-video-wrapper.playing & {
+    z-index: 5;
+  }
+}

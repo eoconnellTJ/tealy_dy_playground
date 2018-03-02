@@ -1,0 +1,32 @@
+.carousel-entries {
+  @include display(flex);
+  @include flex-wrap(wrap);
+}
+
+.carousel-entry {
+  margin: 0.5em;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+
+  .actions {
+    position: absolute;
+    top: 0.75em;
+    right: 0.5em;
+    font-size: 1.2em;
+
+    .icon_link {
+      background-color: very-light($color-3);
+      opacity: 0.8;
+      padding: 0.5em;
+
+      &:before {
+        padding: 0;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

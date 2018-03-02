@@ -1,0 +1,163 @@
+$font-size-minicart: 14px;
+$font-size-minicart-small: 12px;
+
+.minicart-panel-wrapper {
+  background: $white;
+}
+
+.minicart-panel {
+  @include display(flex);
+  @include flex-direction(column);
+  height: 100%;
+  font-size: $font-size-minicart;
+
+  > header,
+  .error-messages,
+  .line-item-list > li {
+    padding: 1em;
+  }
+
+  .buy-more-save-more-message {
+    padding: 1rem;
+    font-family: $font-family-body;
+    font-size: $font-size-minicart;
+    font-style: italic;
+    font-weight: bold;
+    color: $color-primary;
+  }
+
+  .buy-more-save-more-message:not(:empty) ~ .error-messages {
+    padding-top: 0;
+  }
+
+  .error-messages p {
+    margin: 0;
+    font-family: $font-family-heading;
+    color: $color-accent;
+
+    + p {
+      margin-top: 1em;
+    }
+  }
+
+  .empty-cart-message {
+    margin: 2em;
+    font-family: $font-family-heading;
+    font-weight: bold;
+    font-size: 1.25em;
+    text-align: center;
+  }
+
+  .line-item-image {
+    max-width: 50px;
+  }
+
+  .line-item-total {
+    color: $color-primary;
+    font-size: $font-size-base;
+  }
+
+  .price {
+    font-family: $font-family-heading;
+    font-size: $font-size-minicart;
+    font-weight: normal;
+  }
+
+  .options {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+}
+
+.minicart-header {
+  position: relative;
+  background: $color-primary;
+  color: $white;
+  text-align: center;
+  font-family: $font-family-heading;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.minicart-content {
+  @include flex(1);
+  overflow: auto;
+}
+
+.minicart-close-trigger {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  @include transform(translateY(-50%));
+  padding: 0;
+  font-size: 22px;
+
+  &,
+  &:hover,
+  &:focus {
+    color: $white;
+  }
+}
+
+.minicart-totals {
+  margin: 0;
+  font-size: $font-size-minicart;
+
+  th,
+  td {
+    @include padding(2em 1em);
+    font-family: $font-family-heading;
+  }
+
+  .totals-label {
+    padding-right: 10px;
+
+    small {
+      display: block;
+      font-size: 11px;
+      color: $color-grey-text;
+    }
+  }
+
+  .price {
+    vertical-align: top;
+    text-align: right;
+    font-family: $font-family-heading;
+  }
+}
+
+.minicart-footer {
+  border-top: 1px solid $color-grey-light;
+}
+
+.minicart-buttons {
+  padding: 1em;
+  @include clearfix;
+
+  .button {
+    @include padding(null 0); // remove left/right padding for more space
+    float: left;
+    @include calc(width, "50% - 0.5em");
+
+    &:first-child {
+      margin-right: 0.5em;
+    }
+
+    &:last-child {
+      margin-left: 0.5em;
+    }
+  }
+}
+
+.minicart-footer .apple-pay-disclaimer {
+  @include padding(null 1em);
+  margin-top: 0;
+}
+
+.minicart-buttons:not(.apple-pay-enabled) {
+  .apple-pay-button,
+  + .apple-pay-disclaimer {
+    display: none;
+  }
+}

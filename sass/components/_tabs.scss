@@ -1,0 +1,68 @@
+.nav-tabs {
+  list-style: none;
+  border-bottom: 1px solid $color-grey-light;
+  margin-left: 0;
+  margin-bottom: 2rem;
+  font-size: 0;
+  white-space: nowrap;
+
+  @media #{$desktop-only} {
+    margin: 1rem auto 3rem;
+  }
+
+  padding-left: 0;
+  @include clearfix;
+
+  > li {
+    display: inline-block;
+    font-size: 12px;
+
+    &.active {
+      border-bottom: 2px solid $color-primary;
+    }
+  }
+
+  li + li {
+    margin-left: 1em;
+
+    @media #{$desktop-only} {
+      margin-left: 4em;
+    }
+  }
+
+  a {
+    display: inline-block;
+    padding: 1em;
+    color: $color-grey-text;
+    font-family: $font-family-heading;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .active a {
+    color: $color-primary;
+  }
+
+  &.center {
+    text-align: center;
+
+    li {
+      float: none;
+      display: inline-block;
+    }
+  }
+
+  &.full-width {
+    li {
+      width: 50%;
+      margin: 0;
+      text-align: center;
+    }
+  }
+}
+
+.tabs-content {
+  .content:not(.active) {
+    display: none;
+  }
+}

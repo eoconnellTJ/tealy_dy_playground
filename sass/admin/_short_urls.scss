@@ -1,0 +1,12 @@
+.short-url-search {
+  margin-bottom: 1rem;
+}
+
+.short-url-form {
+  input {
+    @include placeholder {
+      color: #bcbcbc;
+    }
+  }
+}
+

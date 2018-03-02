@@ -1,0 +1,122 @@
+.checkout-order-summary {
+  position: relative;
+  float: left;
+  width: 100%;
+  max-width: 420px;
+  padding: 1em;
+  border: 1px solid $color-grey;
+  font-family: $font-family-heading;
+
+  @media #{$breakpoint-checkout-mobile} {
+    max-width: 100%;
+    margin-bottom: 2em;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .button-link {
+    font-family: inherit;
+  }
+}
+
+.order-summary-edit-button {
+  @include position(absolute, 1em 1em null null);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.order-summary-item-image {
+  @include calc(width, "75px + 1em"); // width of image plus padding
+  padding-right: 1em;
+
+  img {
+    width: 75px;
+  }
+}
+
+.order-summary-item-details {
+  font-size: 14px;
+
+  .attr {
+    font-size: 12px;
+  }
+}
+
+.order-summary-item-name {
+  font-weight: bold;
+  font-size: 14px;
+
+  a {
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.order-summary-item-total {
+  margin-top: 5px;
+  font-size: 12px;
+
+  span:last-child {
+    color: $color-primary;
+    float: right;
+  }
+}
+
+.checkout-order-store-credit {
+  padding-top: 2em;
+
+  .store-credit-available {
+    font-size: 14px;
+    color: $color-primary;
+    font-weight: bold;
+  }
+}
+
+.checkout-order-coupon-code {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid $color-grey-light;
+
+  label {
+    margin-bottom: 0;
+    font-weight: bold;
+  }
+
+  form {
+    margin-top: 0;
+  }
+
+  .form-field-error-message,
+  .form-field-success-message {
+    color: $color-primary;
+    font-size: 14px;
+  }
+
+  .form-field-error-message {
+    color: $color-accent;
+  }
+}
+
+.checkout-order-coupon-code,
+.checkout-order-store-credit {
+
+  .input-combo-wrapper input {
+    @media screen and (min-width: $breakpoint-input-combo) {
+      border-right: 0;
+    }
+
+    &:focus {
+      border-color: $color-grey;
+    }
+  }
+
+  button {
+    @include padding(null 30px);
+  }
+}

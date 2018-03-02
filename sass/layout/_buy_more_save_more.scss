@@ -1,0 +1,70 @@
+.buy-more-save-more-content {
+  max-width: 1000px;
+  @include padding(24px $padding-site 30px);
+  @include calc(padding-right, "#{$padding-site} + 22px"); // width of the (?) icon
+  margin: 0 auto;
+}
+
+.buy-more-save-more-wrapper  hr {
+  max-width: $width-max;
+}
+
+.buy-more-save-more-tiers {
+  font-family: $font-family-heading;
+  font-weight: bold;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: $color-grey-dark;
+}
+
+.buy-more-save-more-tier {
+  display: inline-block;
+  border-left: 1px solid $color-grey;
+  padding-left: 2em;
+
+  &:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  &.active {
+    color: $color-accent;
+  }
+
+  .level {
+    font-weight: normal;
+  }
+}
+
+.buy-more-save-more-middle {
+  position: relative;
+
+  ~ .buy-more-save-more-tiers {
+    .buy-more-save-more-tier {
+      padding-top: 0.25em;
+    }
+  }
+}
+
+.buy-more-save-more-meter {
+  position: relative;
+  height: 5px;
+  border-radius: 2px;
+  border: 1px solid $color-grey;
+
+  span {
+    position: absolute;
+    height: 100%;
+    background-color: $color-accent;
+    @include border-left-radius(2px);
+    @include transition(width $transition-default);
+  }
+}
+
+.buy-more-save-more-help {
+  @include position(absolute, -10px -26px null null);
+}
+
+.increased-discount .buy-more-save-more-percentages {
+  color: $color-accent-dark;
+}

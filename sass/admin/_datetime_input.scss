@@ -1,0 +1,25 @@
+#ui-datepicker-div {
+  // Fix dropdown arrow on datepickers. Otherwise it's blocky due to something
+  // else setting this to "display: table;"
+  &:before {
+    display: block;
+  }
+}
+
+.datetime-input {
+  @include display(flex);
+
+  .datepicker {
+    @include flex(1);
+    margin-right: 1em;
+  }
+
+  input,
+  .select2 {
+    vertical-align: top;
+  }
+
+  .select2 {
+    width: auto;
+  }
+}

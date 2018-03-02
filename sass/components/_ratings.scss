@@ -1,0 +1,40 @@
+$star-solid: '\2605';
+$star-outline: '\2606';
+
+.rating-input-group {
+  display: inline-block;
+}
+
+label.rating-label {
+  float: right;
+  color: $color-grey-dark;
+  cursor: pointer;
+
+  &:before {
+    content: $star-outline;
+
+    @media #{$mobile-only} {
+      // Make them big enough for people's fat fingers
+      font-size: $font-size-base * 2;
+    }
+  }
+}
+
+.rating-input {
+  display: none;
+
+  &:checked ~ .rating-label:before,
+  & + .rating-label:hover ~ .rating-label:before,
+  & + .rating-label:hover:before {
+    content: $star-solid;
+  }
+
+  &:checked ~ .rating-label:before {
+    color: $color-primary;
+  }
+
+  + .rating-label:hover ~ .rating-label:before,
+  & + .rating-label:hover:before {
+    color: $color-link;
+  }
+}

@@ -1,0 +1,11 @@
+.product-rlm-attributes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-rlm-identifiers-form .field_with_errors input[type="text"] {
+  border: 1px solid very-light($color-error, 12);
+  background-color: very-light($color-error, 6);
+  color: very-light($color-error, 30);
+}

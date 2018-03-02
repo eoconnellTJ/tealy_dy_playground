@@ -1,0 +1,18 @@
+@import "featured_products";
+@import "feature_boxes";
+@import "press";
+@import "offers";
+
+.home-page, .full-bleed {
+  .main-content {
+    /* Reset main-content to allow full-width sections */
+    @include padding(null 0);
+  }
+
+  .main-footer {
+    // Don't want the space above the footer because the last item has a
+    // different background-color.
+    margin-top: 0;
+    color: red;
+  }
+}

@@ -1,0 +1,21 @@
+.product-fits .actions {
+  white-space: nowrap;
+}
+
+tr + .product-fits-empty-message {
+  // Hide the message if there are fits assigned
+  // to the product
+  display: none;
+}
+
+.product-fits-add {
+  @include display(flex);
+
+  .select2-container {
+    @include flex(1);
+  }
+
+  button {
+    margin-left: 1em;
+  }
+}

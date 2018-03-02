@@ -1,0 +1,112 @@
+.full-bleed-header {
+  background-repeat: no-repeat;
+  background-size: contain;
+  @include ie-transform-container;
+
+  @media #{$mobile-only} {
+    background-position: center top;
+    padding-top: aspect-ratio(800, 700);
+  }
+
+  @media #{$desktop-only} {
+    position: relative;
+    height: 0;
+    padding-top: aspect-ratio(1600, 700);
+
+    &.copy-left {
+      background-position: right center;
+    }
+
+    &.copy-right {
+      background-position: left center;
+    }
+
+    &[class^="full-width-"] {
+      background-position: center center;
+    }
+  }
+}
+
+.full-bleed-header-content-wrapper {
+  @media #{$mobile-only} {
+    &.default-mobile-styles {
+      background: $color-grey-light;
+    }
+  }
+
+  @media #{$desktop-only} {
+    width: 40%;
+
+    .copy-left & {
+      @include position(absolute, 0 null 0 0);
+    }
+
+    .copy-right & {
+      @include position(absolute, 0 0 0 null);
+    }
+
+    [class^="full-width-"] & {
+      background: none;
+      color: $white;
+      width: 100%;
+    }
+  }
+}
+
+.full-bleed-header-content {
+  padding: 30px 30px 50px;
+  text-align: center;
+
+  @media #{$desktop-only} {
+    position: absolute;
+    top: 50%;
+    @include transform(translateY(-50%));
+    width: 100%;
+    padding: 15%;
+
+    [class^="full-width-"] & {
+      left: 50%;
+      @include transform(translate(-50%, -50%));
+      padding: 0 $padding-site;
+    }
+
+    .full-width-aligned-left &,
+    [class^="copy-"] & {
+      text-align: left;
+    }
+
+    .full-width-aligned-right & {
+      text-align: right;
+    }
+  }
+
+  .content {
+    @include clear-margins;
+  }
+
+  h1 {
+    @include responsive-font-size($font-size-min: 28, $font-size-max: 40);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+
+  p {
+    margin-top: 0.5rem;
+  }
+
+  .button {
+    margin-top: 1em;
+  }
+
+  .default-mobile-styles & {
+    @media #{$mobile-only} {
+      h1,
+      p,
+      .button {
+        background: transparent;
+        color: $color-primary;
+        border-color: $color-primary;
+      }
+    }
+  }
+}

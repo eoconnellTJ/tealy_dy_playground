@@ -1,0 +1,221 @@
+// target element must be positioned, ie: relative, absolute, fixed or sticky
+@mixin caret($direction: up, $color-border: $color-grey-light, $color-background: white) {
+  &:before,
+  &:after {
+    @include size(0);
+    content: "";
+    border: 5px solid transparent;
+    @if $direction==up or $direction==down {
+      left: 50%;
+      @include transform(translateX(-50%));
+    }
+    @else {
+      top: 50%;
+      @include transform(translateY(-50%));
+    }
+  }
+  &:before {
+    border-width: 6px;
+  }
+  @if $direction==up {
+    &:before {
+      @include position(absolute, -12px null null null);
+      @include border-color(transparent transparent $color-border transparent);
+    }
+    &:after {
+      @include position(absolute, -10px null null null);
+      @include border-color(transparent transparent $color-background transparent);
+    }
+  }
+  @else if $direction==left {
+    &:before {
+      @include position(absolute, null null null -12px);
+      @include border-color(transparent $color-border transparent transparent);
+    }
+    &:after {
+      @include position(absolute, null null null -10px);
+      @include border-color(transparent $color-background transparent transparent);
+    }
+  }
+  @else if $direction==right {
+    &:before {
+      @include position(absolute, null -12px null null);
+      @include border-color(transparent transparent transparent $color-border);
+    }
+    &:after {
+      @include position(absolute, null -10px null null);
+      @include border-color(transparent transparent transparent $color-background);
+    }
+  }
+  @else {
+    &:before {
+      @include position(absolute, null null -12px null);
+      @include border-color($color-border transparent transparent transparent);
+    }
+    &:after {
+      @include position(absolute, null null -10px null);
+      @include border-color($color-background transparent transparent transparent);
+    }
+  }
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+@mixin small-caps {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@mixin clear-margins {
+  >*:first-child {
+    margin-top: 0;
+  }
+  >*:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin append-icon($character) {
+  &:after {
+    @extend %icon-base;
+    content: $character;
+  }
+}
+
+@mixin prepend-icon($character) {
+  &:before {
+    @extend %icon-base;
+    content: $character;
+  }
+}
+
+// For use on the container of elements which have been transformed in ways
+// that lead lead to the "off-screen white-space" bug.
+// http://stackoverflow.com/questions/23587326/ie-leaves-white-space-on-div-transform-scale
+@mixin ie-transform-container {
+  overflow: hidden;
+}
+
+@mixin sticky-top-bar {
+  @media #{$desktop-only} {
+    body:not(.checkout-page).top-bar-is-sticky & {
+      @content;
+    }
+  }
+}
+
+@function set-lightness($color, $lightness) {
+  @return hsl(hue($color), saturation($color), $lightness);
+}
+
+@mixin padding($vertical, $horizontal) {
+  padding-top: $vertical;
+  padding-bottom: $vertical;
+  padding-left: $horizontal;
+  padding-right: $horizontal;
+}
+
+@mixin site-padding {
+  @media #{$desktop-only} {
+    @include padding(null, $padding-site);
+  }
+  @media #{$mobile-only} {
+    @include padding(null, $padding-site-mobile);
+  }
+}
+
+@mixin escape-site-padding {
+  @media #{$desktop-only} {
+    @include margin(null (-$padding-site));
+  }
+  @media #{$mobile-only} {
+    @include margin(null (-$padding-site-mobile));
+  }
+}
+
+@mixin escape-mobile-site-padding {
+  @media #{$mobile-only} {
+    @include margin(null (-$padding-site-mobile));
+  }
+}
+
+@mixin open-indicator($character-closed: $character-down-open-mini, $character-open: $character-up-open-mini) {
+  &:not(.open) {
+    @include append-icon($character-closed);
+  }
+  &.open {
+    @include append-icon($character-open);
+  }
+}
+
+@mixin breakpoint-max-width-up {
+  @media screen and (min-width: $width-max) {
+    @content;
+  }
+}
+
+@mixin breakpoint-max-width-down {
+  @media screen and (max-width: $width-max - 1) {
+    @content;
+  }
+}
+
+@function aspect-ratio($width, $height) {
+  @return ($height / $width) * 100%;
+}
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  @include transform(translateY(-50%));
+}
+
+@function strip-units($value) {
+  /*
+    Strip a value of its units.
+    16px => 16
+  */
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin responsive-font-size($font-size-min, $font-size-max, $width-min: strip-units($width-min), $width-max: strip-units($width-max-with-padding)) {
+  /*
+    Responsive font-sizing. The size will scale with how wide the
+    viewport is. This calculation gives us $min-font-size at a viewport
+    width of $min-width and $max-font-size at a viewport width of $max-width.
+
+    y = mx + b
+  */
+  $values: $font-size-min, $font-size-max, $width-min, $width-max;
+  @each $value in $values {
+    @if unitless($value)==false {
+      @error "#{$value} must be a number without units."
+    }
+  }
+  $slope: ($font-size-max - $font-size-min) / ($width-max - $width-min);
+  $y-intercept: $font-size-min - ($width-min * $slope);
+  font-size: calc((100vw * #{$slope}) + #{$y-intercept}px);
+  @media screen and (max-width: #{$width-min}px) {
+    font-size: #{$font-size-min}px;
+  }
+  @media screen and (min-width: #{$width-max}px) {
+    font-size: #{$font-size-max}px;
+  }
+}
+
+@mixin mobile-safari-link-fix {
+  // Without the following rule, the br element within a size-tile
+  // triggers a suspected bug in mobile Safari that requires two clicks on
+  // a tile before the size is selected.
+  >* {
+    pointer-events: none;
+  }
+}

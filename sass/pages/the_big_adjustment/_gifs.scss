@@ -1,0 +1,112 @@
+.gifs-wrapper {
+  max-width: $width-max + ($padding-site * 2);
+  @include margin(3rem auto null);
+  @include site-padding;
+  padding-bottom: $padding-site-mobile;
+  text-align: center;
+
+  @media #{$desktop-only} {
+    padding-bottom: $padding-site;
+  }
+}
+
+.gifs-lead {
+  max-width: 700px;
+  @include margin(null auto);
+  @include clear-margins;
+
+  h2 {
+    @media #{$desktop-only} {
+      font-size: 36px;
+    }
+  }
+}
+
+.gifs {
+  @include margin(1.5rem -0.75rem null);
+  font-size: 0;
+}
+
+.gif {
+  display: inline-block;
+  width: 100%;
+  margin-top: 1.5rem;
+  @include padding(null 0.75rem);
+
+  @media screen and (min-width: 640px) and (max-width: 950px) {
+    width: 50%;
+  }
+
+  @media screen and (min-width: 951px) {
+    width: 33.33%;
+  }
+
+  img {
+    display: block;
+    @include size(100%);
+  }
+}
+
+.gif-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.gif-share-wrapper {
+  @include position(absolute, null 0 0 null);
+}
+
+.gif-share-trigger {
+  position: relative;
+  z-index: 10;
+  background: $color-accent;
+  @include size(30px);
+
+  svg {
+    @include position(relative, 5px null null);
+    height: 20px;
+    fill: $white;
+  }
+}
+
+.gif-share-platforms {
+  @include position(absolute, 0 0 null null);
+  width: 120px;
+
+  html.touchevents & {
+    right: 30px;
+  }
+
+  html.no-touchevents & {
+    @include transform(translateX(120px));
+    @include transition(transform 0.3s ease-in);
+  }
+
+  html.no-touchevents .gif-share-wrapper:hover & {
+    @include transform(translateX(-30px));
+  }
+}
+
+.gif-share-platform {
+  display: inline-block;
+  @include size(30px);
+  @include transition(transform 0.2s ease-in);
+  background: $color-link;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+
+  &,
+  &:hover {
+    color: white;
+  }
+
+  &:hover {
+    background: $color-link-hover;
+  }
+}
+
+.gif-caption {
+  font-size: 1rem;
+  margin-bottom: 0;
+}

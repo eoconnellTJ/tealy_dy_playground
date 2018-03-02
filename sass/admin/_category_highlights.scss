@@ -1,0 +1,112 @@
+.admin-category-highlight-form {
+  .image-preview {
+    margin-top: 1em;
+    padding: 2em;
+    border: 1px solid #cee1f4;
+    border-radius: 3px;
+    text-align: center;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  label input[type="checkbox"] {
+    vertical-align: text-bottom;
+  }
+
+  .hint {
+    font-size: 11px;
+    text-transform: none;
+  }
+
+  .draggable-area {
+    position: relative;
+  }
+
+  .draggable-point {
+    position: absolute;
+    @include size(2em);
+    border: 2px solid white;
+    border-radius: 50%;
+    color: white;
+    line-height: 1.6em;
+    font-weight: bold;
+    cursor: move;
+  }
+
+  .feature-popovers {
+    margin-top: 1em;
+  }
+
+  .add-feature-popover {
+    @include display(flex);
+
+    .select2 {
+      @include flex(1);
+    }
+
+    .button {
+      margin-left: 1em;
+    }
+  }
+}
+
+.category-highlight-selections {
+  @include display(flex);
+  @include justify-content(space-between);
+  @include flex-wrap(wrap);
+}
+
+.category-highlight-selection {
+  @include display(flex);
+  @include align-items(center);
+  box-sizing: border-box;
+  width: 50%;
+  text-transform: none;
+  font-size: 14px;
+
+  &:nth-child(odd) {
+    padding-right: 1.5em;
+  }
+
+  &:nth-child(even) {
+    padding-left: 1.5em;
+  }
+
+  a,
+  span {
+    padding-left: 1em;
+  }
+}
+
+.category-highlight-selection-title {
+  @include flex(1);
+  display: block;
+  margin: 0;
+  padding: 0.5em;
+  border-radius: 3px;
+  cursor: pointer;
+
+  :checked + label > &,
+  .selected > &,
+  :not(:checked) + label:hover > & {
+    &,
+    a {
+      color: white;
+    }
+  }
+
+  :checked + label > &,
+  .selected > & {
+    background: #5498da;
+  }
+
+  :not(:checked) + label:hover > & {
+    background: rgba(#5498da, 0.5);
+  }
+}
+
+.category-highlight-selection-form input[type="radio"] {
+  display: none;
+}

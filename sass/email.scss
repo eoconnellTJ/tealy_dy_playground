@@ -1,0 +1,161 @@
+@import "susy";
+@import "bourbon";
+@import "fontello";
+
+@import "setup/mixins";
+@import "setup/variables";
+@import "setup/normalize";
+@import "setup/typography";
+
+@import "components/forms";
+@import "components/buttons";
+
+@import "pages/order";
+
+@import "email/header";
+@import "email/footer";
+@import "email/gift_card";
+
+$rem: $font-size-base; // older email clients don't support rems
+
+h1,
+h2,
+h3,
+h4 {
+  text-align: center;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+table.email-content {
+  width: 100%;
+
+  &,
+  > tr > td {
+    padding: 0;
+    border: 0;
+    background: $white;
+  }
+}
+
+.button {
+  width: 300px;
+  display: block;
+  margin: 2em auto;
+}
+
+.address {
+  width: 50%;
+  min-width: 200px;
+  float: left;
+
+  h4 {
+    text-align: left;
+  }
+}
+
+.coupon-status {
+  width: 100%;
+}
+
+.email-wishlist-replenished-image {
+  text-align: center;
+}
+
+.email-line-items {
+  width: 100%;
+  margin-top: 1em;
+
+  td {
+    @include padding(1em null);
+  }
+}
+
+.email-line-item-details {
+  padding-left: 1em;
+}
+
+.email-line-item-name {
+  font-family: $font-family-heading;
+
+  &,
+  a {
+    color: $color-primary;
+  }
+}
+
+.email-line-item-message {
+  font-family: $font-family-body;
+  font-weight: normal;
+  font-size: 13px;
+  color: $color-grey-text;
+}
+
+.email-order-totals {
+  width: 100%;
+  border: 1px solid $color-grey-light;
+
+  tr td {
+    border-top: 1px solid $color-grey-light;
+    padding: 1 * $rem;
+
+    &:nth-child(even) {
+      text-align: right;
+    }
+  }
+
+  tr:nth-child(even) td {
+    background: lighten($color-grey, 12%);
+  }
+}
+
+.email-order-total {
+  font-family: $font-family-heading;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.new-review-added-wrapper {
+  @include padding(null 1em);
+}
+
+.new-review-added {
+  th,
+  td {
+    @include padding(16px null);
+    border-top: 1px solid $color-grey-light;
+    vertical-align: top;
+  }
+
+  th {
+    padding-right: 20px;
+    text-align: left;
+  }
+}
+
+.refer-a-friend p {
+  text-align: center;
+}
+
+.email-product-grid {
+  width: 100%;
+  table-layout: fixed;
+
+  > tr > td {
+    @include padding(0.5em);
+    text-align: center;
+    vertical-align: top;
+
+    > a {
+      font-family: $font-family-heading;
+      color: $color-primary;
+      text-decoration: none;
+    }
+  }
+}

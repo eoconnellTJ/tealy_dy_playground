@@ -1,0 +1,179 @@
+$padding-top-bar: 4px;
+$baseline-tj-logo: 10px; // whitespace below text in logo to accomodate descender
+
+.top-bar {
+  padding-top: $padding-top-bar;
+  background: $white;
+  position: relative;
+  z-index: $z-index-main-header;
+
+  @include sticky-top-bar {
+    @include position(fixed, 0 0 null 0);
+    @include site-padding;
+    padding-top: 0;
+    background: $white;
+    border-bottom: 1px solid $color-grey-light;
+    z-index: $z-index-fixed-elements;
+  }
+}
+
+.top-bar-content {
+  @media #{$mobile-only} {
+    @include display(flex);
+    @include align-items(center);
+
+    > * {
+      line-height: 0; // help with vertical alignment
+    }
+  }
+
+  a {
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover,
+    &.open {
+      color: lighten($color-blue-grass, 10%);
+    }
+
+    &.accent {
+      color: $color-accent;
+
+      &:hover,
+      &.open {
+        color: $color-accent-dark;
+      }
+    }
+  }
+
+  :hover > a {
+    color: $color-blue-grass;
+  }
+}
+
+body:not(.checkout-page).top-bar-is-sticky {
+  @media #{$desktop-only} {
+    padding-top: 86px; // top bar height
+  }
+}
+
+.mobile-account-navigation-cart {
+  font-size: $font-size-base;
+  margin-top: -7px;
+}
+
+.mobile-nav-toggle {
+  width: 32px;
+  margin-top: 7px;
+}
+
+.mobile-nav-toggle {
+  text-align: left;
+}
+
+$height-line: 2px;
+
+@mixin line {
+  display: inline-block;
+  width: 14px;
+  height: $height-line;
+  border-radius: $height-line / 2;
+  background: $color-primary;
+}
+
+.lines {
+  position: relative;
+  top: -$height-line * 2;
+
+  // middle line
+  @include line;
+
+  // upper and lower lines
+  &:before, &:after {
+    position: absolute;
+    left: 0;
+    content: '';
+    transform-origin: $height-line / 2 center;
+
+    @include line;
+  }
+
+  &:before {
+    top: 2 * $height-line;
+  }
+
+  &:after {
+    top: -2 * $height-line;
+  }
+}
+
+.minicart-toggle {
+  font-size: $font-size-base;
+  text-align: right;
+  color: $color-primary;
+
+  &.has-items,
+  &.has-items:hover {
+    color: $color-accent;
+  }
+
+  &.mobile-only {
+    padding: 2px 0 0.5rem 1rem;
+  }
+}
+
+.shopping-cart-icon {
+  margin-right: 2px;
+
+  &:before {
+    font-family: fontello;
+    font-weight: normal;
+    font-size: 14px;
+    content: "\e81f"; // shopping cart
+  }
+}
+
+.shopping-cart-item-count {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.top-bar-cart {
+  @media #{$desktop-only} {
+    margin-top: 7px;
+    float: right;
+
+    body:not(.top-bar-is-sticky) & {
+      display: none;
+    }
+  }
+}
+
+.nextopia-search-container svg path {
+  fill: $color-primary;
+}
+
+.search-icon {
+  padding: 5px;
+}
+
+// hide nextopia dropdown logo
+.nxt-ac-main > div:last-child {
+  display: none;
+}
+
+.nextopia-search-container {
+  position: relative;
+}
+
+.nextopia-search-container .nextopia-search {
+  padding: 3px 35px 3px 10px;
+}
+
+.nextopia-search-container svg {
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  top: 7px;
+  right: 7px;
+}

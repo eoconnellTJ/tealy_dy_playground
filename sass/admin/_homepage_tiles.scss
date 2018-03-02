@@ -1,0 +1,61 @@
+.homepage-tile-container {
+  @include display(flex);
+  @include flex-wrap(wrap);
+  width: 100%;
+  margin: 0 -0.75rem;
+}
+
+.homepage-tile-wrapper {
+  width: 25%;
+  padding: 0 0.75rem;
+  margin-top: 1.5rem;
+
+  .actions {
+    @include display(flex);
+    @include justify-content(space-between);
+    padding: 0 1.5em;
+  }
+}
+
+.homepage-tile {
+  display: block;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  &:hover {
+    .homepage-tile-content-wrapper {
+      opacity: 0.9;
+    }
+  }
+}
+
+.homepage-tile-content-wrapper {
+  @include transition(opacity, 0.2s);
+  @include position(absolute, 0);
+  background: rgba(#00424a, 0.98);
+  opacity: 0;
+}
+
+.homepage-tile-content {
+  @include position(absolute, 50% null null);
+  @include transform(translateY(-50%));
+  text-align: center;
+  width: 100%;
+  color: white;
+
+  h3 {
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    color: inherit;
+  }
+}
+
+// since we use a separate label for this input, we'd like to remove excess margins
+div.input-wrapper.tommy_john_homepage_tile_image {
+  margin-top: 0;
+}

@@ -1,0 +1,50 @@
+.big-adjustment-video {
+  background-image: asset-url("big_adjustment/header-video-1600x700.jpg");
+  color: $white;
+
+  @media #{$mobile-only} {
+    position: relative;
+    background-image: asset-url("big_adjustment/header-video-800x700.jpg");
+    background-size: 100%;
+  }
+
+  h1 {
+    margin-bottom: 0;
+    color: inherit;
+  }
+
+  .full-bleed-header-content {
+    @media #{$mobile-only} {
+      position: absolute;
+      top: 50%;
+      @include transform(translateY(-50%));
+      width: 100%;
+    }
+  }
+
+  .video-play-button {
+    @include responsive-font-size($font-size-min: 32, $font-size-max: 48);
+  }
+}
+
+.big-adjustment-lead {
+  @include margin(3rem null);
+  @include site-padding;
+  text-align: center;
+  @include clear-margins;
+
+  @media #{$desktop-only} {
+    @include margin(5rem null);
+  }
+
+  h2 {
+    @media #{$desktop-only} {
+      font-size: 36px;
+    }
+  }
+
+  p {
+    max-width: 900px;
+    @include margin(null auto);
+  }
+}

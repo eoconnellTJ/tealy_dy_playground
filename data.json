@@ -1,0 +1,17 @@
+[
+  {
+    "name": "contact_info",
+    "workers": {
+      "john": {
+        "img": "/img/john.jpg",
+        "name": "John Mitchel",
+        "description": "John is a nice guy..."
+      },
+      "anna": {
+        "img": "/img/anna.jpg",
+        "name": "Anna James",
+        "description": "Anna is great at tenis"
+      }
+    }
+  }
+]

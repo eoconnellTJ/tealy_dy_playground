@@ -1,0 +1,77 @@
+$off-canvas-width: 300px;
+
+html,
+body {
+  height: 100%;
+  background-color: $white;
+}
+
+body {
+  position: relative;
+  @include transition(transform $transition-default);
+
+  &.canvas-is-open {
+    overflow: hidden;
+    width: 100%;
+  }
+}
+
+.off-canvas,
+.off-canvas-right {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: $off-canvas-width;
+  box-shadow: 1px 0 2px $color-grey-light;
+  overflow-x: hidden;
+  overflow-y: scroll; // fixes reversey scrolling on iOS
+  -webkit-overflow-scrolling: touch;
+  @include transition(transform $transition-default);
+  z-index: $z-index-off-canvas;
+
+  &.open {
+    @include transform(translateX(0));
+  }
+
+  // Fix a bug in Chrome where the panel can disappear
+  -webkit-backface-visibility: hidden;
+
+  .enlarged-close-button {
+    font-size: 22px;
+    position: absolute;
+    right: 1.25em;
+    top: 1.25em;
+  }
+}
+
+.off-canvas {
+  left: 0;
+  @include transform(translateX(-100%));
+}
+
+.off-canvas-right {
+  right: 0;
+  @include transform(translateX(100%));
+}
+
+.offcanvas-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: $shadow;
+  @include transition(opacity $transition-default);
+  z-index: $z-index-off-canvas - 1;
+
+  &.open {
+    bottom: 0;
+  }
+
+  &:not(.open) {
+    opacity: 0;
+  }
+}
+
+.off-canvas-trigger {
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,28 @@
+.product-show {
+  position: relative;
+
+  .product-variant-selection {
+    @include clearfix;
+
+    @media #{$desktop-only} {
+      margin-top: 20px;
+    }
+  }
+
+  [hover-zoom-canvas] {
+    @include position(absolute, 0 -100% 0 null);
+    width: 95%;
+  }
+}
+
+@import "form";
+@import "product_panels";
+@import "option_tiles";
+@import "gallery";
+@import "header";
+@import "hover_zoom";
+@import "tabs";
+@import "features";
+@import "reviews";
+@import "review_form";
+@import "size_chart";

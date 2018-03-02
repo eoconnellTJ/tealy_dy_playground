@@ -1,0 +1,21 @@
+.product-style-image {
+  text-align: center;
+
+  svg {
+    @include size(60px);
+    fill: #00424a;
+  }
+}
+
+.product-style-delete-confirmation {
+  // undo the awful reset in the admin
+  h3,
+  p,
+  ul {
+    margin: 1em 0;
+  }
+
+  ul {
+    padding-left: 40px;
+  }
+}

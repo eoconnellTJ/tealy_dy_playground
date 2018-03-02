@@ -1,0 +1,12 @@
+.img-placeholder {
+  background: whitesmoke;
+
+  &.square {
+    padding-top: 100%;
+  }
+
+  &.portrait {
+    $aspect-ratio: 288 / 375;
+    @include calc(padding-top, "100% / #{$aspect-ratio}");
+  }
+}

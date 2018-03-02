@@ -1,0 +1,167 @@
+$product-image-aspect-ratio: (176 / 135);
+
+.product-gallery-wrapper {
+  position: relative;
+
+  @media #{$mobile-only} {
+    // Stretch this element beyond the container's padding
+    margin-left: -$padding-site-mobile;
+    margin-right: -$padding-site-mobile;
+    min-height: 40vh;
+  }
+
+  @media #{$desktop-only} {
+    @include span(first 7);
+    min-height: 600px;
+  }
+}
+
+.product-badge {
+  @include margin(20px null null 1rem);
+  position: absolute;
+  left: $padding-site-mobile; // width of the gutter
+  z-index: 1;
+
+  @media #{$desktop-only} {
+    left: 15%; //width of the thumbnails
+  }
+}
+
+.product-gallery-carousel {
+  @media #{$desktop-only} {
+    width: 80%;
+    float: right;
+    margin-right: 5%;
+  }
+
+  .product-gallery-video,
+  img {
+    @include calc(width, "100% - #{$padding-site * 2}"); // * 2 to account for both gutters
+    margin-right: 10px;
+
+    @media #{$desktop-only} {
+      width: 100%;
+      margin: 0;
+    }
+
+    @media #{$mobile-only} {
+      @include calc(width, "100% - #{$padding-site-mobile * 2}");
+    }
+  }
+
+  > img {
+    display: none;
+  }
+
+  .flickity-viewport {
+    @include position(absolute, 0 0 null 0)
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    padding-top: percentage($product-image-aspect-ratio);
+
+    @media #{$mobile-only} {
+      /*
+       * The padding top should be based on the width of the actual image.
+       * This element goes all the way to the edge to support scrolling through
+       * items with flickity. In order to compute the aspect ratio we need
+       * to remove the margin gutter, and calculate the height of the image
+       * based on the aspect ratio.
+       */
+      @include calc(padding-top, "#{percentage($product-image-aspect-ratio)} - #{$padding-site-mobile * 2 * $product-image-aspect-ratio}");
+    }
+  }
+
+  /*
+   * iOS is kind of terrible, it will gobble up all events on a video once it
+   * has been played. Meaning, you can't swipe after playing the video. In
+   * order to get around this, we use a pseudo-overlay that contains an image
+   * and sits where the video should be. When we click on it, we start playing
+   * the video which causes it to move from being way off of the screen to
+   * where it should be. Then when we pause the video, it gets pushed
+   * off-screen again so that it can't steal our events. Original idea for
+   * solution found here:
+   * http://perrymitchell.net/article/interacting-with-overlay-elements-on-html5-video/
+   */
+  .product-gallery-video {
+    overflow: hidden;
+
+    video {
+      position: absolute;
+      top: -2000px;
+      width: 100%;
+    }
+
+    .video-overlay {
+      @include size(100%);
+      visibility: visible;
+      cursor: pointer;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      .video-play-button {
+        font-size: 2.4rem;
+        color: $color-primary;
+
+        @media #{$desktop-only} {
+          font-size: 6rem;
+        }
+      }
+    }
+
+    &.playing {
+      video {
+        position: relative;
+        top: 0;
+      }
+
+      .video-overlay {
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+.product-gallery-thumbnails {
+  padding-right: 20px;
+  width: 15%;
+  float: left;
+
+  @media #{$mobile-only} {
+    display: none;
+  }
+
+  .video-play-button {
+    color: $color-primary;
+  }
+}
+
+.product-gallery-thumbnail {
+  cursor: pointer;
+
+  &.is-selected {
+    opacity: 0.8;
+  }
+}
+
+.product-video-thumbnail {
+  position: relative;
+
+  img {
+    display: block;
+  }
+}
+
+.product-show .video-play-button {
+  /*
+    We don't want to steal any of the click events that happen on the
+    video buttons. If we remove this line, customers will be unable to
+    get to the video because Flickity will never capture the event.
+  */
+  pointer-events: none;
+}

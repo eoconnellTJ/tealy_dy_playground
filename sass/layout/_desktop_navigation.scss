@@ -1,0 +1,107 @@
+.primary-nav-container {
+  display: inline-block;
+  font-size: 14px;
+
+  @media #{$breakpoint-top-bar-tiny} {
+    display: block;
+    margin-top: 20px;
+    margin-left: -14px;
+    font-size: 13px;
+  }
+
+  @include sticky-top-bar {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+  }
+}
+
+.primary-nav {
+  margin: 0;
+  padding: 0;
+
+  .desktop-nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .desktop-nav-item {
+    position: relative;
+    margin: 0;
+  }
+
+  .top-level + .top-level {
+    margin-left: 10px;
+
+    @media #{$breakpoint-top-bar-narrow} {
+      margin-left: 0;
+    }
+  }
+
+  .nav-item {
+    display: inline-block;
+    font-family: $font-family-heading;
+  }
+
+  .with-children {
+    @include open-indicator;
+  }
+
+  .top-level > .nav-item {
+    padding: $padding-top-bar $padding-top-bar 20px;
+
+    @include sticky-top-bar {
+      padding: $padding-top-bar;
+    }
+  }
+}
+
+.primary-nav .dropdown {
+  top: 100%;
+  left: -(40px - 14px); // size of anchor padding minus 1em
+  width: 240px;
+  @include padding(1em null);
+  background: white;
+  border: 1px solid $color-grey-light;
+  font-size: 13px;
+
+  @media #{$breakpoint-top-bar-narrow} {
+    left: -(30px - 14px);
+  }
+
+  .nav-item {
+    width: 100%;
+    padding: 10px 40px;
+    color: $color-link;
+
+    @media #{$breakpoint-top-bar-narrow} {
+      padding: 10px 50px 10px 30px;
+    }
+
+    html.no-touchevents &:hover {
+      color: $color-primary;
+    }
+  }
+
+  .with-children {
+    // Larger padding-right to account for the arrow
+    padding-right: 70px;
+
+    @media #{$breakpoint-top-bar-narrow} {
+      padding-right: 50px;
+    }
+
+    &:after {
+      content: $character-right-open;
+      @include position(absolute, 50% 40px null null);
+      @include transform(translateY(-50%));
+    }
+  }
+
+}
+
+.primary-nav .dropdown .dropdown {
+  top: -14px;
+  left: 100%;
+}

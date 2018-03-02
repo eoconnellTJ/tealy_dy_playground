@@ -1,0 +1,11 @@
+.admin-report-date-range {
+  .datetime-input {
+    @include justify-content(center);
+  }
+}
+
+.money {
+  text-align: right;
+  font-family: monospace;
+  white-space: nowrap;
+}

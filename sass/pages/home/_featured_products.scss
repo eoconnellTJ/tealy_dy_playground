@@ -1,0 +1,15 @@
+.home-featured-products-wrapper {
+  @include site-padding;
+  @include padding(0.5rem null null);
+  margin: 0 auto;
+
+  // this added width compensates for the negative margin of the child elements.
+  // it is necessary for a consistent width on desktop.
+  max-width: $width-max + 96px;
+
+  .featured-product {
+    @media #{$mobile-only} {
+      width: 50%;
+    }
+  }
+}

@@ -1,0 +1,88 @@
+.home-offers {
+  @include site-padding;
+  background: $color-grey-light;
+}
+
+.home-offers-content {
+  position: relative;
+}
+
+.home-offer-email,
+.home-offer-extole {
+  @include padding($padding-site-mobile null);
+  @include clear-margins;
+
+  @include breakpoint-max-width-up {
+    @include padding($padding-site null);
+  }
+}
+
+.home-offer-email {
+  text-align: center;
+
+  @include breakpoint-max-width-up {
+    @include calc(width, "100% - 350px - 2rem"); // width of the Extole offer + gutter
+    float: right;
+  }
+
+  h3 {
+    margin: 0 0 10px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+}
+
+.home-offer-email-form {
+  max-width: ($width-max / 2);
+  margin: 1.5em auto 0;
+
+  .input-combo-wrapper {
+    max-width: 450px;
+    @include margin(null auto);
+  }
+
+  button {
+    // Reduce the default left/right padding
+    @include padding(null 30px);
+  }
+}
+
+.home-offer-extole {
+  background: $color-primary;
+  color: $white;
+
+  @include breakpoint-max-width-down {
+    @include escape-site-padding;
+    @include padding(null $padding-site-mobile);
+    text-align: center;
+  }
+
+  @include breakpoint-max-width-up {
+    @include position(absolute, 0 null null 0);
+    width: 350px;
+    height: 100%;
+  }
+}
+
+.home-offer-extole-content {
+  @include breakpoint-max-width-up {
+    @include position(absolute, 50% $padding-site null);
+    @include transform(translateY(-50%));
+  }
+
+  h3,
+  a,
+  a:hover {
+    color: inherit;
+  }
+}
+
+#home-offer-extole {
+  text-decoration: underline;
+}

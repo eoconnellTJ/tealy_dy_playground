@@ -1,0 +1,162 @@
+$breakpoint-cart-mobile: "only screen and (max-width: 600px)";
+$breakpoint-cart-desktop: "only screen and (min-width: 601px)";
+
+.cart-wrapper {
+  max-width: $width-max;
+  margin: 0 auto;
+
+  .buy-more-save-more-message {
+    padding-bottom: 2rem;
+    font-family: $font-family-body;
+    font-size: $font-size-minicart;
+    font-style: italic;
+    font-weight: bold;
+    color: $color-primary;
+  }
+
+  .error-messages {
+    font-family: $font-family-heading;
+    font-size: 14px;
+    color: $color-accent;
+  }
+
+  h1 {
+    @media #{$mobile-only} {
+      margin-bottom: 1.5rem;
+      font-size: 18px;
+    }
+  }
+}
+
+.cart-content {
+  @media #{$breakpoint-cart-desktop} {
+    @include display(flex);
+    @include align-items(flex-start);
+  }
+}
+
+.cart-items {
+  @media #{$breakpoint-cart-desktop} {
+    @include calc("width", "60% - 1em");
+    margin-right: 2em;
+
+    .line-item-name {
+      font-size: 16px;
+    }
+  }
+}
+
+$breakpoint-cart-buttons: 875px;
+
+.cart-buttons {
+  @include display(flex);
+  @include flex-direction(column);
+  @include justify-content(space-between);
+
+  @media screen and (min-width: $breakpoint-cart-buttons) {
+    @include flex-direction(row);
+  }
+
+  .button {
+    @include padding(null 0);
+    width: 100%;
+    margin-top: 1rem;
+
+    @media screen and (min-width: $breakpoint-cart-buttons) {
+      @include calc(width, "50% - 0.5rem");
+    }
+  }
+
+  // If the Apple Pay button is disabled with Angular or it hasn't been
+  // activated, make sure the "Checkout" button is full width.
+  .apply-pay-button.ng-hide + .button,
+  &:not(.apple-pay-enabled) .button:last-child {
+    width: 100%;
+  }
+}
+
+// Hide the View Cart button when Apple Pay is enabled
+.apple-pay-enabled .view-cart-button {
+  display: none;
+}
+
+.apple-pay-button {
+  @media screen and (max-width: ($breakpoint-cart-buttons - 1)) {
+    order: 1;
+  }
+}
+
+.cart-summary .apple-pay-disclaimer {
+  text-align: center;
+}
+
+// Only show the Apple Pay options if the JS has succesfully loaded and the
+// customer is able to use Apple Pay.
+.cart-buttons:not(.apple-pay-enabled) {
+  .apple-pay-button,
+  + .apple-pay-disclaimer {
+    display: none;
+  }
+}
+
+.cart-summary {
+  border: 1px solid $color-grey;
+  padding: 1rem;
+
+  @media #{$breakpoint-cart-mobile} {
+    margin-top: 2rem;
+  }
+
+  @media #{$breakpoint-cart-desktop} {
+    max-width: 400px;
+    width: 40%;
+  }
+}
+
+.cart-continue-shopping-link {
+  font-family: $font-family-heading;
+}
+
+.cart-coupon-form {
+  margin-top: 2rem;
+
+  .input-combo-wrapper {
+    input {
+      @media #{$desktop-only} {
+        border-right: 0;
+      }
+
+      &:focus {
+        border-color: $color-grey;
+      }
+    }
+
+    button {
+      @include padding(null 15px);
+    }
+  }
+
+  .form-field-success-message {
+    color: $color-primary;
+    font-size: 14px;
+    font-family: $font-family-heading;
+  }
+}
+
+.cart-coupon-form-toggle {
+  @include append-icon($character-down-open-mini);
+  font-family: $font-family-heading;
+  font-size: 14px;
+
+  &::after {
+    text-decoration: none;
+  }
+
+  &.active {
+    @include append-icon($character-up-open-mini);
+
+    &::after {
+      text-decoration: none;
+    }
+  }
+}

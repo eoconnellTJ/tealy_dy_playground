@@ -1,0 +1,97 @@
+.stay-tucked-pull-quote {
+  @include responsive-font-size($font-size-min: 18, $font-size-max: 32);
+  position: relative;
+  margin: 3rem 0;
+  padding-bottom: 3rem;
+  color: $color-primary;
+  text-align: center;
+  font-family: $font-family-heading;
+
+  &:after {
+    @include transform(translateX(-50%));
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    height: 3px;
+    width: 30%;
+    background: currentColor;
+  }
+
+  blockquote {
+    margin: 0;
+  }
+
+  cite {
+    @include responsive-font-size($font-size-min: 14, $font-size-max: 18);
+    display: block;
+    margin-top: 1rem;
+    font-family: $font-family-body;
+    font-style: normal;
+  }
+}
+
+.stay-tucked-reviews {
+  color: $color-primary;
+  font-family: $font-family-heading;
+  text-align: center;
+
+  .flickity-prev-next-button {
+    padding: 0; // override our default buttons
+    background: transparent;
+
+    &.previous {
+      left: 0;
+    }
+
+    &.next {
+      right: 0;
+    }
+
+    .arrow {
+      fill: $color-grey-dark;
+    }
+
+    &:disabled {
+      display: none;
+    }
+  }
+}
+
+.stay-tucked-review {
+  @include margin(0 null 1rem);
+  width: 100%;
+
+  @media #{$desktop-only} {
+    @include padding(null 4%); // 4% is roughly 3rem at our desktop resolution
+    width: 33%;
+    margin-bottom: 0;
+  }
+
+  cite {
+    display: block;
+    font-family: $font-family-body;
+    font-style: normal;
+  }
+}
+
+.stay-tucked-review-content {
+  @include margin(1rem null);
+
+  &:before,
+  &:after {
+    @include padding(null 3px);
+    vertical-align: middle;
+    font-family: $font-family-body;
+    font-size: 30px;
+    line-height: 0;
+  }
+
+  &:before {
+    content: "“";
+  }
+
+  &:after {
+    content: "”";
+  }
+}

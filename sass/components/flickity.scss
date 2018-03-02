@@ -1,0 +1,13 @@
+// This contains flickity styles specific to our app rather than default
+// flickity styles.
+.flickity-page-dots {
+  .dot {
+    @include margin(null 4px);
+    border: 1px solid $color-grey-text;
+    background: transparent;
+
+    &.is-selected {
+      background: $color-grey-text;
+    }
+  }
+}

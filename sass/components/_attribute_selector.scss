@@ -1,0 +1,43 @@
+.attribute-selector {
+  position: relative; // for the dropdown's absolute position
+  margin-bottom: 16px;
+
+  .information-panel-wrapper {
+    margin-bottom: 16px;
+    margin-top: 8px;
+  }
+
+  .product-fit-title {
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0.5rem 0 0.25rem;
+    color: inherit;
+  }
+}
+
+.attribute-selector-dropdown {
+  width: 100%;
+  bottom: 100%;
+  margin-bottom: 1rem;
+  position: absolute;
+  z-index: $z-index-dropdowns;
+  background-color: $white;
+  padding: 1rem;
+  border: 1px solid $color-grey;
+
+  &:not(.open) {
+    display: none;
+  }
+}
+
+.attribute-selector-dropdown-trigger {
+  position: relative;
+  height: $width-option-tile;
+  padding: 0 10px 0 20px;
+  border-width: 1px;
+  text-align: left;
+  font-weight: normal;
+  text-transform: none;
+  line-height: $width-option-tile;
+  overflow: hidden;
+}

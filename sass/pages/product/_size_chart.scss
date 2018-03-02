@@ -1,0 +1,98 @@
+.size-chart-modal {
+  max-width: 980px;
+  text-align: left;
+
+  .close {
+    padding: 0;
+    font-size: 32px;
+    color: $color-grey-text;
+  }
+
+  .nav-tabs {
+    @media #{$desktop-only} {
+      @include display(flex);
+      @include justify-content(space-between);
+
+      &:after {
+        content: none;
+      }
+
+      li + li {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.size-chart-info-content {
+  width: 50%;
+  float: left;
+  padding-right: 3rem;
+
+  h3 {
+    @include margin(0.5em null);
+    font-size: 16px;
+  }
+
+  p {
+    @include margin(0 null);
+  }
+}
+
+.size-chart {
+  margin-top: 3rem;
+
+  table {
+    border: 1px solid $color-grey;
+    font-family: $font-family-heading;
+    font-size: 12px;
+  }
+
+  thead {
+    border-bottom: 1px solid $color-grey;
+  }
+
+  th,
+  td {
+    padding: 1.5em;
+    text-align: center;
+  }
+
+  th + th {
+    font-weight: normal;
+  }
+
+  tr:not(:last-child) th,
+  tr:not(:last-child) td, {
+    padding-bottom: 0;
+  }
+}
+
+.size-chart-styles {
+  @include margin(3rem -2.5% null);
+  text-align: center;
+  font-size: 0;
+}
+
+.size-chart-style-tile {
+  display: inline-block;
+  width: 20%;
+  @include margin(null 2.5% 3rem);
+  font-size: 12px;
+  vertical-align: top;
+
+  .style-icon {
+    @include size(80px);
+    fill: $color-primary;
+  }
+
+  h4 {
+    @include margin(10px null 0);
+    font-size: 12px;
+  }
+
+  p {
+    @include margin(4px null 0);
+    line-height: 1.4;
+  }
+}

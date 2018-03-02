@@ -1,0 +1,210 @@
+.rio-filters {
+  @include escape-site-padding;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  font-family: $font-family-heading;
+  background-color: $color-grey-light;
+
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+  }
+
+  @media screen and (min-width: #{$width-max-with-padding}) {
+    // We want the left edge of the carousel to line up with the rest of the
+    // content on the page but allow the slides to expand infinitely to the
+    // right. Since we cannot use margin: 0 auto; to get this centered in the
+    // window we need to fudge it using a left padding.
+    padding-left: calc((100vw - #{$width-max-with-padding}) / 2);
+  }
+
+  &.is-loading {
+    visibility: hidden;
+  }
+}
+
+.rio-carousel {
+  width: 100%;
+}
+
+.rio-carousel .flickity-prev-next-button {
+  width: 24px;
+  margin-top: -10px;
+  padding: 2rem;
+  background-color: $white;
+  opacity: 0.8;
+  border-radius: 0;
+
+  &.previous {
+    left: 0;
+    padding-left: 0;
+  }
+
+  &.next {
+    right: 0;
+    padding-right: 0;
+  }
+
+  &[disabled] {
+    &,
+    &:active {
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    opacity: 1;
+  }
+
+  &:not([disabled]):hover {
+    opacity: 1;
+  }
+
+  svg {
+    width: 20px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media screen and (min-width: $width-max-full-bleed) {
+    visibility: hidden;
+  }
+}
+
+.rio-carousel .arrow {
+  fill: $color-grey-dark;
+}
+
+.rio-carousel-slide {
+  width: 50%;
+  transition: left 0.2s linear, opacity 0.2s linear;
+  transform: translateZ(0); // help browsers out with the opacity transition
+
+  @media screen and (min-width: 520px) {
+    max-width: 25%;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 240px;
+  }
+
+  @media screen and (min-width: 1025px) {
+    width: 187px;
+  }
+
+  .is-filtered &:not(.is-selected-filter),
+  &.faded {
+    opacity: 0.4;
+  }
+
+  label {
+    position: relative;
+    height: 0;
+    margin: 0;
+    padding-top: aspect-ratio(320, 644);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    cursor: pointer;
+
+    @media screen and (min-width: 768px) {
+      padding-top: aspect-ratio(240, 400);
+    }
+
+    @media screen and (min-width: 1025px) {
+      padding-top: aspect-ratio(187, 400);
+    }
+  }
+
+  input {
+    display: none;
+  }
+}
+
+.rio-carousel-slide-content {
+  position: absolute;
+  bottom: 1rem;
+  text-align: center;
+  width: 100%;
+  font-size: 12px;
+  color: $color-link;
+}
+
+.rio-back-to-all-styles {
+  visibility: hidden;
+  display: none;
+  padding: 10px;
+  margin-top: 10px;
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 10px;
+  }
+
+  .is-filtered & {
+    visibility: visible;
+    display: initial;
+  }
+
+  :not(.is-filtered) {
+    visibility: hidden;
+  }
+}
+
+.rio-filter-title {
+  text-decoration: underline;
+}
+
+.rio-filters-header {
+  width: 100%;
+  padding: 0 0 1rem;
+  text-align: center;
+
+  @media screen and (max-width: 769px) {
+    padding: 1rem;
+  }
+
+  @media screen and (min-width: 769px) {
+    position: relative;
+    order: -1;
+    min-width: 262px; // hack to force Flexbox into this width
+    width: 262px;
+  }
+
+  @media screen and (min-width: 1025px) {
+    min-width: 200px; // hack to force Flexbox into this width
+    width: 200px;
+    height: 400px;
+    margin-left: 48px;
+  }
+
+  h1,
+  .h1,
+  p {
+    margin: 0;
+  }
+
+  h1,
+  .h1 {
+    color: $color-primary;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  p {
+    font-size: 16px;
+    color: $color-grey-text;
+    line-height: 2.2;
+  }
+}
+
+.rio-filters-header-content {
+  @media screen and (min-width: 769px) {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 210px;
+    transform: translateY(-50%);
+  }
+}

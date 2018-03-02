@@ -1,0 +1,10 @@
+.image-cta {
+  display: flex;
+  align-items: center;
+  background-size: cover;
+
+  &::after {
+    content: '';
+    padding-top: aspect-ratio(1, 1);
+  }
+}

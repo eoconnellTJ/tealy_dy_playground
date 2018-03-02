@@ -1,0 +1,25 @@
+$width-account-form: 450px;
+
+.account-form-wrapper {
+  max-width: $width-account-form;
+  margin: 0 auto;
+
+  .button {
+    @include padding(null 0);
+  }
+
+  .nav-tabs {
+    margin: 0;
+    margin-bottom: 2em;
+  }
+
+  .error-messages {
+    font-family: $font-family-heading;
+    font-size: 14px;
+    color: $color-accent;
+  }
+}
+
+.account-disclaimer {
+  margin-top: 1em;
+}

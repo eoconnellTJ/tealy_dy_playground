@@ -1,0 +1,47 @@
+table {
+  &.no-hover {
+    tbody tr:hover td {
+      background-color: inherit;
+    }
+  }
+
+  ul {
+    //I don't often put bullet points in tables, but when I do, I want them in the cell they belong in.
+    list-style-position: inside;
+  }
+
+  tbody {
+    tr {
+      &:first-child td.blank {
+        border-top: 0;
+      }
+
+      td.blank:first-child {
+        border-left: 0;
+      }
+
+      td.active {
+        background-color: $color-action-edit-bg;
+        border-color: $color-action-edit-brd;
+        color: $color-success;
+      }
+
+      td.inactive {
+        background-color: $color-action-remove-bg;
+        border-color: $color-action-remove-brd;
+        color: $color-error;
+      }
+    }
+  }
+
+  .header {
+    background-color: #ebf3fb;
+    color: #6788a2;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+.table-fixed-layout {
+  table-layout: fixed;
+}

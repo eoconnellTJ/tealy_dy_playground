@@ -1,0 +1,16 @@
+@import "header";
+@import "features";
+@import "filters";
+@import "description";
+@import "product_tile";
+@import "category_tile";
+@import "rio";
+
+.category-products-wrapper {
+  position: relative;
+  padding-top: 1rem;
+
+  @media #{$desktop-only} {
+    @include calc(padding-top, "6rem - 20px");
+  }
+}

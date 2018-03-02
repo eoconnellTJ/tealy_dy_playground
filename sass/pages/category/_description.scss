@@ -1,0 +1,94 @@
+.category-description-wrapper {
+  border: 1px solid $color-grey-light;
+  @include border-width(1px 0);
+
+  @media #{$desktop-only} {
+    @include calc(width, "100% - 200px - 1.5rem"); // width of the filters + a gutter
+    max-width: 960px;
+    padding-left: 2rem;
+    float: right;
+    border: 0;
+  }
+}
+
+.category-description-trigger {
+  font-family: $font-family-heading;
+  font-size: 12px;
+  color: $color-primary;
+
+  @media #{$mobile-only} {
+    width: 100%;
+    font-weight: bold;
+    text-align: left;
+    @include padding(1rem null);
+    text-decoration: none;
+  }
+
+  @media #{$desktop-only} {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    color: $color-link;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+  }
+
+  &:before {
+    @media #{$mobile-only} {
+      float: right;
+      font-family: "fontello";
+      font-size: 1.4em;
+      font-weight: bold;
+      content: $character-down-open-mini;
+
+      .is-open & {
+        content: $character-up-open-mini;
+      }
+    }
+  }
+
+  &:after {
+    content: " about " attr(data-taxon-link);
+
+    @media #{$desktop-only} {
+      float: right;
+      margin-left: 4px;
+      color: $color-grey-dark;
+    }
+
+    .is-open & {
+      content: "";
+    }
+  }
+}
+
+.category-description {
+  max-height: 0;
+  max-width: 640px;
+  overflow: hidden;
+  @include transition(max-height $transition-default);
+
+  @media #{$desktop-only} {
+    @include clear-margins;
+  }
+
+  .is-open & {
+    max-height: 1000px;
+  }
+
+  > :last-child {
+    @media #{$desktop-only} {
+      margin-bottom: 6rem;
+    }
+  }
+
+  .lead {
+    color: $color-primary;
+    line-height: 1.25;
+    font-family: $font-family-heading;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}

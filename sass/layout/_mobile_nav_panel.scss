@@ -1,0 +1,117 @@
+.mobile-nav-panel {
+  background: $white;
+  font-size: 14px;
+
+  ul {
+    list-style: none;
+  }
+}
+
+.mobile-nav-header {
+  position: relative;
+  padding: 1rem 1.5rem;
+  font-family: $font-family-heading;
+  font-weight: bold;
+  font-size: 16px;
+  background: $color-primary;
+  color: $white;
+}
+
+.mobile-nav-trigger {
+  @include position(absolute, 50% 1rem null null);
+  @include transform(translateY(-50%));
+
+  &,
+  &:hover {
+    color: inherit;
+  }
+}
+
+.mobile-nav-content {
+  padding: 1em;
+}
+
+.mobile-account-link,
+.mobile-navigation ul {
+  padding: 0;
+  list-style: none;
+
+  a:not(.button) {
+    display: block;
+    padding: 0.5em;
+    text-decoration: none;
+    color: $color-primary;
+  }
+}
+
+.mobile-account-link {
+  padding-bottom: 1em;
+  border-bottom: 1px solid $color-grey-light;
+
+  a {
+    @include heading-style;
+  }
+
+  .nav-item {
+    font-weight: normal;
+  }
+}
+
+.mobile-navigation {
+  position: relative;
+  min-height: 100%;
+  @include transition(transform $transition-default);
+  line-height: 1.25;
+
+  ul:not(.mobile-nav-footer) li {
+    margin-bottom: 1em;
+  }
+}
+
+.mobile-navigation-level {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background: $white;
+
+  &:not(.alive) {
+    top: -9999px;
+  }
+}
+
+.mobile-navigation > ul:not(.mobile-nav-footer) > li > a {
+  @include heading-style;
+}
+
+.mobile-navigation li.has-children > a {
+  @include append-icon($character-right-open);
+
+  &:after {
+    float: right;
+  }
+}
+
+.mobile-navigation-back {
+  @include heading-style;
+  @include prepend-icon($character-left-open);
+
+  img {
+    height: 1.2rem;
+    vertical-align: middle;
+  }
+
+  &:before {
+    // Move the icon into the gutter
+    margin-left: -1em;
+  }
+}
+
+.mobile-nav-footer {
+  line-height: 1.6;
+}
+
+.mobile-navigation-sign-out {
+  margin-top: 1rem;
+}

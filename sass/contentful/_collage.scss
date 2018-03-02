@@ -1,0 +1,100 @@
+.collage-wrapper {
+  @include escape-site-padding;
+}
+
+.side-container .collage-wrapper {
+  @include site-padding;
+  .collage-image {
+    // These images are placed in a two column layout.
+    padding-top: 50%;
+    width: 50%;
+
+    &.collage-image-1x2 {
+      padding-top: 100%;
+    }
+  }
+}
+
+.mobile-collage-wrapper {
+  .collage-image {
+    padding-top: 100%;
+    width: 100%;
+
+    &.collage-image-1x2 {
+      padding-top: 200%;
+    }
+  }
+}
+
+.will-be-flickity.mobile-collage-wrapper:not(.flickity-enabled) {
+  @include escape-site-padding;
+  .collage-image {
+    padding-top: 100%;
+  }
+
+  :not(:first-child) {
+    display: none;
+  }
+}
+
+.flickity-enabled.mobile-collage-wrapper {
+  @include escape-site-padding;
+  .collage-image-1x2 {
+    padding-top: 100%;
+  }
+
+  .flickity-page-dots {
+    bottom: 10px;
+  }
+
+  .flickity-prev-next-button {
+    width: 24px;
+    margin-top: -10px;
+    padding: 2rem;
+    background-color: $white;
+    opacity: 0.8;
+    border-radius: 0;
+
+    &.previous {
+      left: 0;
+      padding-left: 0;
+    }
+
+    &.next {
+      right: 0;
+      padding-right: 0;
+    }
+
+    &[disabled] {
+      &,
+      &:active,
+      &:hover {
+        opacity: 0;
+      }
+    }
+
+    &:active,
+    &:hover {
+      opacity: 1;
+    }
+
+    svg {
+      width: 20px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.collage-image {
+  background-size: cover;
+  background-position: top center;
+
+  padding-top: (100% / 3);
+  width: (100% / 3);
+
+  &.collage-image-1x2 {
+    padding-top: (200% / 3);
+  }
+}

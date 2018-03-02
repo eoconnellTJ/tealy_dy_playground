@@ -1,0 +1,121 @@
+.video-container {
+  position: relative;
+
+  @include escape-site-padding;
+
+  @media #{$desktop-only} {
+    &.playing {
+      .video-container-overlay {
+        display: none;
+      }
+    }
+  }
+
+  &.playing {
+    .video-play-button {
+      display: none;
+    }
+  }
+
+  video {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .video-wrapper {
+    position: relative;
+    font-size: 0;
+
+  }
+
+  @media #{$mobile-only} {
+    @include display(flex);
+    @include flex-direction(column);
+  }
+}
+
+.video-play-button {
+  pointer-events: none;
+
+  @media #{$mobile-only} {
+    font-size: $font-size-contentful-mobile-small;
+  }
+
+  @media #{$desktop-only} {
+    font-size: $font-size-contentful-desktop-small;
+    margin-top: 1em;
+  }
+}
+
+.video-container-overlay {
+  @include display(flex);
+  @include flex-direction(column);
+  @include justify-content(center);
+  @include align-items(center);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  text-align: center;
+  z-index: 1;
+  background-size: cover;
+
+  h1 {
+    margin-top: 0;
+    margin-bottom: 0.2em;
+
+    @media #{$desktop-only} {
+      font-size: $font-size-contentful-desktop-medium;
+    }
+  }
+
+  p {
+    margin: 0;
+
+    @media #{$desktop-only} {
+      font-size: $font-size-contentful-desktop-small;
+    }
+  }
+
+  &.mobile-only {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.video-container-footer.mobile-only {
+  @include display(flex);
+  @include flex-direction(column);
+  @include justify-content(center);
+  @include align-items(center);
+  text-align: center;
+  padding: 30px 30px 50px;
+
+  h1 {
+    font-size: $font-size-contentful-mobile-medium;
+    margin-top: 0;
+    margin-bottom: 0.2em;
+  }
+
+  p {
+    font-size: $font-size-contentful-mobile-small;
+    margin: 0;
+  }
+
+}
+
+.video-container-overlay-svg {
+  max-width: 50%;
+  max-height: 30%;
+  margin-bottom: 1rem;
+
+  @media #{$mobile-only} {
+    max-width: 90%;
+  }
+}

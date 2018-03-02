@@ -1,0 +1,98 @@
+.support-your-balls-about {
+  img {
+    display: block;
+    @include margin(null auto);
+  }
+
+  p {
+    margin-top: 3rem;
+    text-align: center;
+
+    @media #{$mobile-only} {
+      font-size: 14px;
+    }
+  }
+}
+
+.support-your-balls-check-em {
+  @include padding(2rem null);
+  background-color: #00afc6;
+  color: $white;
+
+  @media #{$desktop-only} {
+    @include padding(4rem null);
+  }
+
+  @media #{$mobile-only} {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .button {
+    @include button-color($white, $white);
+  }
+}
+
+.support-your-balls-check-em-left {
+  @media #{$desktop-only} {
+    display: inline-block;
+    width: 40%;
+  }
+
+  h2 {
+    @include margin(0 null);
+    font-size: 26px;
+    color: inherit;
+
+    @media #{$desktop-only} {
+      font-size: 60px;
+    }
+
+    @media screen and (min-width: $mobile-breakpoint + 1) and (max-width: 980px) {
+      font-size: 46px;
+    }
+
+    span {
+      white-space: nowrap;
+    }
+  }
+
+  p {
+    @include margin(2rem null);
+    line-height: 1.2;
+    font-family: $font-family-heading;
+    font-weight: bold;
+  }
+
+  .button {
+    @media #{$mobile-only} {
+      width: 100%;
+    }
+  }
+}
+
+.support-your-balls-check-em-right {
+  padding-top: 2rem;
+  vertical-align: top;
+
+  @media #{$desktop-only} {
+    display: inline-block;
+    width: 60%;
+  }
+
+  h3 {
+    @include margin(0 null);
+    color: inherit;
+    text-transform: uppercase;
+    font-size: 14px;
+
+    @media #{$desktop-only} {
+      font-size: 16px;
+    }
+  }
+
+  p {
+    margin-top: 0;
+    line-height: 1.2;
+  }
+}

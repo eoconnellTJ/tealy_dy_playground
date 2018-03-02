@@ -1,0 +1,137 @@
+.product-tiles {
+  @include margin(null -0.75rem);
+}
+
+.product-tile {
+  display: inline-block;
+  vertical-align: top;
+  @include calc(width, "100% - 1.5rem");
+  @include margin(null 0.75rem 3.5rem);
+
+  @media screen and (min-width: 600px) {
+    @include calc(width, "50% - 1.5rem");
+  }
+
+  @media screen and (min-width: 900px) {
+    @include calc(width, "(100% / 3) - 1.5rem");
+  }
+
+  @media screen and (min-width: 1200px) {
+    .product-tiles:not(.three-per-row) & {
+      @include calc(width, "25% - 1.5rem");
+    }
+  }
+
+  a {
+    color: $color-primary;
+    text-decoration: none;
+  }
+}
+
+.product-tile-image-wrapper {
+  position: relative;
+}
+
+.product-tile-image {
+  display: block;
+  width: 100%;
+}
+
+.product-tile-badge {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.product-tile-colors {
+  margin: 0.5rem -0.25rem 0;
+  padding-left: 0;
+  list-style: none;
+  font-size: 0; // remove extra spacing when using inline-block
+
+  > li {
+    position: relative;
+    display: inline-block;
+    @include size(28px);
+    @include margin(0.25rem 0.25rem null);
+    border: 1px solid $color-grey;
+    cursor: pointer;
+    background-size: cover;
+
+    &.out-of-stock:before {
+      content: "";
+      @include position(absolute, -1px null null -1px);
+      display: block;
+      width: 39.5979px; // sqrt(2 * 28px ^ 2) - pythagorean theorum for diagonal
+      border-top: 1px solid $color-grey;
+      @include transform-origin(left top);
+      @include transform(rotate(45deg));
+    }
+  }
+}
+
+.product-tile-info {
+  position: relative;
+  margin-top: 0.8rem;
+
+  &.is-reviewable {
+    padding-right: 110px;
+  }
+}
+
+.product-tile-fabric-benefit {
+  font-size: 10px;
+  font-family: $font-family-heading;
+}
+
+.product-tile-name {
+  @include margin(0 null 3px);
+  font-size: 14px;
+}
+
+.product-tile-price {
+  font-size: 14px;
+
+  @at-root #{selector-append(".sup", "-discount")} {
+    color: $color-accent;
+    font-weight: bold;
+  }
+}
+
+.product-tile-price-regular {
+  .has-discount & {
+    text-decoration: line-through;
+  }
+}
+
+.product-tile-price-discount {
+  color: $color-accent;
+  font-weight: bold;
+}
+
+a:hover {
+  .product-tile-fabric-benefit,
+  .product-tile-name,
+  .product-tile-price {
+    text-decoration: underline;
+  }
+}
+
+.product-tile-review {
+  position: absolute;
+  color: $color-primary;
+  top: 0;
+  right: 0;
+  font-size: 12px;
+
+  .has-fabric-benefit & {
+    top: 1rem;
+  }
+}
+
+.product-tile-review-count {
+  font-size: 10px;
+  font-family: $font-family-heading;
+  font-weight: bold;
+}

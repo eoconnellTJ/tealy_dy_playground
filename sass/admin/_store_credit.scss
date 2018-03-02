@@ -1,0 +1,4 @@
+// ensure table does now overflow container, making 'edit' action impossible to use
+#sc-current-balance ~ table > tbody {
+  word-break: break-all;
+}

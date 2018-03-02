@@ -1,0 +1,101 @@
+.address-list p {
+  margin: 0;
+}
+
+.address-list-actions .button,
+.address-list-actions button {
+  vertical-align: bottom;
+
+  &:first-child {
+    margin-top: 2rem;
+  }
+
+  &:last-child {
+    margin-top: 0.6rem;
+  }
+
+  @media #{$mobile-only} {
+    @include padding(null 1rem);
+    width: 100%;
+  }
+}
+
+.checkout-address-add-form,
+.checkout-address-edit-form {
+  input[type="text"],
+  input[type="tel"],
+  .select-wrapper {
+    max-width: 400px;
+  }
+
+  @media screen and (max-width: 600px) {
+    label {
+      font-size: 12px;
+    }
+  }
+}
+
+.checkout-submit input[type='submit'] {
+  @media #{$mobile-only} {
+    @include padding(null 1rem);
+    width: 100%;
+  }
+}
+
+.checkout-address-name {
+  color: $color-grey-dark;
+}
+
+label.checkout-address {
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  padding-left: 20px;
+  font-size: 14px;
+  color: $color-grey-text;
+  cursor: pointer;
+
+  @media #{$breakpoint-checkout-desktop} {
+    display: inline-block;
+    width: 250px;
+    padding-right: 1rem;
+  }
+
+  input {
+    position: absolute;
+    top: 4px;
+    left: 0;
+  }
+}
+
+.checkout-step .modify-selection-link {
+  padding: 0.25rem 0.5rem;
+}
+
+.checkout-address button.checkout-edit-address {
+  display: block;
+  padding: 0.7rem 0.7rem 0.5rem 0;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.address_zipcode input {
+  width: auto;
+}
+
+.address-form-cancel {
+  @include margin(1rem null);
+
+  .button-link {
+    font-size: 0.9rem;
+    padding: 0.75rem 3rem;
+
+    @media #{$desktop-only} {
+      padding-left: 0;
+    }
+  }
+
+  @media #{$mobile-only} {
+    text-align: center;
+  }
+}

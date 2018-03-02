@@ -1,0 +1,9 @@
+.accordian-trigger {
+  cursor: pointer;
+}
+
+.accordian-content {
+  :not(.active) + & {
+    display: none;
+  }
+}

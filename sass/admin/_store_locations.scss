@@ -1,0 +1,48 @@
+.admin-store-location-search-form {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #cee1f4;
+}
+
+.admin-store-location {
+  @include display(flex);
+
+  > * {
+    @include flex(1);
+  }
+}
+
+.admin-store-location-address {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.admin-store-location-form {
+  max-width: 600px;
+
+  .row {
+    @include display(flex);
+
+    > * {
+      @include flex(1);
+
+      &:not(:first-child) {
+        margin-left: 0.5rem;
+      }
+
+      &:not(:last-child) {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+.admin-store-location-form .field_with_errors {
+  label {
+    color: red;
+  }
+
+  input {
+    border-color: red;
+  }
+}

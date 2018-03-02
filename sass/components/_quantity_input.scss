@@ -1,0 +1,63 @@
+.quantity-input {
+  font-size: 0; // inline-block hack
+  white-space: nowrap;
+
+  .button {
+    position: relative;
+    vertical-align: top;
+    height: $width-option-tile;
+    min-width: $width-option-tile;
+    border-width: 1px;
+    line-height: $width-option-tile;
+    padding: 0;
+    font-weight: normal;
+  }
+
+  span.decrement,
+  span.increment {
+    width: $width-option-tile;
+    font-size: 16px;
+  }
+
+  .decrement {
+    border-right-color: transparent;
+  }
+
+  .increment {
+    border-left-color: transparent;
+  }
+
+  input {
+    top: 0;
+    padding-left: 0;
+    padding-right: 0;
+
+    @media #{$mobile-only} {
+      @include calc(width, "100% - #{$width-option-tile * 2}");
+      font-size: 12px;
+    }
+
+    @media #{$desktop-only} {
+      max-width: 70px;
+    }
+  }
+
+  &.small {
+    .button {
+      height: $width-option-tile-small;
+      min-width: $width-option-tile-small;
+      line-height: $width-option-tile-small;
+    }
+
+    span.decrement,
+    span.increment {
+      width: $width-option-tile-small;
+      font-size: 12px;
+    }
+
+    input {
+      @include calc(width, "100% - #{$width-option-tile-small * 2}");
+      font-size: 12px;
+    }
+  }
+}

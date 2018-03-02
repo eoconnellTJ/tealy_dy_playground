@@ -1,0 +1,92 @@
+$color-background-footer: darken($color-primary, 5%);
+
+.main-footer {
+  margin-top: 100px;
+  padding-top: 3em;
+  @include site-padding;
+  background: $color-background-footer;
+  color: $white;
+
+  a {
+    // we need to brigthen the default link colors on the dark background
+    color: tint($color-link, 50%);
+    text-decoration: none;
+
+    &:hover {
+      color: tint($color-link, 90%);
+    }
+  }
+}
+
+.main-footer-column {
+  @media #{$desktop-only} {
+    @include span(3);
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  @media #{$mobile-only} {
+    @include span(6);
+    margin-bottom: 3rem;
+
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+  }
+
+  @media only screen and (max-width: 540px) {
+    @include span(12 no-gutters);
+    text-align: center;
+  }
+
+  h2 {
+    color: $white;
+    font-size: 20px;
+  }
+
+  ul {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  li {
+    margin: 0.75em 0;
+    line-height: 1.2em;
+  }
+}
+
+$social-icons: (
+  facebook: "\e811",
+  twitter: "\e812",
+  instagram: "\e813",
+  pinterest: "\e814",
+  youtube: "\e81a",
+  google-plus: "\e81b",
+);
+
+.footer-social-links {
+
+  a:before {
+    vertical-align: top;
+    margin-right: 10px;
+    font-family: "fontello";
+    font-size: 22px;
+  }
+
+  @each $network, $icon in $social-icons {
+    .#{$network} a:before {
+      content: $icon;
+    }
+  }
+}
+
+.footer-copyright {
+  padding: 3em 2em;
+  background: $color-background-footer;
+  color: tint($color-primary, 30%);
+  text-align: center;
+  font-size: 12px;
+  @include small-caps;
+}

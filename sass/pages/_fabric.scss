@@ -1,0 +1,328 @@
+$breakpoint-fabric-desktop: 500px;
+
+.fabrics-header-wrapper {
+  @include escape-site-padding;
+}
+
+.fabrics-header {
+  position: relative;
+  padding-top: aspect-ratio(760, 475);
+  background-image: asset-url("fabric/header-760x475.jpg");
+  background-size: cover;
+  overflow: hidden;
+
+  @media screen and (min-width: $breakpoint-fabric-desktop) {
+    padding-top: aspect-ratio(1600, 500);
+    background-image: asset-url("fabric/header-1600x500.jpg");
+  }
+}
+
+.fabrics-header-content {
+  @include position(absolute, 50% null null 50%);
+  @include transform(translate(-50%, -50%));
+  @include site-padding;
+  width: 100%;
+  max-width: $width-max-with-padding;
+  color: white;
+  text-align: center;
+
+  @media screen and (min-width: $breakpoint-fabric-desktop) {
+    text-align: left;
+  }
+
+  h1,
+  p {
+    margin: 0 auto;
+    color: inherit;
+
+    @media screen and (min-width: $breakpoint-fabric-desktop) {
+      @include margin(null 0);
+    }
+  }
+
+  h1 {
+    @include responsive-font-size(
+      $font-size-min: 24,
+      $font-size-max: 48
+    );
+  }
+
+  p {
+    @include responsive-font-size(
+      $font-size-min: 14,
+      $font-size-max: 20
+    );
+    line-height: 1.2;
+  }
+
+  br {
+    display: none;
+
+    @media screen and (min-width: $breakpoint-fabric-desktop) {
+      // We only want the line break to occur on desktop
+      display: inline;
+    }
+  }
+}
+
+@each $type, $color in $product-colors {
+  .fabric-#{$type} {
+    .fabric-section-header,
+    .fabric-benefits-header,
+    .featured-product,
+    .fabrics-navigation &,
+    &.accordian-trigger {
+      color: $color;
+    }
+
+    .fabrics-navigation &:after {
+      background-color: $color;
+    }
+
+    .button {
+      @include button-color($color);
+    }
+
+    html.no-touchevents & .featured-product-content-wrapper {
+      background-color: rgba($color, 0.98);
+    }
+  }
+}
+
+.fabrics-navigation {
+  display: none;
+  border-bottom: 1px solid $color-grey-light;
+  font-size: 0; // inline-block hack
+  text-align: center;
+
+  @media screen and (min-width: $breakpoint-fabric-desktop) {
+    display: block;
+  }
+}
+
+.fabrics-navigation a {
+  @include transition(all $transition-default);
+  position: relative;
+  display: inline-block;
+  margin-right: -1px; // so on hover it covers the border
+  padding: 1.5rem 4%;
+  text-decoration: none;
+
+  &:not(:first-child):before {
+    // Because we do not want this line to stretch all the way to
+    // the top and bottom of the anchor we cannot use a border.
+    @include position(absolute, 50% null null 0);
+    @include transform(translateY(-50%));
+    @include size(1px 60%);
+    background-color: $color-grey-light;
+    content: "";
+  }
+
+  &:after {
+    @include position(absolute, 50% null null 50%);
+    @include size(0 100%);
+    @include transform(translate(-50%, -50%));
+    @include transition(all $transition-default);
+    opacity: 0;
+    z-index: -1; // make sure it never covers the clickable anchor
+    content: "";
+  }
+
+  &:hover {
+    color: white;
+    z-index: 1;
+
+    &:before {
+      content: none;
+    }
+
+    &:after {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+}
+
+.fabrics .accordian-trigger,
+.fabrics-navigation a {
+  @include responsive-font-size(
+    $font-size-min: 20,
+    $font-size-max: 26
+  );
+  font-family: $font-family-heading;
+  font-weight: bold;
+}
+
+.fabrics .accordian-trigger {
+  position: relative;
+  padding: 1rem 0;
+  border-bottom: 1px solid $color-grey-light;
+  cursor: pointer;
+
+  @media screen and (min-width: $breakpoint-fabric-desktop) {
+    display: none;
+  }
+
+  &:first-child,
+  &.active + .accordian-content + .accordian-trigger {
+    margin-top: 2rem;
+    border-top: 1px solid $color-grey-light;
+  }
+
+  &.active {
+    border-bottom: 0;
+  }
+
+  &:after {
+    @include position(absolute, 50% 0 null null);
+    @include transform(translateY(-50%));
+    content: "+";
+    font-weight: normal;
+  }
+
+  &.active:after {
+    content: "-";
+  }
+}
+
+.fabric {
+  @media screen and (min-width: $breakpoint-fabric-desktop) {
+    // These are for desktop only. On mobile the borders are on
+    // the accordian triggers.
+    display: block !important; // override the accordian component
+    margin-top: 4rem;
+
+    .accordian-trigger:not(:first-child) + & {
+      padding-top: 4rem;
+      border-top: 1px solid $color-grey-light;
+    }
+  }
+}
+
+.fabric .fabric-section-header {
+  @include responsive-font-size(
+    $font-size-min: 20,
+    $font-size-max: 32
+  );
+  margin-top: 0;
+
+  @media screen and (max-width: $breakpoint-fabric-desktop - 1) {
+    // Hide the headers on mobile because we're using the
+    // accordian triggers instead.
+    display: none;
+  }
+}
+
+.fabric h3 {
+  @include responsive-font-size(
+    $font-size-min: 16,
+    $font-size-max: 18
+  );
+}
+
+.fabric-sections {
+  @media screen and (min-width: $breakpoint-fabric-desktop) {
+    @include display(flex);
+    @include align-items(center);
+
+    &:not(:first-child) {
+      margin-top: 3rem;
+    }
+  }
+
+  > * {
+    @include flex-basis(50%);
+  }
+}
+
+.fabric-section {
+  margin-top: 2rem;
+
+  .fabric-sections:first-child &:first-child {
+    margin-top: 0;
+  }
+
+  @media screen and (min-width: $breakpoint-fabric-desktop) {
+    margin-top: 0;
+  }
+}
+
+.fabric-description .fabric-section-header,
+.fabric-description p {
+  max-width: 500px;
+}
+
+.fabric-categories {
+  margin-top: 2rem;
+
+  .button {
+    @include margin(null 10px 10px null);
+    width: 100%;
+
+    @media screen and (min-width: $breakpoint-fabric-desktop) {
+      width: 190px;
+    }
+  }
+}
+
+.fabric-laydown {
+  // The mobile laydown images are cropped specifically to a
+  // special size to allow for "overhangs" on the image. This
+  // negative margin pulls the colored background to the edge
+  // of our container. Mobile only.
+  @include margin(null -10%);
+
+  @media screen and (min-width: $breakpoint-fabric-desktop) {
+    margin: 0;
+  }
+}
+
+.fabric-benefits-wrapper {
+  @media screen and (min-width: $breakpoint-fabric-desktop) {
+    text-align: right;
+  }
+}
+
+.fabric-benefits {
+  @media screen and (min-width: $breakpoint-fabric-desktop) {
+    display: inline-block;
+    width: aspect-ratio(640, 530);
+    text-align: left; // reset the right alignment from the wrapper
+  }
+}
+
+.fabric-benefits ul {
+  padding-left: 16px;
+
+  li:not(:first-child) {
+    margin-top: 8px;
+  }
+}
+
+.fabric-swatch {
+  @media screen and (min-width: $breakpoint-fabric-desktop) {
+    // On desktop we want this to appear first
+    @include order(-1);
+  }
+
+  img {
+    display: block;
+  }
+}
+
+.fabric .featured-products {
+  margin-top: 1.5rem;
+}
+
+.fabric .featured-product {
+  width: 50%;
+
+  @media screen and (min-width: $breakpoint-fabric-desktop) {
+    width: 25%;
+  }
+}
+
+html.no-touchevents .fabric .featured-product .fabric-benefits-header {
+  font-size: 12px;
+  color: white;
+}

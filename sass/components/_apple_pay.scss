@@ -1,0 +1,38 @@
+// Copied from Apple with only minor modifications.
+// https://developer.apple.com/reference/applepayjs/applepaysession
+//
+// Changes:
+//   - Removed border radius to match rest of buttons on website.
+//   - Set height to match height of other buttons.
+//   - Vertical-align top so that it aligns nicely.
+.apple-pay-button {
+  @include button-color(black, white);
+  --apple-pay-scale: 1.2;
+  display: inline-flex;
+  justify-content: center;
+  padding: 0;
+  height: 55px;
+  vertical-align: top;
+  box-sizing: border-box;
+  letter-spacing: 0;
+  text-transform: none;
+
+  > .text {
+    margin-right: calc(2px * var(--apple-pay-scale));
+    font-family: -apple-system;
+    font-size: calc(1em * var(--apple-pay-scale));
+    font-weight: 300;
+    align-self: center;
+  }
+
+  > .logo {
+    width: calc(35px * var(--apple-pay-scale));
+    height: 100%;
+    margin-left: calc(2px * var(--apple-pay-scale));
+    background-size: 100% 60%;
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    background-image: -webkit-named-image(apple-pay-logo-white);
+    background-color: black;
+  }
+}

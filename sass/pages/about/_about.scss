@@ -1,0 +1,295 @@
+@import "founders-video";
+
+.why-tj-full-width-image {
+  @media #{$mobile-only} {
+    @include escape-site-padding;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.why-tj-lead {
+  h2 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  @media #{$mobile-only} {
+    h2 {
+      @include escape-site-padding;
+      @include margin(0 null);
+      padding: 10%;
+      font-size: 22px;
+      background: $color-grey-ice;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  @media #{$desktop-only} {
+    @include padding(4em null);
+    background: $color-grey-ice;
+
+    .why-tj-lead-content {
+      display: table;
+      max-width: 850px;
+      margin: 0 auto;
+      @include clearfix;
+    }
+
+    h2,
+    p {
+      display: table-cell;
+      width: 50%;
+    }
+
+    h2 {
+      line-height: 1.6em;
+      padding: 0 10px;
+    }
+
+    p {
+      @include padding(null 4em);
+      color: $color-primary;
+    }
+  }
+}
+
+$breakpoint-why-tj-desktop: "screen and (min-width: 650px)";
+
+.why-tj-tom-profile {
+  @media #{$mobile-only} {
+    @include escape-site-padding;
+  }
+
+  > div {
+    position: relative;
+  }
+
+  p {
+    margin: 0 auto;
+  }
+}
+
+.why-tj-tom-profile-content {
+  padding-top: 100%;
+  background: image-url("about/pin-board.jpg");
+  background-size: contain;
+  background-position: center top;
+
+  @media #{$breakpoint-why-tj-desktop} {
+    height: 0;
+    width: 60%;
+    padding-top: 60%;
+    float: left;
+  }
+
+  p {
+    max-width: 620px;
+    padding: 6% 10%;
+    background: $white;
+
+    @media #{$breakpoint-why-tj-desktop} {
+      @include position(absolute, null 3rem 3rem);
+    }
+  }
+}
+
+.why-tj-tom-profile-picture,
+.why-tj-tom-profile-tagline {
+  height: 0;
+  text-align: center;
+
+  p {
+    @include position(absolute, null 3rem);
+  }
+}
+
+.why-tj-tom-profile-picture {
+  background: image-url("about/tom-patterson-profile.jpg");
+  background-size: cover;
+  background-position: center center;
+  font-family: $font-family-heading;
+  color: $white;
+  padding-top: 140%;
+
+  @media #{$breakpoint-why-tj-desktop} {
+    width: 40%;
+    float: right;
+    padding-top: 60%;
+  }
+
+  p {
+    bottom: 3rem;
+  }
+}
+
+.why-tj-tom-profile-tagline {
+  padding-top: 50%;
+  background: $color-grey-ice;
+  @include heading-style;
+  color: $color-primary;
+
+  @media #{$breakpoint-why-tj-desktop} {
+    clear: both;
+    font-size: 28px;
+    padding-top: 20%;
+  }
+
+  p {
+    top: 50%;
+    @include transform(translateY(-50%));
+    font-size: 22px;
+    max-width: 600px;
+
+    @media #{$breakpoint-why-tj-desktop} {
+      font-size: 28px;
+    }
+  }
+}
+
+.why-tj-fixing-things {
+  max-width: $width-max;
+  margin: 0 auto;
+  @include padding(3rem null);
+
+  p {
+    @media #{$desktop-only} {
+      float: left;
+      width: 50%;
+
+      &:first-child {
+        padding-right: 3rem;
+      }
+
+      &:last-child {
+        padding-left: 3rem;
+      }
+    }
+  }
+}
+
+.why-tj-no-adjustment-banner {
+  @include padding(3rem null);
+  background: $color-primary;
+  text-align: center;
+
+  @media #{$mobile-only} {
+    @include escape-site-padding;
+  }
+
+  svg {
+    width: 40px;
+    fill: $color-accent;
+  }
+
+  h2 {
+    margin: 15px 0 0;
+    color: $white;
+  }
+}
+
+.why-tj-comfortable {
+  text-align: center;
+}
+
+.why-tj-comfortable-header {
+  padding: 15%;
+  background-image: image-url("about/measure-twice.jpg");
+  background-size: cover;
+  background-position: center center;
+
+  @media #{$mobile-only} {
+    @include escape-site-padding;
+  }
+
+  h2 {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 4% 5%;
+    background: $white;
+    font-size: 22px;
+  }
+}
+
+.why-tj-comfortable-reasons {
+  max-width: $width-max;
+  @include margin(null auto);
+  padding-bottom: 3rem;
+}
+
+.why-tj-comfortable-reason {
+  position: relative;
+  margin-top: 3rem;
+  padding-top: 3rem;
+  @include clear-margins;
+
+  @media #{$desktop-only} {
+    width: 33.33%;
+    float: left;
+    @include padding(null 1rem);
+  }
+
+  &:before {
+    @include position(absolute, 0 null null 50%);
+    width: 36px;
+    margin-left: -18px;
+    border-radius: 50%;
+    border: 3px solid $color-primary;
+    color: $color-primary;
+    line-height: 30px;
+    font-family: $font-family-heading;
+  }
+
+  &:nth-child(1):before { content: "1"; }
+  &:nth-child(2):before { content: "2"; }
+  &:nth-child(3):before { content: "3"; }
+
+  h3 {
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-top: 10px;
+  }
+}
+
+.why-tj-outro-wrapper {
+  @media #{$mobile-only} {
+    @include escape-site-padding;
+  }
+}
+
+.why-tj-outro {
+  position: relative;
+  padding-top: 100%;
+  background-image: image-url("about/boxed-product.jpg");
+  background-size: contain;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-color: $color-grey-ice;
+
+  @media #{$desktop-only} {
+    padding-top: 50%;
+    height: 0;
+    background-position: right center;
+  }
+
+  h2 {
+    margin: 0;
+    padding: 10%;
+    font-size: 22px;
+
+    @media #{$desktop-only} {
+      @include position(absolute, 50% null null 0);
+      @include transform(translateY(-50%));
+      width: 50%;
+      font-size: 36px;
+    }
+  }
+}

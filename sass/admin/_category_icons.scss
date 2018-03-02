@@ -1,0 +1,27 @@
+.category-icon-admin svg {
+  @include size(60px auto);
+  display: inline;
+  margin-top: 1em;
+}
+
+.category-icon-form div.input-wrapper {
+  // Extra specificty to override defaults
+  margin: 1em 0 5px;
+}
+
+.category-icon-delete-form button {
+  // Reset button styles to make it look like a link
+  display: inline;
+  margin: 0;
+  padding: 0;
+  background: none;
+  outline: none;
+  font-weight: normal !important;
+  font-size: 12px;
+  text-transform: none;
+  color: #5498da;
+
+  &:hover {
+    color: #9fc820;
+  }
+}

@@ -1,0 +1,29 @@
+.support-your-balls-introduction {
+  text-align: center;
+
+  p {
+    margin: 0;
+
+    &:first-of-type {
+      font-weight: bold;
+    }
+  }
+
+  @media #{$desktop-only} {
+    h1 {
+      font-size: 40px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  .content {
+    max-width: 780px;
+  }
+}
+
+.support-your-balls-logo {
+  margin-top: 40px;
+}

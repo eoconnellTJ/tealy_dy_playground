@@ -1,0 +1,28 @@
+.terms-and-conditions-wrapper {
+  h1 {
+    @include margin(0 null 1rem);
+    font-size: 20px;
+
+    @media #{$desktop-only} {
+      font-size: 28px;
+    }
+  }
+}
+
+.terms-and-conditions {
+  @include clear-margins;
+
+  @media #{$desktop-only} {
+    padding: 3rem;
+    border: 1px solid $color-grey-light;
+  }
+}
+
+.terms-list {
+  > li {
+    @include heading-style;
+    color: $color-primary;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+}

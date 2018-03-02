@@ -1,0 +1,9 @@
+@import 'bourbon';
+
+*,
+*:before,
+*:after {
+  @include transition(none !important);
+  @include animation-duration(0s !important);
+  @include animation-delay(0s !important);
+}

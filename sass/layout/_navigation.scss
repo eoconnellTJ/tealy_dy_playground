@@ -1,0 +1,35 @@
+.nav-item {
+  svg, img.nav-icon {
+    //SIZE MIXIN MISSING FROM ORIGINAL
+    // @include size(1.5rem);
+    float: left;
+
+    + span {
+      display: block;
+      margin-left: 2rem;
+      line-height: 1.5rem;
+    }
+  }
+
+  svg {
+    fill: $color-link;
+  }
+
+  // IE does not correctly scale SVG images without explicit width + height.
+  // To support IE, we set "height: 100%" on the image, and constrain with
+  // a containing <span>.
+  span.image {
+    display: inline-block;
+    height: 1.2rem;
+  }
+
+  img {
+    height: 100%;
+    width: auto;
+    vertical-align: middle;
+  }
+
+  &:hover svg {
+    fill: $color-link-hover;
+  }
+}

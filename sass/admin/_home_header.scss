@@ -1,0 +1,153 @@
+.home-header-content-table {
+  margin-top: 1em;
+
+  tr.active > td {
+    background-color: #f8fceb;
+    border-color: #e0f1a9;
+  }
+}
+
+.home-header-content-table-time {
+  white-space: nowrap;
+}
+
+.home-header-default-selection {
+  input[type="radio"] {
+    display: none;
+  }
+}
+
+.home-header-default-label {
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 3px;
+  background-color: #f1f1f1;
+  color: #afafaf;
+  text-transform: none;
+  white-space: nowrap;
+  cursor: pointer;
+
+  :checked + & {
+    background-color: #5498da;
+    color: white;
+  }
+}
+
+form.home-header-content-form {
+  // Extra specificity to override simple_form styles
+  width: 100%;
+
+  > :first-child {
+    // This is the div that holds the auth_token.
+    // This overrides the inline style so that Flexbox
+    // works properly.
+    display: none !important;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  input[type="submit"] {
+    margin-top: 2em;
+  }
+
+  label > input[type="checkbox"],
+  label > input[type="radio"] {
+    margin-right: 5px;
+  }
+
+  hr {
+    @include margin(2em null);
+  }
+}
+
+.home-header-content-form-text-fields,
+.home-header-content-form-resolutions {
+  @include display(flex);
+  @include justify-content(space-between);
+}
+
+div.home-header-content-form-text-fields {
+  // Extra specificity to override simple_form styles
+  @include flex-wrap(wrap);
+
+  > div {
+    width: 48%;
+    margin: 1em 0;
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.home-header-content-form-resolutions {
+  margin-top: 2em;
+}
+
+.home-header-content-form-desktop {
+  width: 64%;
+}
+
+.home-header-content-form-mobile {
+  width: 32%;
+}
+
+.home-header-content-form-desktop-image,
+.home-header-content-form-mobile-image {
+  @include transition(all 0.2s ease-in-out);
+
+  &.error {
+    padding: 0.5em;
+    background: #ffe8e8;
+    border: 1px solid red;
+    color: red;
+  }
+
+  img {
+    display: block;
+    margin-bottom: 0.5em;
+  }
+}
+
+.home-header-content-form-desktop-layouts,
+.home-header-content-form-mobile-layouts {
+  @include display(flex);
+  @include justify-content(flex-start);
+  @include flex-wrap(wrap);
+  @include margin(null -0.5em);
+
+  input[type="radio"] {
+    // Hide the radio button and use the image to
+    // represent states
+    display: none;
+  }
+
+  label {
+    margin: 0.5em;
+    padding: 0.25em;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+
+  :checked + label {
+    border-color: black;
+  }
+
+  :not(:checked) + label {
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  svg {
+    display: block;
+  }
+}

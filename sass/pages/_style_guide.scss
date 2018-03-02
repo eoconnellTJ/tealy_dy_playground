@@ -1,0 +1,52 @@
+.style-guide-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.style-guide-section {
+  margin-top: 2em;
+  padding-top: 2em;
+  border-top: 1px solid $color-grey;
+  @include clearfix;
+
+  @media #{$desktop-only} {
+    padding: 1em;
+    border: 1px solid $color-grey;
+  }
+}
+
+.style-guide-lead {
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+  @include clear-margins;
+
+  @media #{$desktop-only} {
+    border-bottom: 1px solid $color-grey;
+  }
+}
+
+@media #{$desktop-only} {
+  .style-guide-section:not(.stacked) {
+    .style-guide-result {
+      @include span(first 6);
+    }
+
+    .style-guide-code {
+      @include span(6);
+    }
+  }
+}
+
+.style-guide-colors {
+  @include display(flex);
+  @include flex-wrap(wrap);
+}
+
+.style-guide-color {
+  width: 25%;
+}
+
+.style-guide-color-hex {
+  height: 0;
+  padding-top: 50%;
+}

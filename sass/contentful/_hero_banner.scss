@@ -1,0 +1,51 @@
+.hero-banner-container {
+  @include escape-site-padding;
+
+  .hero-banner {
+    position: relative;
+
+    .hero-banner-heading {
+      font-size: 46px;
+      margin-bottom: 0.4em;
+    }
+
+    .hero-banner-body {
+      font-size: 20px;
+    }
+
+    @media #{$tablet-only} {
+      .hero-banner-heading {
+        font-size: 26px;
+      }
+    }
+
+    @media #{$mobile-only} {
+      padding-top: aspect-ratio(16, 9);
+      text-align: center;
+
+      .hero-banner-heading {
+        font-size: 24px;
+      }
+
+      .hero-banner-body {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.hero-banner-down {
+  position: absolute;
+  bottom: 1rem;
+  left: calc(50% - 10px);
+  width: 20px;
+  height: 32px;
+
+  path {
+    fill: white;
+  }
+
+  @media #{$mobile-only} {
+    display: none;
+  }
+}

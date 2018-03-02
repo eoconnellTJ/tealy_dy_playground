@@ -1,0 +1,144 @@
+$featured-press-item-margin: 12px;
+
+.press-banner {
+  position: relative;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.press-banner .press-banner-image {
+  width: 100%;
+  padding-bottom: aspect-ratio(1600, 500);
+
+  @media #{$mobile-only} {
+    padding-bottom: aspect-ratio(800, 500);
+  }
+
+  background-size: cover;
+  background-position: center center;
+}
+
+.press-banner-heading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+.featured-press-item {
+  border: solid $color-grey-light 2px;
+  margin: $featured-press-item-margin;
+  width: calc(50% - #{2 * $featured-press-item-margin});
+  min-height: 23rem;
+  font-family: $font-family-heading;
+  padding: 4rem 2rem 2rem;
+
+  @media #{$mobile-only} {
+    width: 100%;
+  }
+
+  @media #{$max-width-only} {
+    width: calc(33.333% - #{2 * $featured-press-item-margin});
+  }
+}
+
+.featured-press-items {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 - $featured-press-item-margin;
+  margin-bottom: 2rem;
+}
+
+.featured-press-item-image {
+  width: 200px;
+  height: 60px;
+}
+
+.latest-press-items {
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+.latest-press-item {
+  padding: 1.5rem 0 2rem;
+  border-bottom: solid $color-grey-light 1px;
+
+  h3 {
+    margin-top: 4px;
+  }
+
+  .latest-press-source {
+    font-weight: bold;
+  }
+}
+
+.press-page {
+  @media #{$desktop-only} {
+    .latest-press-items {
+      width: calc(50% - 12px);
+      float: left;
+      padding-right: 1rem;
+    }
+
+    .sidebar {
+      width: calc(50% - 12px);
+      float: right;
+    }
+  }
+
+  @media #{$max-width-only} {
+    .latest-press-items {
+      width: 60%;
+    }
+
+    .sidebar {
+      width: calc(33.33% - 16px);
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: $color-blue-grass;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .sidebar {
+    border: solid $color-grey-light 2px;
+    padding: 2rem;
+    margin-bottom: 4rem;
+  }
+}
+
+.downloads-and-links-list {
+  margin-bottom: 3rem;
+}
+
+.contentful-link {
+  display: table;
+
+  .icon {
+    width: 80px;
+  }
+
+  .icon, .description {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.social-link {
+  margin-right: 10px;
+}

@@ -1,0 +1,40 @@
+@mixin spinner {
+  &:before {
+    content: "";
+    @include position(absolute, null null null 50%);
+    @include size(36px);
+    margin-left: -18px;
+    border: 5px solid tint($color-primary, 80%);
+    border-top: 5px solid $color-primary;
+    border-radius: 50%;
+    @include animation(rotation 0.6s infinite linear);
+  }
+}
+
+.spinner-wrapper {
+  @include position(fixed, 0 null null 0);
+  @include size(100%);
+  background: rgba(white, 0.8);
+  z-index: $z-index-modals;
+}
+
+.spinner {
+  @include spinner();
+  height: 40px;
+  margin: 1rem;
+
+  &.fixed {
+    @include position(fixed, 15%);
+    z-index: $z-index-modals;
+  }
+}
+
+@include keyframes(rotation) {
+  from {
+    @include transform(rotate(0deg));
+  }
+
+  to {
+    @include transform(rotate(359deg));
+  }
+}

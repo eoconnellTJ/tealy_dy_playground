@@ -1,0 +1,54 @@
+.stay-tucked-guarantee {
+  @include ie-transform-container;
+  position: relative;
+  height: 0;
+  margin-top: 4rem;
+  padding-top: aspect-ratio(800, 800);
+  background-image: image-url("stay_tucked/guarantee-800x500.jpg");
+  background-size: cover;
+  background-position: center center;
+
+  @media #{$desktop-only} {
+    padding-top: aspect-ratio(1600, 500);
+    background-image: image-url("stay_tucked/guarantee-1600x500.jpg");
+  }
+
+  @media #{$mobile-only} {
+    @include margin(null (-$padding-site-mobile));
+  }
+}
+
+.stay-tucked-guarantee-content {
+  @include position(absolute, 50% null null 50%);
+  @include transform(translate(-50%, -50%));
+  @include padding(null 1rem);
+  @include clear-margins;
+  width: 100%;
+  max-width: $width-max;
+  text-align: center;
+  color: $white;
+
+  h2 {
+    @include responsive-font-size($font-size-min: 23, $font-size-max: 35);
+    color: inherit;
+    line-height: 1;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin: 1em 0 1.5em;
+
+    @media #{$mobile-only} {
+      margin: 1em 0;
+      font-size: 13px;
+    }
+  }
+
+  .button {
+    @include button-color($white);
+
+    @media #{$mobile-only} {
+      width: 100%;
+    }
+  }
+}

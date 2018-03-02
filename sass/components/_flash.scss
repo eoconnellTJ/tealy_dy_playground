@@ -1,0 +1,72 @@
+$width-flash: 340px;
+
+.flash-container {
+  z-index: $z-index-flash;
+}
+
+// Notificatiosn appear at top of screen
+$height-mobile-header: 102px;
+
+@media #{$mobile-only} {
+  .flash {
+    @include transition(transform $transition-default);
+
+    &:not(.open) {
+      @include transform(translateY(-100%));
+      display: none;
+    }
+  }
+}
+
+// Notificatiosn appear justified to right edge of page content
+@media #{$desktop-only} {
+  .flash-container {
+    @include position(absolute, 155px 0 null 0);
+    height: 0;
+    max-width: $width-max;
+    @include margin(null auto);
+    @include site-padding;
+
+    body.bmsm-eligible & {
+      top: 250px;
+    }
+  }
+
+  .flash {
+    float: right;
+    clear: right;
+    width: $width-flash;
+    opacity: 0;
+    @include transform(scale3d(0.1, 0.6, 1));
+    @include transition(opacity $transition-default, transform $transition-default);
+
+    &.open {
+      opacity: 1;
+      @include transform(scale3d(1, 1, 1));
+    }
+  }
+}
+
+.flash,
+.flash .close {
+  color: white;
+}
+
+.flash {
+  background: rgba($color-primary-light, 0.98);
+  font-size: 14px;
+
+  .content {
+    @include clear-margins;
+    padding: 18px 20px;
+    font-style: italic;
+  }
+}
+
+.flash .close {
+  float: right;
+  height: 48px;
+  padding: 12px 20px;
+  font-size: 20px;
+  line-height: 20px;
+}

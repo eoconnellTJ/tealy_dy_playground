@@ -1,0 +1,21 @@
+.information-panel-cta-trigger {
+  .product-return-date ~ & {
+    // Never show the guarantee if we're showing the stock return date.
+    display: none;
+  }
+}
+
+.product-panel-reviews {
+  display: flex;
+  align-items: center;
+
+  p {
+    flex-grow: 1;
+  }
+}
+
+.product-panel-review-stars {
+  margin-right: 1rem;
+  font-size: 12px;
+  color: $color-primary;
+}

@@ -1,0 +1,61 @@
+.sides-container {
+  margin: 3rem auto;
+  max-width: $width-max-full-bleed;
+  display: flex;
+
+  .text-cta-block-container {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &.reversed-stacking {
+    @media #{$tablet-only} {
+      flex-direction: column-reverse;
+    }
+  }
+
+  @media #{$tablet-only} {
+    flex-direction: column;
+    margin: 0 auto;
+    @include escape-mobile-site-padding;
+
+    // The mobile collage implementation also uses escape-site-padding.
+    // To avoid double-escaping resulting in overflow, we eliminate the margin.
+    .flickity-enabled.mobile-collage-wrapper {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  @media #{$mobile-only} {
+    padding: 0;
+  }
+}
+
+.side-container {
+  width: calc(50% - 12px);
+
+  @media #{$tablet-only} {
+    width: 100%;
+  }
+
+  &.left-side {
+    margin-right: 12px;
+
+    @media #{$tablet-only} {
+      margin-right: 0;
+    }
+  }
+
+  &.right-side {
+    margin-left: 12px;
+
+    @media #{$tablet-only} {
+      margin-left: 0;
+    }
+  }
+
+  .shoppable-product-tile {
+    width: 100%;
+  }
+}

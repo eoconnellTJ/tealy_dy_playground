@@ -1,0 +1,143 @@
+.support-your-balls-instagram {
+  background-color: $black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $white;
+  text-align: center;
+
+  @media #{$desktop-only} {
+    background-image: asset-url("tcf/2016_instagram-1600x1019.jpg");
+  }
+
+  h2,
+  h3 {
+    color: inherit;
+  }
+}
+
+.support-your-balls-instagram-lead {
+  @include site-padding;
+  @include padding(2rem null 1rem);
+
+  @media #{$desktop-only} {
+    padding-top: 3rem;
+  }
+
+  h2 {
+    @include margin(0 null);
+
+    @media #{$desktop-only} {
+      font-size: 36px;
+    }
+
+    span {
+      white-space: nowrap;
+    }
+  }
+
+  p {
+    @include margin(null auto);
+    max-width: 780px;
+  }
+}
+
+.support-your-balls-instagram-instructions {
+  @include padding(1rem null);
+
+  @media #{$mobile-only} {
+    background-image: asset-url("tcf/2016_instagram-800x1019.jpg");
+    background-size: cover;
+  }
+
+  h3 {
+    margin-top: 0;
+  }
+
+  ol {
+    counter-reset: instagram-instructions;
+    padding: 0;
+    list-style: none;
+
+    @media #{$desktop-only} {
+      max-width: $width-max;
+      @include margin(null auto);
+    }
+  }
+
+  li {
+    position: relative;
+    width: 76%;
+    @include margin(null auto);
+    padding-top: 4rem;
+    line-height: 1.2;
+    font-family: $font-family-heading;
+
+    @media #{$desktop-only} {
+      display: inline-block;
+      width: 33%;
+      @include padding(6rem 1rem null);
+      vertical-align: top;
+    }
+
+    &:before {
+      content: counter(instagram-instructions);
+      counter-increment: instagram-instructions;
+      @include position(absolute, 1rem null null 50%);
+      display: inline-block;
+      @include size(2rem);
+      border: 4px solid $white;
+      border-radius: 50%;
+      line-height: 1.6;
+      font-size: 16px;
+      font-weight: bold;
+      @include transform(translateX(-50%));
+
+      @media #{$desktop-only} {
+        top: 0;
+        @include size(4rem);
+        line-height: 1.8;
+        font-size: 2rem;
+      }
+    }
+
+    a,
+    a:hover {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}
+
+.support-your-balls-instagram-cta {
+  @include padding(1rem null);
+
+  @media #{$desktop-only} {
+    padding-bottom: 4rem;
+  }
+
+  a {
+    @include button-color($white, $white);
+    padding: 1rem;
+    line-height: 1.2;
+    font-weight: normal;
+
+    span {
+      position: relative;
+      display: inline-block;
+      padding-left: 2.5em;
+
+      &:before {
+        content: "\e813";
+        @include position(absolute, -0.15em null null 0);
+        font-family: fontello;
+        font-size: 2.5em;
+      }
+    }
+  }
+}
+
+.support-your-balls-instagram-disclaimer {
+  margin-top: 2rem;
+  font-family: $font-family-heading;
+  font-size: 14px;
+}

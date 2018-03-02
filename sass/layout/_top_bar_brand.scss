@@ -1,0 +1,142 @@
+.top-bar-brand-container {
+  position: relative;
+
+  @media #{$desktop-only} {
+    display: inline-block;
+  }
+
+  @media #{$breakpoint-top-bar-wide} {
+    margin-right: 50px;
+  }
+
+  @media #{$breakpoint-top-bar-narrow} {
+    margin-right: 30px;
+  }
+
+  @media #{$mobile-only} {
+    @include flex(1);
+    text-align: center;
+  }
+
+  @include sticky-top-bar {
+    vertical-align: middle;
+    line-height: 0;
+    @include padding(1em 1em 1em null);
+    margin-right: 20px;
+  }
+}
+
+.top-bar-brand {
+  display: inline-block;
+
+  @media #{$desktop-only} {
+    width: 280px;
+  }
+
+  @media #{$breakpoint-top-bar-narrow} {
+    width: 200px;
+  }
+
+  @media #{$mobile-only} {
+    width: 140px;
+  }
+
+  @include sticky-top-bar {
+    width: 20px;
+  }
+}
+
+.top-bar-brand-link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+
+  body.top-bar-is-sticky & {
+    height: 25px;
+  }
+
+  @media #{$mobile-only} {
+    right: 0;
+    left: 0;
+    width: 140px;
+    margin: 0 auto;
+  }
+}
+
+.tj-logo-svg-container {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 17.24%;
+  margin-bottom: -$baseline-tj-logo;
+
+  @media #{$breakpoint-top-bar-narrow} {
+    padding-top: 16.79%;
+  }
+
+  @media #{$mobile-only} {
+    margin-bottom: 0;
+  }
+
+  @include sticky-top-bar {
+    padding-top: 133%;
+    margin-bottom: 0;
+  }
+}
+
+.tj-logo-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  * {
+    fill: $color-primary;
+  }
+}
+
+.tj-logo-wordmark-only,
+.tj-logo-icon-only {
+  display: none;
+}
+
+.tj-logo-full,
+.tj-logo-wordmark-only {
+
+  @include sticky-top-bar {
+    display: none;
+  }
+}
+
+.tj-logo-full {
+  @media #{$breakpoint-top-bar-narrow} {
+    display: none;
+  }
+
+  @media #{$mobile-only} {
+    display: none;
+  }
+}
+
+.tj-logo-wordmark-only {
+  @media #{$breakpoint-top-bar-narrow} {
+    display: block;
+  }
+
+  @media #{$breakpoint-top-bar-tiny} {
+    display: none;
+  }
+
+  @media #{$mobile-only} {
+    display: block;
+  }
+}
+
+.tj-logo-icon-only {
+  @include sticky-top-bar {
+    display: block;
+  }
+}

@@ -1,0 +1,173 @@
+.rio-taxons {
+  @include escape-site-padding;
+  font-family: $font-family-heading;
+}
+
+.rio-taxon {
+  margin-bottom: 5rem;
+
+  &[data-product-count="0"] {
+    display: none;
+  }
+}
+
+.rio-taxon-lead,
+.rio-seo-copy-section {
+  padding: 0 $padding-site-mobile;
+  text-align: center;
+
+  h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: $color-grey-text;
+  }
+}
+
+.rio-seo-copy-section {
+  padding: 0 2rem;
+  text-align: left;
+  max-width: calc(960px + 1.5rem);
+  margin: 0 auto;
+  font-size: 14px;
+
+  @media #{$mobile-only} {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+.rio-taxon-lead p {
+  margin: 2px 0 0;
+}
+
+
+$padding-rio-product: 0.75rem;
+
+.rio-taxon-products {
+  max-width: calc(960px + #{$padding-rio-product * 2});
+  margin: 0 auto;
+  font-size: 0; // inline-block hack
+  text-align: center;
+}
+
+.rio-taxon-product {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 1.5rem;
+  font-size: 12px;
+  color: $color-rio-tile-text;
+  text-align: left;
+}
+
+// Separate width styling out into its own section to improve readability
+.rio-taxon-product {
+  &,
+  .rio-taxon[data-product-count="2"] & {
+    width: 50%;
+    max-width: 464px;
+
+    &:nth-child(odd) {
+      padding-right: $padding-rio-product;
+    }
+
+    &:nth-child(even) {
+      padding-left: $padding-rio-product;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 33.33%;
+    padding: 0 $padding-rio-product;
+  }
+
+  // If there is only one product being shown we want it to stretch
+  // the full width of the container.
+  &:first-child:last-child,
+  .rio-taxon[data-product-count="1"] & {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.rio-taxon-product-content {
+  @media screen and (min-width: 900px) {
+    display: flex;
+  }
+
+  h4,
+  p {
+    line-height: 1.25;
+
+    @media screen and (max-width: 767px) {
+      padding-left: 0.25rem;
+    }
+  }
+
+  h4 {
+    margin: 7px 0 0;
+    font-weight: 400;
+    font-size: 12px;
+
+    @media screen and (min-width: 900px) {
+      flex-grow: 1;
+      padding-right: $padding-rio-product;
+    }
+  }
+
+  h4,
+  a {
+    color: inherit;
+  }
+
+  p {
+    margin: 3px 0 0;
+    white-space: nowrap;
+
+    @media screen and (min-width: 900px) {
+      margin-top: 7px;
+    }
+  }
+
+  span {
+    color: $color-primary;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.rio-hidden {
+  display: none;
+}
+
+.color-count {
+  p {
+    line-height: 1.25;
+    margin-top: 0.5em;
+    margin-bottom: 0;
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+
+  a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+
+    @media #{$mobile-only} {
+      padding-left: 0.25rem;
+    }
+
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+

@@ -1,0 +1,24 @@
+.default-image-selector {
+  a {
+    display: inline-block;
+    position: relative;
+
+    i {
+      display: none;
+    }
+
+    &.checked i {
+      position: absolute;
+      display: inline-block;
+      line-height: 48px;
+      width: 48px;
+      text-align: center;
+      color: #69c771;
+    }
+  }
+
+  img {
+    width: 48px;
+    cursor: pointer;
+  }
+}

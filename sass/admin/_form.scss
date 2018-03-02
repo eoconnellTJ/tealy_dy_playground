@@ -1,0 +1,30 @@
+fieldset {
+  font-size: 100%; // override Solidus' default 90%
+}
+
+input[type="checkbox"] {
+  width: auto;
+  vertical-align: middle;
+}
+
+.field {
+  .hint {
+    font-size: 12px;
+    font-style: italic;
+    color: #809cb1;
+  }
+}
+
+.button {
+  padding: 6px 15px;
+  line-height: 1;
+
+  &.red {
+    background-color: $color-ste-void-bg;
+    color: $color-ste-void-text;
+  }
+}
+
+.field_with_errors > .select2-container > .select2-choice {
+  background-color: rgba($color-error, 0.8);
+}

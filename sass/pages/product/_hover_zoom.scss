@@ -1,0 +1,36 @@
+[hover-zoom-cursor] {
+  position: absolute;
+  background: hsla(0, 100%, 100%, 0.25);
+  border: 1px solid hsla(0, 100%, 100%, 0.75);
+  cursor: pointer;
+  cursor: -moz-zoom-in;
+  cursor: -webkit-zoom-in;
+
+  &:not(.show) {
+    display: none;
+  }
+
+  &.open {
+    cursor: -moz-zoom-out;
+    cursor: -webkit-zoom-out;
+  }
+}
+
+[hover-zoom-canvas] {
+  overflow: hidden;
+  z-index: $z-index-hover-zoom;
+
+  &:not(.show) {
+    display: none;
+  }
+
+  @media #{$mobile-only} {
+    /*
+     * The hover zoom is not used in mobile. Background images load regardless
+     * of whether the element is hidden or not, so we want to prevent mobile
+     * devices from having to download the background image if they will never
+     * need it.
+     */
+    background-image: none !important;
+  }
+}

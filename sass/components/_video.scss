@@ -1,0 +1,27 @@
+.video-play-button {
+  display: inline-block;
+  cursor: pointer;
+
+  &,
+  &:before {
+    line-height: 1;
+  }
+
+  &:before {
+    content: "\e81e";
+    color: inherit;
+    font-family: fontello;
+    font-size: 2em;
+  }
+
+  &.has-overlay {
+    @include position(absolute, 0);
+    background-color: rgba($color-grey-light, 0.6);
+
+    &:before {
+      @include position(absolute, 50% null null 50%);
+      z-index: 1;
+      @include transform(translate(-50%, -50%));
+    }
+  }
+}

@@ -1,0 +1,309 @@
+.checkout-steps {
+  font-family: $font-family-heading;
+
+  @media #{$breakpoint-checkout-desktop} {
+    float: right;
+    @include calc(width, "100% - 420px - 1.5rem"); // width of the floated sidebar + gutter
+  }
+
+  @media #{$breakpoint-checkout-mobile} {
+    clear: both;
+  }
+
+  ol {
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  address {
+    font-style: normal;
+    font-size: 14px;
+  }
+
+  .button-link {
+    font-family: inherit;
+  }
+}
+
+.checkout-step + .checkout-step {
+  margin-top: 2em;
+  padding-top: 2em;
+  border-top: 1px solid $color-grey;
+
+  .cat-title {
+    margin-top: 0;
+  }
+}
+
+.processing .processing-spinner {
+  @include spinner();
+  position: relative;
+
+  &::before {
+    top: 50%;
+    margin-left: 16px;
+    margin-top: -18px;
+  }
+
+  &.processing-small::before {
+    @include size(18px);
+    margin-top: -9px;
+    border-width: 3px;
+  }
+
+  &.processing-medium::before {
+    @include size(24px);
+    margin-top: -12px;
+    border-width: 4px;
+  }
+}
+
+.input-combo-wrapper .processing-spinner::before {
+  margin-left: -54px;
+}
+
+.cat-title {
+  ~ div {
+    display: none;
+
+    &.open,
+    &.current {
+      display: block;
+    }
+  }
+
+  .btn {
+    color: $color-link;
+    font-size: 14px;
+    font-weight: normal;
+    cursor: pointer;
+    text-decoration: underline;
+
+    &:hover {
+      color: $color-link-hover;
+    }
+
+    &:before {
+      content: "(";
+    }
+
+    &:after {
+      content: ")";
+    }
+
+    &.hidden {
+      display: none;
+    }
+  }
+}
+
+.checkout-credit-cards {
+  @media screen and (min-width: 600px) {
+    margin-left: -1rem;
+    font-size: 0; // inline-block hack
+  }
+}
+
+.modify-selection-link {
+  font-size: 14px;
+
+  .checkout-step:not(.has-options) & {
+    // Only show the change button if there is an address
+    // assigned to the field.
+    display: none;
+  }
+}
+
+.checkout-credit-card {
+  margin-bottom: 1rem;
+
+  @media screen and (min-width: 600px) {
+    display: inline-block;
+    margin-left: 1rem;
+    vertical-align: top;
+    @include calc(width, "50% - 1rem");
+    font-size: $font-size-base; // fix inline-block hack
+  }
+
+  @media screen and (min-width: #{$width-max}) {
+    @include calc(width, "33.33% - 1rem");
+  }
+}
+
+.checkout-credit-card-content {
+  padding: 14px;
+  border: 1px solid $color-grey;
+  cursor: pointer;
+
+  :hover > & {
+    border-color: $color-link-hover;
+  }
+
+  .selected > & {
+    position: relative;
+    border: 2px solid $color-primary;
+
+    &:after {
+      content: "✓";
+      @include position(absolute, null 0 0 null);
+      width: 30px;
+      height: 30px;
+      background: $color-primary;
+      color: $white;
+      text-align: center;
+      line-height: 30px;
+    }
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  .email {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.checkout-email-form,
+.checkout-address-form {
+  input[type="submit"] {
+    @media #{$mobile-only} {
+      @include padding(null 20px);
+      width: 100%;
+    }
+  }
+}
+
+.gift-message {
+  margin-top: 2rem;
+
+  input:not(:checked) ~ .input-wrapper textarea {
+    display: none;
+  }
+}
+
+.checkout-credit-card-verifications {
+  @include display(flex);
+  margin-bottom: 1em;
+
+  .input-wrapper {
+    @include margin(0 null);
+  }
+}
+
+.checkout-credit-card-expiration {
+  .inline-inputs {
+    margin: 0;
+  }
+
+  .select-wrapper {
+    margin-bottom: 0.5em;
+  }
+
+  .form-field-error-message {
+    margin-top: 0;
+  }
+
+  > .form-field-error-message {
+    margin-bottom: 1em;
+  }
+}
+
+.checkout-form-paypal {
+  margin-top: 40px;
+}
+
+#new_credit_card h3 {
+  margin-top: 40px;
+}
+
+.checkout-attribution-source {
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid $color-grey;
+
+  h4 {
+    margin-bottom: 0;
+  }
+}
+
+.order-confirmation-overlay {
+  @include position(fixed, 0);
+  @include transition(background 0.15s linear);
+  height: 0;
+  background: transparent;
+  // This needs to appear below the order confirmation section.
+  z-index: $z-index-modals - 2;
+
+  .processing & {
+    height: 100%;
+    background: rgba(white, 0.7);
+  }
+}
+
+.order-confirmation {
+  position: relative;
+
+  .processing & {
+    // We want this to appear below a modal's overlay.
+    z-index: $z-index-modals - 1;
+  }
+}
+
+.order-confirmation-button form {
+  display: inline-block;
+}
+
+.order-confirmation-mailing-list-opt-in {
+  label {
+    font-size: 12px;
+  }
+}
+
+// Fade out the source as if it were underneath the
+// overlay and hide the select element so customers
+// cannot interact with it. Additionally, do not show
+// spinners in this section.
+.processing .order-confirmation-content {
+  opacity: 0.3; // the inverse of the overlay's rgba(white, 0.7)
+
+  .processing-spinner {
+    display: none;
+  }
+
+  select {
+    display: none;
+  }
+}
+
+.order-confirmation-content {
+  background-color: $color-grey-light;
+  padding: 1rem 2rem;
+  margin-top: 2.5rem;
+
+  h4 {
+    margin-bottom: 4px;
+  }
+
+  p {
+    margin-top: 4px;
+    line-height: 1.2;
+  }
+}
+
+/*
+ * This is added by the braintree JS. We don't want it visible, but it applies
+ * some inline styles that make it show up. We get around that by making it
+ * visibility hidden.
+ */
+#bt-pp-cancel {
+  position: absolute;
+  visibility: hidden;
+}

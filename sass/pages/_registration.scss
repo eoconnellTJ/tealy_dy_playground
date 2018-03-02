@@ -1,0 +1,98 @@
+$registration-tablet: "only screen and (min-width: #{$mobile-breakpoint + 1}) and (max-width: 900px)";
+
+.registration-wrapper {
+  @media #{$desktop-only} {
+    @include display(flex);
+    @include justify-content(center);
+  }
+}
+
+.registration-section {
+  font-family: $font-family-heading;
+  font-size: 14px;
+
+  &:last-child {
+    @media #{$mobile-only} {
+      border-bottom: 1px solid $color-grey-light;
+    }
+  }
+
+  @media #{$desktop-only} {
+    @include flex(1);
+    @include padding(null 20px);
+    max-width: 400px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  .form-field-has-errors {
+    label {
+      color: $color-accent;
+    }
+
+    input {
+      border-color: $color-accent;
+    }
+  }
+}
+
+.registration-facebook-link {
+  color: $color-facebook;
+}
+
+.password-reset-link {
+  margin: 1em 0 2em;
+  font-size: 12px;
+}
+
+.registration-section {
+  .accordian-trigger {
+    position: relative;
+
+    @media #{$mobile-only} {
+      border-top: 1px solid $color-grey-light;
+
+      &:after {
+        @include position(absolute, 0 0 null null);
+        content: "+";
+        margin: 0.8em 0;
+        color: $color-primary;
+        line-height: 1.25;
+        font-weight: bold;
+        font-size: 24px;
+        font-family: $font-family-body;
+      }
+
+      &.active:after {
+        content: "-";
+      }
+    }
+  }
+
+  .accordian-content {
+    @media #{$mobile-only} {
+      margin-bottom: 2em;
+    }
+
+    @media #{$desktop-only} {
+      display: block !important; // override the accordian component
+    }
+  }
+}
+
+.registration-error-message {
+  margin-bottom: 1em;
+  font-family: $font-family-heading;
+  font-size: 14px;
+  color: $color-accent;
+}
+
+.registration-newsletter-opt-in {
+  font-size: 12px;
+}

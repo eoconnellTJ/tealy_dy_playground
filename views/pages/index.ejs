@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ../partials/header.ejs %>
+    <script>
+      document.addEventListener("DOMContentLoaded", function (event) {
+        console.log("DOM fully loaded and parsed");
+      });
+    </script>
+</head>
+
+<body>
+  <script type="text/javascript">
+    var utag_data = {
+      title: "", // 
+      page_type: "" // 
+    }
+  </script>
+  <script>
+    (function (a, b, c, d) {
+      a = '//tags.tiqcdn.com/utag/tommyjohn/internal-developer/dev/utag.js';
+      b = document;
+      c = 'script';
+      d = b.createElement(c);
+      d.src = a;
+      d.type = 'text/java' + c;
+      d.async = true;
+      a = b.getElementsByTagName(c)[0];
+      a.parentNode.insertBefore(d,
+        a);
+    })();
+  </script>
+  <% include ../partials/nav.ejs %>
+    <h1 class='main-header'>Home Page</h1>
+
+    <div class='recommend-here'></div>
+
+    <div id="main">
+      <div class="hero-banner"></div>
+      <div class="banner-box">
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+      </div>
+      <div class="box-section">
+        <div id='box1' class="col-md-6 col-xs-12">box 1</div>
+        <div id='box2' class="col-md-6 col-xs-12">box 2</div>
+      </div>
+      <div class="box-section">
+        <div id='box3' class="col-md-6 col-xs-12">box 3</div>
+        <div id='box4' class="col-md-6 col-xs-12">box 4</div>
+      </div>
+
+    </div>
+    <div id="footer">
+      <nav>
+        <ul>
+          <li class='nav-item'>
+            <a href="">menu 1</a>
+          </li>
+        </ul>
+      </nav>
+      <nav>
+        <style>
+          .nav-item {
+            font-size: 24px;
+          }
+        </style>
+        <ul>
+          <li class='nav-item'>
+            <a href="">menu 2</a>
+          </li>
+        </ul>
+      </nav>
+      <nav>
+        <ul>
+          <li class='nav-item'>
+            <a href="">menu 3</a>
+          </li>
+        </ul>
+      </nav>
+      <nav>
+        <ul>
+          <li class='nav-item'>
+            <a href="">menu 4</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!-- <script src="//localhost:35729/livereload.js"></script> -->
+</body>
+<footer>
+  <div class='main-footer'>
+    footer
+  </div>
+</footer>
+
+</html>

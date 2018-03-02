@@ -1,0 +1,148 @@
+.category-header.has-hero-image {
+  position: relative;
+  @include escape-site-padding;
+}
+
+.category-header:not(.has-hero-image) {
+  margin: 0 auto;
+  max-width: $width-max;
+}
+
+.category-hero {
+  color: $white;
+}
+
+.category-hero-image {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  &.mobile {
+    height: 64vw;
+
+    @media #{$desktop-only} {
+      display: none;
+    }
+  }
+
+  &.desktop {
+    height: 30.9vw;
+
+    video {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media #{$mobile-only} {
+      display: none;
+    }
+  }
+}
+
+[stealth-video-controls] {
+  cursor: pointer;
+}
+
+.category-hero-image {
+  margin-bottom: 2rem;
+
+  img {
+    display: block;
+  }
+}
+
+.category-hero-content {
+  font-family: $font-family-heading;
+  text-align: center;
+
+  .category-header:not(.has-hero-image).desktop-only &:not(.has-subtitle) {
+    // The one and only case where we want the text to be left aligned
+    text-align: left;
+  }
+
+  .has-hero-image & {
+    @include position(absolute, 50% null null);
+    @include transform(translateY(-50%));
+    @include site-padding;
+    width: 100%;
+    color: $white;
+  }
+}
+
+.category-hero-title,
+.category-hero-subtitle {
+  margin: 0;
+
+  .has-hero-image & {
+    color: inherit;
+  }
+}
+
+.category-hero-title {
+  @include responsive-font-size($font-size-min: 22, $font-size-max: 32);
+  margin-top: 2rem;
+
+  img {
+    @include margin(null auto);
+    display: block;
+    max-height: 1.6em;
+  }
+
+  .has-hero-image & {
+    @include responsive-font-size($font-size-min: 24, $font-size-max: 50);
+    margin-top: 0;
+  }
+}
+
+.category-hero-subtitle {
+  @include margin(0.5em auto null);
+  max-width: 500px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: $color-grey-text;
+}
+
+.category-title-bar {
+  margin: 2rem 0;
+
+  @media #{$mobile-only} {
+    margin: 0;
+  }
+
+  .category-hero-title-container {
+    margin: 0;
+
+    @media #{$mobile-only} {
+      margin: 2rem 0;
+    }
+  }
+
+  .category-hero-title {
+    margin: 0;
+    font-weight: bold;
+    line-height: 1.25;
+    color: $color-primary;
+  }
+
+  .sort-menu {
+    margin: auto 0 0 0;
+
+    @media #{$mobile-only} {
+      width: 100%;
+      margin-bottom: 1rem;
+
+      label {
+        display: none;
+      }
+    }
+  }
+
+  @media #{$desktop-only} {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .off-canvas {
+    text-align: left;
+  }
+}

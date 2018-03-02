@@ -1,0 +1,28 @@
+#main {
+  color: $color-blue-grass;
+  font-size: 28px;
+  border: 5px solid $color-primary-light;
+  height: 250px;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+.box {
+  @include border-radius(10px);
+}
+.box-section > div {
+  background-color: "lightblue";
+}
+#box {
+  background-color: "blue";
+}
+
+.recommend-here {
+  min-height: 125px;
+  border: 1px solid black;
+}

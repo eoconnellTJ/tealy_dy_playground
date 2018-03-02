@@ -1,0 +1,117 @@
+// Table of Contents
+//
+// Colors
+// Typography
+// Media Query Ranges
+// Z-Index
+// Animations
+// Colors
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+/* TJ Color Pallette */
+
+$color-blue-grass: #00424a;
+$color-vermillion: #cd2d2c;
+$color-slate: #d1d6d0;
+$color-navy: #063057;
+/* Product colors */
+
+$color-product-soft: #54b8a5;
+$color-product-cool: #a86e9b;
+$color-product-move: #dc5664;
+$color-product-warm: #f7ba56;
+// This is not quite the product color but a much more
+// legible version for the website.
+$color-product-light: #9eaab2;
+$product-colors: ( soft: $color-product-soft, cool: $color-product-cool, move: $color-product-move, warm: $color-product-warm, light: $color-product-light);
+/* Site colors */
+
+$color-primary: $color-blue-grass;
+$color-primary-light: #064b4f;
+$color-link: #587679;
+$color-link-hover: $color-primary;
+$color-accent: #b73d31;
+$color-accent-dark: #9b2e29;
+$color-grey-light: #f5f5f5;
+$color-grey: #ddd;
+$color-grey-text: #808080;
+$color-grey-dark: #4d4d4d;
+$color-grey-ice: #e1e7e7;
+$black: #000;
+$white: #fff;
+$shadow: rgba($color-grey-light, 0.95);
+$shadow-light: hsla(0, 0%, 0%, 0.3);
+$color-facebook: #3b5998;
+$color-paypal: #0079c1;
+$color-rio-tile-text: #648082;
+/* Date picker colors */
+
+$pd-text-color: $color-grey-text;
+$pd-title-color: $color-grey-text;
+$pd-picker-border: $color-grey;
+$pd-picker-border-bottom: $color-grey;
+$pd-day-color: $color-grey-text;
+$pd-day-hover-bg: $color-grey-dark;
+$pd-day-today-color: $color-grey-dark;
+$pd-day-selected-bg: $color-accent;
+$pd-day-selected-shadow: $color-accent;
+// Typography
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+$font-size-base: 16px;
+$font-size-contentful-mobile-small: $font-size-base;
+$font-size-contentful-mobile-medium: 24px;
+$font-size-contentful-desktop-small: 20px;
+$font-size-contentful-desktop-medium: 46px;
+/* Special Characters */
+
+$character-line-feed: "\A";
+$character-up-open-mini: "\e80e";
+$character-down-open-mini: "\e80f";
+$character-left-open: "\e816";
+$character-right-open: "\e815";
+// Layout
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+$padding-site: 48px;
+$padding-site-mobile: $padding-site * (2 / 3);
+$width-min: 320px;
+$width-max: 1280px - ($padding-site * 2);
+$width-max-with-padding: 1280px;
+$width-max-full-bleed: 1184px;
+// Media Query Ranges
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+$mobile-breakpoint: 767px;
+$breakpoint-input-combo: 450px;
+$tablet-breakpoint: 1024px;
+$mobile-only: "only screen and (max-width: #{$mobile-breakpoint})";
+$tablet-only: "only screen and (max-width: #{$tablet-breakpoint})";
+$desktop-only: "only screen and (min-width: #{$mobile-breakpoint + 1})";
+$max-width-only: "screen and (min-width: #{$width-max-with-padding})";
+// Checkout needs a slightly larger breakpoint for tablet-sized screens.
+// Otherwise, the form is almost unusable.
+$breakpoint-checkout-mobile: "only screen and (max-width: 900px)";
+$breakpoint-checkout-desktop: "only screen and (min-width: 901px)";
+// Responsive logo
+$breakpoint-top-bar-tiny: "only screen and (min-width: #{$mobile-breakpoint}) and (max-width: 980px)";
+$breakpoint-top-bar-narrow: "only screen and (min-width: 981px) and (max-width: 1143px)";
+$breakpoint-top-bar-wide: "only screen and (min-width: 1144px)";
+// Z-Index
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+$z-index-main-header: 1000;
+$z-index-flash: 2000;
+$z-index-dropdowns: 3000;
+$z-index-fixed-elements: 4000;
+$z-index-off-canvas: 5000;
+$z-index-hover-zoom: 6000;
+$z-index-modals: 7000;
+$z-index-institial: 8000;
+$z-index-tooltips: 9000;
+// Animations
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+$duration-default : 0.3s;
+$timing-default : ease-in-out;
+$transition-default : $duration-default $timing-default;
+// Product / show
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+$width-option-tile: 40px;
+$width-option-tile-large: 60px;
+$width-option-tile-small: 28px;
+$width-order-history: 320px - (16px * 2);

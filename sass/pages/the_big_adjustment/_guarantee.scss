@@ -1,0 +1,58 @@
+.big-adjustment-guarantee {
+  position: relative;
+  height: 0;
+  margin-top: $padding-site;
+  padding-top: (500 / 800) * 100%;
+  background-image: image-url("big_adjustment/best-pair-guarantee-drawer-mobile.jpg");
+  background-size: cover;
+  background-position: center center;
+  @include ie-transform-container;
+
+  @media #{$desktop-only} {
+    padding-top: (500 / 1600) * 100%;
+    background-image: image-url("big_adjustment/best-pair-guarantee-drawer.jpg");
+  }
+}
+
+.big-adjustment-guarantee-content {
+  @include position(absolute, 50% null null 50%);
+  @include transform(translate(-50%, -50%));
+  width: 100%;
+  max-width: $width-max;
+  @include padding(null 1rem);
+  text-align: center;
+  color: $white;
+  @include clear-margins;
+
+  @media #{$desktop-only} {
+    @include padding(null $padding-site);
+  }
+
+  h2 {
+    color: inherit;
+    font-size: 22px;
+    line-height: 1;
+    margin-bottom: 0;
+
+    @media #{$desktop-only} {
+      font-size: 44px;
+    }
+  }
+
+  p {
+    margin: 1em 0 1.5em;
+
+    @media #{$mobile-only} {
+      margin: 1em 0;
+      font-size: 13px;
+    }
+  }
+
+  .button {
+    &,
+    &:hover {
+      color: $white;
+      border-color: $white;
+    }
+  }
+}

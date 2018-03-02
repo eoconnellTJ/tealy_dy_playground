@@ -1,0 +1,43 @@
+// @include keyframes(shake) {
+  @keyframes shake {
+  8%, 41% {
+    left: -10px;
+  }
+
+  25%, 58% {
+    left: 10px;
+  }
+
+  75% {
+    left: -5px;
+  }
+
+  92% {
+    left: 5px;
+  }
+
+  0%, 100% {
+    left: 0;
+  }
+}
+
+// @include keyframes(reverse-pulse) {
+  @keyframes reverse-pulse {
+  // Only go up to 75% to include a fake "pause" during
+  // multiple iterations. For example, if the animation
+  // were set to 4s you would get a 1s pause between
+  // pulses.
+  //
+  // Instead of scaling from 1.0 to 1.2, we're start smaller
+  // and scaling to "normal" size. This fixes an issue
+  // where the element appears blurred during animation.
+  0%, 25%, 50%, 75% {
+    // @include transform(scale3d(0.833, 0.833, 0.833));
+    transform: (scale3d(0.833, 0.833, 0.833));
+  }
+
+  12.5%, 37.5%, 62.5% {
+    // @include transform(scale3d(1, 1, 1));
+    transform: (scale3d(0.833, 0.833, 0.833));
+  }
+}

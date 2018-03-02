@@ -1,0 +1,204 @@
+.stay-tucked-products-header,
+.stay-tucked-fabrics-header {
+  margin-bottom: 48px;
+  text-align: center;
+
+  h2 {
+    @include responsive-font-size($font-size-min: 24, $font-size-max: 32);
+    margin-top: 3rem;
+  }
+
+  p,
+  ul {
+    max-width: 800px;
+    margin: auto;
+  }
+
+  p,
+  li {
+    @include responsive-font-size($font-size-min: 14, $font-size-max: 18);
+  }
+}
+
+.stay-tucked-products-header p {
+  @include responsive-font-size($font-size-min: 14, $font-size-max: 16);
+  margin-top: 1rem;
+}
+
+.stay-tucked-neckline-content,
+.stay-tucked-fabric-content {
+  h3 {
+    margin: 1em 0 0;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .button {
+    margin-top: 5px;
+  }
+}
+
+.stay-tucked-reasons {
+  font-size: 0;
+
+  li {
+    position: relative;
+    display: inline;
+
+    @media #{$mobile-only} {
+      &:nth-child(even) {
+        font-weight: bold;
+      }
+    }
+
+    @media #{$desktop-only} {
+      display: inline-block;
+    }
+
+    &:not(:last-child) {
+      @media #{$desktop-only} {
+        margin-right: 1rem;
+        padding-right: 1rem;
+      }
+    }
+
+    &:not(:last-child)::after {
+      line-height: 0;
+      font-weight: normal;
+      content: " • ";
+
+      @media #{$desktop-only} {
+        @include transform(translateX(-50%));
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+.stay-tucked-necklines {
+  @include margin(null (-$padding-site-mobile));
+
+  @media screen and (min-width: 600px) {
+    @include margin(null -6px 80px);
+    font-size: 0;
+  }
+}
+
+.stay-tucked-neckline {
+  @media screen and (max-width: 599px) {
+    @include display(flex);
+    @include align-items(center);
+    margin-bottom: 1em;
+    background-color: $color-grey-light;
+    overflow: hidden;
+
+    &:nth-child(even) {
+      direction: rtl;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    @include padding(null 6px);
+    display: inline-block;
+    margin-bottom: 2em;
+    width: 50%;
+    vertical-align: top;
+    font-size: $font-size-base;
+  }
+
+  @media screen and (min-width: 980px) {
+    width: 25%;
+  }
+}
+
+.stay-tucked-neckline-image {
+  display: block;
+
+  @media screen and (max-width: 599px) {
+    @include flex(0 0 auto); // Mobile safari fix
+    width: 200px;
+    margin-left: -90px;
+
+    .stay-tucked-neckline:nth-child(even) & {
+      margin-left: 0;
+      margin-right: -90px;
+    }
+  }
+}
+
+.stay-tucked-neckline-content {
+  @media #{$mobile-only} {
+    @include padding(null $padding-site-mobile null 0);
+    @include clear-margins;
+    display: inline-block;
+    direction: ltr;
+
+    .stay-tucked-neckline:nth-child(even) & {
+      @include padding(null 0 null $padding-site-mobile);
+    }
+  }
+}
+
+.stay-tucked-fabrics {
+  @include margin(null (-$padding-site-mobile));
+
+  @media screen and (min-width: 671px) {
+    @include display(flex);
+    @include justify-content(center);
+    @include margin(null -4px);
+  }
+}
+
+.stay-tucked-fabric {
+  position: relative;
+  width: 100%;
+  text-align: center;
+
+  @media screen and (max-width: 670px) {
+    &:not(:first-child) {
+      margin-top: 1rem;
+    }
+  }
+
+  @media screen and (min-width: 671px) {
+    @include margin(null 8px);
+    width: 33.33%;
+  }
+
+  @each $type, $color in $product-colors {
+    &.#{$type} {
+      h3 {
+        color: $color;
+      }
+
+      .button {
+        @include button-color($color);
+      }
+    }
+  }
+
+  img {
+    display: block;
+    width: 100%;
+
+    @media screen and (max-width: 670px) {
+      opacity: 0.7; // increases text legibility
+    }
+  }
+}
+
+.stay-tucked-fabric-content {
+  @media screen and (max-width: 670px) {
+    @include transform(translateY(-50%));
+    @include clear-margins;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    padding: 0 10px;
+  }
+}

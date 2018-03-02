@@ -1,0 +1,39 @@
+.order-summary-totals {
+  font-size: 12px;
+  font-family: $font-family-heading;
+}
+
+.order-summary-group + .order-summary-group {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid $color-grey-light;
+}
+
+.order-summary-item {
+  @include display(flex);
+
+  & + & {
+    margin-top: 0.5rem;
+  }
+
+  span:first-child {
+    @include flex(1);
+    padding-right: 0.5rem;
+  }
+
+  small {
+    display: block;
+    font-size: 11px;
+    color: $color-grey-text;
+  }
+}
+
+.order-summary-discount {
+  color: $color-accent;
+}
+
+.order-summary-total {
+  @include margin(null -1rem);
+  @include padding(null 1rem);
+  font-size: 16px;
+}

@@ -1,0 +1,63 @@
+.text-cta-block-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.text-cta-block {
+  padding: 3em;
+  text-align: center;
+  width: 100%;
+
+  @media #{$mobile-only} {
+    padding: 1em 0;
+    max-width: 300px;
+    margin: auto;
+  }
+
+  @media #{$tablet-only} {
+    text-align: center;
+  }
+
+  ul {
+    display: inline-block;
+    text-align: left;
+    margin: 1em auto;
+  }
+
+  blockquote {
+    // create spacing for the absolutely positioned quote character
+    margin-top: 60px;
+    position: relative;
+
+    :before {
+      color: $color-grey;
+      content: "\201C"; // open-quote
+      font-size: 4em;
+      font-family: sans-serif;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, -100px);
+    }
+
+    p {
+      font-size: 26px;
+    }
+  }
+
+  .text-cta-block-button {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .text-cta-block-heading {
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+
+  .text-cta-block-body > :not(blockquote) {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+}

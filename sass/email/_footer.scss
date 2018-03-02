@@ -1,0 +1,56 @@
+.email-footer {
+  width: 100%;
+  margin-top: 2em;
+}
+
+.email-footer-social-support {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  background: $color-primary;
+
+  @include clear-margins;
+
+  td {
+    vertical-align: top;
+    text-align: center;
+  }
+
+  .email-footer-social-header-row {
+
+    h4 {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: $white;
+    }
+  }
+
+  .email-footer-social-icons,
+  .email-footer-support {
+    margin: 0;
+    vertical-align: top;
+    text-align: center;
+
+    td {
+      vertical-align: top;
+    }
+  }
+
+  .email-footer-social-icons {
+    display: inline-table;
+
+    td {
+      padding: 4px;
+    }
+  }
+}
+
+.email-footer-copyright td {
+  padding: 3em 2em;
+  background: darken($color-primary, 5%);
+  color: tint($color-primary, 30%);
+  text-align: center;
+  font-size: 12px;
+  @include small-caps;
+}

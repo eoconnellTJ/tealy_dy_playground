@@ -1,0 +1,14 @@
+.subcategory-page,
+.category-page {
+  .product-tiles {
+    @media #{$mobile-only} {
+      margin-top: 1.5rem;
+    }
+
+    @media #{$desktop-only} {
+      @include calc(width, "100% - 200px - 1.5rem"); // width of the filters + a gutter
+      max-width: 960px;
+      float: right;
+    }
+  }
+}

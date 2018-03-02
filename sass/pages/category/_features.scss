@@ -1,0 +1,114 @@
+.category-features:not(.has-multiple-tabs) {
+  .nav-tabs {
+    display: none;
+  }
+
+  .tabs-content {
+    margin-top: 3rem;
+  }
+}
+
+.category-feature-pane,
+.category-style-pane {
+  text-align: center;
+
+  h2 {
+    margin: 0;
+    font-size: 20px;
+  }
+}
+
+.category-feature-description {
+  max-width: 800px;
+  margin-top: 10px;
+  @include margin(null auto);
+}
+
+.category-feature-tiles {
+  margin-top: 2rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid $color-grey-light;
+
+  @media #{$mobile-only} {
+    padding-top: 12px;
+    padding-bottom: 2rem;
+
+    &:after {
+      content: "flickity";
+      display: none;
+    }
+  }
+
+  .flickity-page-dots {
+    bottom: 1rem;
+  }
+}
+
+.category-feature-tile {
+  width: 100%;
+
+  @media #{$desktop-only} {
+    display: inline-block;
+    width: auto;
+
+    & + & {
+      margin-left: 3rem;
+    }
+  }
+
+  @media screen and (min-width: #{$mobile-breakpoint}) and (max-width: 960px) {
+    & + & {
+      margin-left: 1.5rem;
+    }
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  .feature svg {
+    @include size(60px);
+    fill: $color-primary;
+  }
+}
+
+.category-feature-tile-title {
+  display: block;
+  color: $color-primary;
+  font-family: $font-family-heading;
+  font-size: 12px;
+}
+
+.category-feature-details {
+  @media #{$mobile-only} {
+    display: block;
+  }
+
+  @media #{$desktop-only} {
+    padding-top: 16px;
+
+    .tooltip-content {
+      margin: 0;
+    }
+  }
+}
+
+.category-feature-details-content.tooltip-content {
+  @media #{$mobile-only} {
+    /* Undo popover-taret styles for mobile since we're switching to a slider */
+    display: block;
+    position: static;
+    @include transform(none);
+    @include margin(null auto);
+    padding: 12px 0;
+    border: 0;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+}

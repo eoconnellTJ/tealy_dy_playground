@@ -1,0 +1,172 @@
+.product-filters {
+  width: 200px;
+  float: left;
+  font-size: 14px;
+  @include clear-margins;
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+}
+
+.mobile-product-filters {
+  .refine-search {
+    margin-top: 30px;
+  }
+
+  .product-filters {
+    padding: 1.5rem 1.5rem;
+    min-width: 75%;
+    background: white;
+
+    .product-filter-root {
+      position: relative;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .product-filters-trigger {
+      font-size: 14px;
+      @include position(absolute, 1.25em 1.25em null null);
+    }
+  }
+}
+
+.product-filter-results {
+  font-family: $font-family-heading;
+  color: lighten($color-grey-dark, 30%);
+}
+
+.product-filter {
+  h3 {
+    font-size: 18px;
+    margin-top: 1.5em;
+
+    @media #{$mobile-only} {
+      font-size: 14px;
+    }
+
+    .product-filter-results + & {
+      margin-top: 2em;
+    }
+  }
+
+  a {
+    text-decoration: none;
+
+    @media #{$mobile-only} {
+      font-size: 14px;
+    }
+  }
+
+  &:not(:last-child) {
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid $color-grey-light;
+  }
+
+  .accordian-trigger {
+    // Accordian trigger to fill out parent container for large click areas
+    height: 100%;
+
+    h3 {
+      position: relative;
+    }
+
+    h3:after {
+      content: "+";
+      position: absolute;
+      right: 0;
+    }
+
+    &.active h3:after {
+      content: "-";
+    }
+  }
+}
+
+.product-filter-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.75em;
+
+  li + li {
+    margin-top: 10px;
+  }
+
+  li.active {
+    div:before {
+      content: '> ';
+    }
+
+    a {
+      font-weight: bold;
+      color: $color-primary;
+    }
+  }
+}
+
+.product-filter-list.has-icons {
+  li {
+    @extend .clearfix;
+  }
+
+  $width-icon-svg: 20px;
+
+  div {
+    // make room for the icons
+    margin-left: $width-icon-svg + 10px;
+  }
+
+  svg {
+    @include size($width-icon-svg auto);
+    float: left;
+    fill: $color-link;
+  }
+
+  .active svg,
+  a:hover > svg {
+    fill: $color-link-hover;
+  }
+}
+
+.filter-seo-copy-section {
+  margin-top: 1.5rem;
+
+  @media #{$desktop-only} {
+    @include calc(width, "100% - 200px - 3rem"); // width - filters - (gutter + tiles margins)
+    max-width: 960px;
+    float: right;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: $color-grey-text;
+  }
+}
+
+.filter-selection {
+  border: 1px solid $color-grey-light;
+  padding: 8px;
+  display: inline-block;
+  margin: 8px 8px 0 0;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .filter-value-cancellation {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+}

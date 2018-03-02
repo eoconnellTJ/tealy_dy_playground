@@ -1,0 +1,41 @@
+.interstitial-wrapper {
+  @include display(flex);
+  @include flex-direction(column);
+  @include align-items(center);
+  @include justify-content(center);
+  min-height: 100vh;
+  font-family: $font-family-heading;
+  text-align: center;
+
+  @media #{$desktop-only} {
+    background: $color-grey-light;
+  }
+}
+
+.interstitial-content {
+  @include clear-margins;
+  max-width: 450px;
+  padding: 2rem;
+  background: white;
+  font-size: 0.9rem;
+
+  @media #{$desktop-only} {
+    padding: 3rem;
+    font-size: 1rem;
+  }
+
+  button,
+  .button {
+    @include padding(null 1rem);
+    width: 100%;
+  }
+}
+
+.interstitial-footer {
+  padding: 1rem;
+  text-align: center;
+
+  svg {
+    fill: $color-primary;
+  }
+}

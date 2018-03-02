@@ -1,0 +1,41 @@
+.error-page {
+  @media #{$desktop-only} {
+    width: 500px;
+    padding-top: 150px;
+    margin-left: 150px;
+
+    h1 {
+      font-size: 46px;
+    }
+  }
+
+  @media #{$mobile-only} {
+    padding: 3rem 1rem 1rem;
+
+    h1 {
+      font-size: 24px;
+    }
+  }
+
+  .tj-logo-svg-container {
+    width: 175px;
+    padding-top: 30px;
+
+    .tj-logo-full {
+      display: block;
+    }
+
+    .tj-logo-wordmark-only {
+      display: none;
+    }
+  }
+
+  h1 {
+    line-height: 1;
+    margin-top: 3rem;
+  }
+
+  .button {
+    margin-top: 2em;
+  }
+}

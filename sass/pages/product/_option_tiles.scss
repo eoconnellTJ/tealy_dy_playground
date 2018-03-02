@@ -1,0 +1,136 @@
+.product-form-colors,
+.product-form-amounts,
+.product-form-sizes {
+  font-size: 0;
+  margin: 0 -3px;
+
+  input {
+    display: none;
+  }
+}
+
+.product-form-color,
+.product-form-amount,
+.product-form-size {
+  display: inline-block;
+  @include size($width-option-tile);
+  margin: 0 3px 3px 3px;
+  padding: 3px;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  :checked + & {
+    border: 1px solid $color-grey-dark;
+    color: $color-grey-dark;
+  }
+}
+
+.detailed-size-measurements {
+  @include size($width-option-tile-large);
+}
+
+.product-form-amount {
+  @include size($width-option-tile + 10px);
+}
+
+.product-form-color {
+  &:hover {
+    border: 1px solid $color-grey-text;
+  }
+}
+
+.product-form-color-swatch {
+  position: relative;
+  height: 100%;
+  background-size: cover;
+  border: 1px solid $color-grey;
+}
+
+.product-form-size,
+.product-form-amount {
+  position: relative;
+  background: $white;
+  border-color: $color-grey;
+  color: set-lightness($color-grey-dark, 50%);
+  text-align: center;
+  font-size: 10px;
+
+  &:hover {
+    border-color: $color-grey-text;
+  }
+
+  @include mobile-safari-link-fix;
+}
+
+.product-form-amount {
+  font-size: 12px;
+}
+
+.product-form-size-name,
+.product-form-amount-name {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  @include transform(translateY(-50%));
+
+  label:not(.error) & {
+    background: $white;
+  }
+}
+
+@mixin stripe {
+  &:before {
+    content: '';
+    display: block;
+    width: 141%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 1px solid $color-grey;
+    @include transform-origin(left top);
+    @include transform(rotate(45deg));
+  }
+}
+
+.product-form-wishlist {
+  + label .product-form-color-swatch {
+    position: relative;
+    @include stripe;
+  }
+
+  + .product-form-size,
+  + .product-form-amount {
+    position: relative;
+    @include stripe;
+
+    &,
+    .product-form-size-name,
+    .product-form-amount-name {
+      background: $color-grey-light;
+    }
+  }
+
+  &:checked + label {
+    border-color: $color-accent;
+    border-width: 2px;
+
+    &.product-form-size,
+    &.product-form-amount {
+      &,
+      .product-form-size-name,
+      .product-form-amount-name {
+        background: #fff4f4; // Light red. Only used in this one place.
+        color: $color-accent;
+      }
+    }
+
+    &:before {
+      border-color: $color-accent;
+    }
+
+    div:before {
+      border-color: $color-accent;
+    }
+  }
+}

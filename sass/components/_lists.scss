@@ -1,0 +1,60 @@
+@mixin inline-list {
+  list-style: none;
+
+  > li {
+    display: inline-block;
+    list-style: none;
+    margin-left: 1em;
+  }
+}
+
+.inline-list {
+  @include inline-list();
+}
+
+.unstyled-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+dt {
+  font-weight: bold;
+}
+
+.dl-horizontal {
+  dt {
+    float: left;
+    width: 160px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  dd {
+    margin-left: 180px;
+  }
+}
+
+.dl-inline {
+  @include clearfix;
+
+  dt,
+  dd {
+    float: left;
+  }
+
+  dt {
+    clear: left;
+    font-weight: normal;
+
+    &:after {
+      content: ':';
+    }
+  }
+
+  dd {
+    margin-left: 0.5em;
+  }
+}
