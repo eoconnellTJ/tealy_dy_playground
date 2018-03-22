@@ -29,29 +29,71 @@ try {
 
     // Start Tealium loader 4.32
     // Please do not modify
-    if (utag === undefined) { utag = {}; } if (utag.ut === undefined) { utag.ut = {}; } if (utag.ut.loader === undefined) 
-    { u.loader = function (o) { var a, b, c, l; a = document; if (o.type === "iframe") 
-    { b = a.createElement("iframe"); 
-    b.setAttribute("height", "1"); 
-    b.setAttribute("width", "1"); 
-    b.setAttribute("style", 
-    "display:none"); 
-    b.setAttribute("src", o.src); } 
-    else if (o.type === "img") { utag.DB("Attach img: " + o.src); 
-    b = new Image(); b.src = o.src; return; } 
-    else { b = a.createElement("script"); 
-    b.language = "javascript"; 
-    b.type = "text/javascript"; 
-    b.async = 1; b.charset = "utf-8"; 
-    b.src = o.src; } if (o.id) { b.id = o.id; } 
-    if (typeof o.cb === "function") 
-    { if (b.addEventListener) 
-      { b.addEventListener("load", function () { o.cb(); }, false); } 
-      else { b.onreadystatechange = function () { 
-        if (this.readyState === "complete" || this.readyState === "loaded") { 
-          this.onreadystatechange = null; o.cb(); } }; } } l = o.loc || "head"; c = a.getElementsByTagName(l)[0]; if (c) { 
-            utag.DB("Attach to " + l + ": " + o.src); if (l === "script") { c.parentNode.insertBefore(b, c); } 
-            else { c.appendChild(b); } } }; } else { u.loader = utag.ut.loader; }
+    if (utag === undefined) {
+  utag = {};
+}
+if (utag.ut === undefined) {
+  utag.ut = {};
+}
+if (utag.ut.loader === undefined) {
+  u.loader = function(o) {
+    var a, b, c, l;
+    a = document;
+    if (o.type === "iframe") {
+      b = a.createElement("iframe");
+      b.setAttribute("height", "1");
+      b.setAttribute("width", "1");
+      b.setAttribute("style", "display:none");
+      b.setAttribute("src", o.src);
+    } else if (o.type === "img") {
+      utag.DB("Attach img: " + o.src);
+      b = new Image();
+      b.src = o.src;
+      return;
+    } else {
+      b = a.createElement("script");
+      b.language = "javascript";
+      b.type = "text/javascript";
+      b.async = 1;
+      b.charset = "utf-8";
+      b.src = o.src;
+    }
+    if (o.id) {
+      b.id = o.id;
+    }
+    if (typeof o.cb === "function") {
+      if (b.addEventListener) {
+        b.addEventListener(
+          "load",
+          function() {
+            o.cb();
+          },
+          false
+        );
+      } else {
+        b.onreadystatechange = function() {
+          if (this.readyState === "complete" || this.readyState === "loaded") {
+            this.onreadystatechange = null;
+            o.cb();
+          }
+        };
+      }
+    }
+    l = o.loc || "head";
+    c = a.getElementsByTagName(l)[0];
+    if (c) {
+      utag.DB("Attach to " + l + ": " + o.src);
+      if (l === "script") {
+        c.parentNode.insertBefore(b, c);
+      } else {
+        c.appendChild(b);
+      }
+    }
+  };
+} else {
+  u.loader = utag.ut.loader;
+}
+
     // End Tealium loader
 
     //By default, the 'u.ev' JavaScript object allows you to track View events using the code: u.ev = {'view' : 1}
@@ -73,8 +115,9 @@ try {
           /* Initialize default tag parameter values here */
           /* Examples: */
           /* "account_id" : "1234567" */
-          "base_url" : "https://www.googletagmanager.com/gtag/js?id=UA-115468452-1" 
+          "base_url" : "https://www.googletagmanager.com/gtag/js?id=UA-115468452-1"
           /* A value mapped to "account_id" or "base_url" in TiQ will replace these default values. */
+         // "attentive": "https://cdn.attn.tv/loader.js"
         };
 
         /* Start Tag-Scoped Extensions Code */
@@ -98,7 +141,33 @@ try {
         /* Start Tag Sending Code */
 
           // Insert your tag sending code here.
-
+(__attentive_domain = "tommyjohn.attn.tv"),
+  (function() {
+    window.__attentive = {
+      invoked: !1,
+      show: function() {
+        this.invoked = !0;
+      }
+    };
+    var t = !1;
+      function e() {
+        if (document.readyState && !/loaded|complete/.test(document.readyState))
+          return void setTimeout(e, 10);
+        if (!t) return (t = !0), void setTimeout(e, 50);
+        var n = document.createElement("script");
+        n.setAttribute("async", "true"),
+          (n.type = "text/javascript"),
+          (n.src = "https://cdn.attn.tv/loader.js"),
+          (
+            (document.getElementsByTagName("head") || [null])[0] ||
+            document.getElementsByTagName("script")[0].parentNode
+          ).appendChild(n);
+      };
+    window.addEventListener
+      ? window.addEventListener("load", e, !1)
+      : window.attachEvent("onload", e);
+  })(),
+  window.__attentive.show();
         /* End Tag Sending Code */
 
 
@@ -119,6 +188,8 @@ try {
           /* End Loader Callback Tag Sending Code */
         };
 
+        
+
         /* End Loader Callback Function */
 
 
@@ -128,6 +199,7 @@ try {
           if (!u.initialized) {
             //u.loader({"type" : "iframe", "src" : u.data.base_url + c.join(u.data.qsp_delim), "cb" : u.loader_cb, "loc" : "body", "id" : 'utag_##UTID##' });
             u.loader({"type" : "script", "src" : u.data.base_url, "cb" : u.loader_cb, "loc" : "script", "id" : 'utag_##UTID##' });
+            //u.loader({"type" : "script", "src" : u.data.attentive, "cb" : u.loader_cb, "loc" : "script", "id" : 'utag_##UTID##' });
           } else {
             u.loader_cb();
           }
