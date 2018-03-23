@@ -30,7 +30,7 @@ app.get("/category", (req, res) => {
 });
 
 app.get("/product", (req, res) => {
-  res.render("pages/product");
+  res.render("pages/product", { products });
 });
 
 app.get("/custom", (req, res) => {
