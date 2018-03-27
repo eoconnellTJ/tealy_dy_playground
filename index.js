@@ -2,6 +2,7 @@ var express = require("express");
 var app = express();
 var pg = require("pg");
 var products = require("./data/products");
+var footerlinks = require("./data/footer");
 
 app.set("port", process.env.PORT || 5000);
 
@@ -22,23 +23,23 @@ app.get("/data.json", function(req, res) {
 });
 
 app.get("/", function(request, response) {
-  response.render("pages/index");
+  response.render("pages/index", { footerlinks });
 });
 
 app.get("/category", (req, res) => {
-  res.render("pages/category");
+  res.render("pages/category", { footerlinks });
 });
 
 app.get("/product", (req, res) => {
-  res.render("pages/product", { products });
+  res.render("pages/product", { products, footerlinks });
 });
 
 app.get("/custom", (req, res) => {
-  res.render("pages/custom");
+  res.render("pages/custom", { footerlinks });
 });
 
 app.get("/cart", (req, res) => {
-  res.render("pages/cart");
+  res.render("pages/cart", { footerlinks });
 });
 
 app.get("/cool", function(request, response) {

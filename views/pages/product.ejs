@@ -29,7 +29,8 @@
                 <%= products[i].name %>
               </p>
               <p>
-                $<%= products[i].price %>
+                $
+                <%= products[i].price %>
               </p>
               <button class="button tj-btn">Add to cart</button>
             </div>
@@ -55,6 +56,8 @@
           </div>
         </div>
       </div>
+      <% include ../partials/footer.ejs %>
+
 </body>
 
 </html>

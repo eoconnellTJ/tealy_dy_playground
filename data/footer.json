@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Company",
+    "links": [
+      "About",
+      "Press",
+      "Military Discount",
+      "Teacher Discount",
+      "Jobs",
+      "Privacy Policy",
+      "Terms & Conditions"
+    ]
+  },
+  {
+    "title": "Support",
+    "links": [
+      "1-800-708-3490",
+      "Contact Us",
+      "FAQ",
+      "Retailers",
+      "King of Prussia Store",
+      "Find a Retailer",
+      "Shipping & Returns"
+    ]
+  },
+  { "title": "Product Details", "links": ["Fabric"] },
+  {
+    "title": "Follow Us",
+    "links": [
+      "Facebook",
+      "Twitter",
+      "Pinterest",
+      "Instagram",
+      "YouTube",
+      "Google"
+    ]
+  }
+]

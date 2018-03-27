@@ -8,6 +8,7 @@
 // @import "./layout/index";
 // @import "./pages/index";
 //@import "application";
+@import "footer";
 
 $font-stack: Arial, sans-serif;
 $primary-color: #333;
@@ -17,7 +18,7 @@ $testing: 2rem;
 //   color: yellow;
 // }
 #header-nav {
-  background: #045;
+  background-color: $color-primary;
 }
 nav {
   ul {

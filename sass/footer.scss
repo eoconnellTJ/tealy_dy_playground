@@ -1,0 +1,26 @@
+footer {
+  background-color: $color-primary;
+  margin-top: 4rem;
+}
+.main-footer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.main-footer-column {
+  h2 {
+    color: $white;
+  }
+
+  ul {
+    padding-left: 0;
+  }
+
+  li {
+    list-style: none;
+    border: none;
+
+    a {
+      color: $color-grey-light;
+    }
+  }
+}

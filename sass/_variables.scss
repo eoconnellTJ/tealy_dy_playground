@@ -22,7 +22,13 @@ $color-product-warm: #f7ba56;
 // This is not quite the product color but a much more
 // legible version for the website.
 $color-product-light: #9eaab2;
-$product-colors: ( soft: $color-product-soft, cool: $color-product-cool, move: $color-product-move, warm: $color-product-warm, light: $color-product-light);
+$product-colors: (
+  soft: $color-product-soft,
+  cool: $color-product-cool,
+  move: $color-product-move,
+  warm: $color-product-warm,
+  light: $color-product-light
+);
 /* Site colors */
 
 $color-primary: $color-blue-grass;
@@ -61,6 +67,7 @@ $font-size-contentful-mobile-small: $font-size-base;
 $font-size-contentful-mobile-medium: 24px;
 $font-size-contentful-desktop-small: 20px;
 $font-size-contentful-desktop-medium: 46px;
+$font-family-primary: Helvetica, sans-serif;
 /* Special Characters */
 
 $character-line-feed: "\A";
@@ -106,9 +113,9 @@ $z-index-institial: 8000;
 $z-index-tooltips: 9000;
 // Animations
 // - - - - - - - - - - - - - - - - - - - - - - - - -
-$duration-default : 0.3s;
-$timing-default : ease-in-out;
-$transition-default : $duration-default $timing-default;
+$duration-default: 0.3s;
+$timing-default: ease-in-out;
+$transition-default: $duration-default $timing-default;
 // Product / show
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 $width-option-tile: 40px;
