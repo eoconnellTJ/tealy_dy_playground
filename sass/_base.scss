@@ -64,3 +64,8 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+#insert-dy {
+  min-height: 100px;
+  border: 2px solid $color-primary-light;
+}
