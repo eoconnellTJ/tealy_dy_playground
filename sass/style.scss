@@ -9,6 +9,8 @@
 // @import "./pages/index";
 //@import "application";
 @import "footer";
+@import "tj_nav";
+@import "kevin";
 
 $font-stack: Arial, sans-serif;
 $primary-color: #333;
@@ -23,11 +25,6 @@ nav {
     padding: 0;
     list-style: none;
   }
-}
-li {
-  border: 2px solid $color-product-warm;
-  font-family: $font-stack;
-  color: $color-blue-grass;
 }
 
 #box {

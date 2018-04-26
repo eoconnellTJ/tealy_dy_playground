@@ -50,6 +50,10 @@ app.get("/playground", (req, res) => {
   res.render("pages/playground", { footerlinks });
 });
 
+app.get("/kevin", (req, res) => {
+  res.render("pages/kevin", { footerlinks });
+});
+
 app.listen(app.get("port"), function() {
   console.log("Node app is running on port", app.get("port"));
 });

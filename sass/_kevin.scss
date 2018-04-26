@@ -1,0 +1,220 @@
+.video-container {
+  border: 2px solid black;
+}
+.video-overlay-image {
+  background-image: url("//images.ctfassets.net/d2y5sh3u3ysc/2jiouRwYLGom8sqkyuOAaU/4328495…/AgentScreenshot2_16x9_dark.jpg?q=75&fl=progressive");
+}
+
+.sides-container {
+  // border: 2px solid black;
+  margin: 3rem auto;
+  max-width: 1184px;
+  display: flex;
+}
+
+.side-container {
+  width: calc(50% - 12px);
+}
+.side-container.left-side {
+  margin-right: 12px;
+}
+.side-container.right-side {
+  margin-left: 12px;
+}
+
+.image-cta {
+  display: flex;
+  align-items: center;
+  background-size: cover;
+}
+
+.text-block {
+  text-align: center;
+}
+.text-block-body {
+  text-align: center;
+}
+
+.text-cta-block {
+  position: relative;
+  margin: 0 auto;
+  bottom: 50%;
+  width: 51%;
+  text-align: center;
+  color: white;
+}
+.text-cta-block-heading {
+  color: white;
+}
+
+a.button {
+  display: inline-block;
+  padding: 16px 60px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 0;
+  font-family: "Basetica", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.6em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: none;
+}
+.text-cta-block-button {
+  border-color: $color-grey-dark;
+  color: $color-grey-dark;
+}
+
+.text-block {
+  padding: 3rem;
+  width: 100%;
+}
+
+.text-block-heading {
+  color: #4d4d4d;
+}
+
+.collage-group-three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.shoppable-product-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  max-width: 1184px;
+  margin: 0 auto;
+}
+
+.shoppable-product-tiles .product-tile-cta {
+  padding: 16px 20px;
+  width: 100%;
+  background: #ddd;
+  border-color: #ddd;
+  color: #fff;
+}
+
+.kh-signup,
+.kh-signup h3 {
+  color: white;
+  text-align: center;
+  position: relative;
+  bottom: 50%;
+}
+.kh button {
+  background: #fbe039;
+  border: 1px solid #fbe039;
+  padding: 16px 60px;
+  font-size: 12px;
+  font-family: "Basetica", sans-serif;
+}
+
+.input-combo-wrapper {
+  display: flex;
+  align-items: normal;
+  justify-content: center;
+}
+.input-combo-wrapper input {
+  padding: 14px 20px;
+  font-size: 13px;
+  min-width: 240px;
+}
+.shoppable-product-tiles .shoppable-product-tile .product-content {
+  display: flex;
+  font-size: 12px;
+  color: #648082;
+}
+
+.shoppable-product-tiles .product-price {
+  margin-top: 5px;
+}
+
+.shoppable-product-tiles .product-tile-form {
+  margin: 1em 0;
+}
+
+.shoppable-product-tiles
+  .shoppable-product-tile
+  .product-content
+  .product-tile-link {
+  flex-grow: 1;
+}
+
+.shoppable-product-tiles .product-color,
+.shoppable-product-tiles .product-price {
+  font-size: 10px;
+  line-height: 1.25;
+  margin-bottom: 0;
+}
+.attribute-selector {
+  margin-bottom: 1rem;
+  position: relative;
+}
+.attribute-selector-dropdown {
+  width: 100%;
+  position: relative;
+  margin-top: -10rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 3000;
+  background-color: #fff;
+  padding: 1rem;
+  border: 1px solid #ddd;
+}
+
+.attribute-selector-dropdown.open {
+  z-index: 3000;
+}
+
+.attribute-selector-dropdown:not(.open) {
+  display: none;
+}
+
+.select-wrapper::after {
+  content: "";
+  transform: rotateX(50deg);
+}
+
+.select-wrapper.open::after {
+  // content: "^";
+  transform: rotateX(150deg);
+}
+
+.attribute-selector-dropdown-trigger {
+  position: relative;
+  height: 40px;
+  width: 100%;
+  padding: 0 10px 0 20px;
+  border-width: 1px;
+  text-align: left;
+  font-weight: normal;
+  text-transform: none;
+  line-height: 40px;
+  overflow: hidden;
+}
+
+.shoppable-product-tiles .product-size-label {
+  position: relative;
+  text-align: center;
+  font-size: 10px;
+}
+
+.shoppable-product-tiles .product-attribute-tile {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  margin: 0 3px 3px 3px;
+  padding: 3px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.shoppable-product-tiles .product-tile-cta {
+  padding: 16px 20px;
+  width: 100%;
+}

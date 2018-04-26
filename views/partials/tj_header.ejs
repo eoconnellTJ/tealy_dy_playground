@@ -1,0 +1,115 @@
+<div class="main-header">
+  <div class="top-right-nav">
+
+
+    <div class="account-navigation-wrapper">
+      <ul class="account-navigation">
+        <li>
+          <i class="material-icons">search</i>
+        </li>
+        <li>
+          <a class="icon-helper" href="#"></a>
+          <ul class="dropdown" id="dropdown-help">
+            <li>
+              <a href="https://help.tommyjohn.com/hc/en-us">FAQ</a>
+            </li>
+            <li>
+              <a href="javascript:window.CustomerServiceChat.activate()">Chat With Us</a>
+            </li>
+            <li>
+              <a href="tel:18007083490">Call Us: 1-800-708-3490</a>
+            </li>
+            <li>
+              <a href="/contact_us">Email Us</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <i class="material-icons">person</i>
+        </li>
+        <li>
+          <i class="material-icons">shopping_cart</i>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="primary-nav-container">
+    <div class="main-logo">
+      <% include tj-logo.ejs %>
+    </div>
+    <div></div>
+    <div class="nav-section">New Arrivals
+      <div class="nav-categories-wrapper bar-dropdown">
+        <ul class="nav-categories">
+          <li class="nav-category">a</li>
+          <li class="nav-category">b</li>
+        </ul>
+      </div>
+    </div>
+    <div class="nav-section">Men
+      <div class="nav-categories-wrapper bar-dropdown">
+        <ul class="nav-categories">
+          <li class="nav-category">a</li>
+          <li class="nav-category">b</li>
+        </ul>
+      </div>
+    </div>
+    <div class="nav-section">Women
+      <div class="nav-categories-wrapper bar-dropdown">
+        <ul class="nav-categories">
+          <li class="nav-category">a</li>
+          <li class="nav-category">b</li>
+        </ul>
+      </div>
+    </div>
+    <div class="nav-section">Packs
+      <div class="nav-categories-wrapper bar-dropdown">
+        <ul class="nav-categories">
+          <li class="nav-category">a</li>
+          <li class="nav-category">b</li>
+        </ul>
+      </div>
+    </div>
+    <div id='rewards' class="nav-section">
+
+      Tommy John Rewards
+
+
+      <div class="nav-categories-wrapper bar-dropdown">
+        <ul class="nav-categories">
+          <li class="nav-category">a</li>
+          <li class="nav-category">b</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var helper = document.querySelector('.icon-helper');
+  helper.addEventListener('mouseenter', function (e) {
+    this.nextElementSibling.classList.toggle('show')
+  });
+
+  var navLinks = document.querySelectorAll('.nav-section');
+
+  // $('nav ul li a:not(:only-child)').hover(function (e) {
+  //   $(this).siblings('.nav-dropdown').toggle();
+  //   // Close one dropdown when selecting another
+  //   $('.nav-dropdown').not($(this).siblings()).hide();
+  //   e.stopPropagation();
+  // });
+
+
+  navLinks.forEach(link => {
+    // $(link).hover(function (e) {
+    //   $(this).children('.bar-dropdown').toggle('show');
+
+    //   $('.bar-dropdown').not($(this).children()).hide();
+    //   e.stopPropagation();
+    // })
+    // if ($(link).mouseenter() === true) {
+    //   console.log('are we moving')
+    // }
+
+  })
+</script>
