@@ -37,51 +37,31 @@
     <div class="main-logo">
       <% include tj-logo.ejs %>
     </div>
-    <div></div>
-    <div class="nav-section">New Arrivals
-      <div class="nav-categories-wrapper bar-dropdown">
-        <ul class="nav-categories">
-          <li class="nav-category">a</li>
-          <li class="nav-category">b</li>
-        </ul>
-      </div>
+    <div class="list-item-container">
+      <ul class="nav-container">
+        <li class="nav-section">
+          <a href="#">Arrivals</a>
+          <% include nav/arrivals %>
+        </li>
+        <li class="nav-section">
+          <a href="#">Men</a>
+          <% include nav/men %>
+        </li>
+        <li class="nav-section">
+          <a href="#">Women</a>
+          <% include nav/women %>
+        </li>
+        <li class="nav-section">
+          <a href="#">Packs</a>
+          <% include nav/packs %>
+        </li>
+        <li class="nav-section">
+          <a href="#">TJ Rewards</a>
+          <% include nav/rewards %>
+        </li>
+      </ul>
     </div>
-    <div class="nav-section">Men
-      <div class="nav-categories-wrapper bar-dropdown">
-        <ul class="nav-categories">
-          <li class="nav-category">a</li>
-          <li class="nav-category">b</li>
-        </ul>
-      </div>
-    </div>
-    <div class="nav-section">Women
-      <div class="nav-categories-wrapper bar-dropdown">
-        <ul class="nav-categories">
-          <li class="nav-category">a</li>
-          <li class="nav-category">b</li>
-        </ul>
-      </div>
-    </div>
-    <div class="nav-section">Packs
-      <div class="nav-categories-wrapper bar-dropdown">
-        <ul class="nav-categories">
-          <li class="nav-category">a</li>
-          <li class="nav-category">b</li>
-        </ul>
-      </div>
-    </div>
-    <div id='rewards' class="nav-section">
 
-      Tommy John Rewards
-
-
-      <div class="nav-categories-wrapper bar-dropdown">
-        <ul class="nav-categories">
-          <li class="nav-category">a</li>
-          <li class="nav-category">b</li>
-        </ul>
-      </div>
-    </div>
   </div>
 </div>
 <script>
@@ -90,26 +70,19 @@
     this.nextElementSibling.classList.toggle('show')
   });
 
-  var navLinks = document.querySelectorAll('.nav-section');
+  $('.nav-categories-wrapper').hide();
 
-  // $('nav ul li a:not(:only-child)').hover(function (e) {
-  //   $(this).siblings('.nav-dropdown').toggle();
-  //   // Close one dropdown when selecting another
-  //   $('.nav-dropdown').not($(this).siblings()).hide();
-  //   e.stopPropagation();
-  // });
+  $('.nav-section').mouseenter(function (e) {
+    $('.nav-categories-wrapper').show();
+    let others = $('.bar-dropdown').not($(this).children());
+    $(others).hide();
+    e.stopPropagation();
+  });
 
-
-  navLinks.forEach(link => {
-    // $(link).hover(function (e) {
-    //   $(this).children('.bar-dropdown').toggle('show');
-
-    //   $('.bar-dropdown').not($(this).children()).hide();
-    //   e.stopPropagation();
-    // })
-    // if ($(link).mouseenter() === true) {
-    //   console.log('are we moving')
-    // }
-
-  })
+  $('.nav-categories-wrapper').mouseleave(function (e) {
+    $(this).hide();
+  });
+  $('.list-item-container').mouseleave(function (e) {
+    $('.nav-categories-wrapper').hide();
+  });
 </script>

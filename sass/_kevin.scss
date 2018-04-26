@@ -14,6 +14,7 @@
 
 .side-container {
   width: calc(50% - 12px);
+  max-height: 580px;
 }
 .side-container.left-side {
   margin-right: 12px;
