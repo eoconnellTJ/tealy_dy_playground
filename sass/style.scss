@@ -10,12 +10,28 @@
 //@import "application";
 @import "footer";
 @import "tj_nav";
+@import "tj_mobile_nav";
 @import "kevin";
 
 $font-stack: Arial, sans-serif;
 $primary-color: #333;
 $testing: 2rem;
 
+.div-sizer {
+  float: left;
+}
+
+@media only screen and (max-device-width: 667px) {
+  .div-sizer {
+    float: none;
+  }
+}
+
+@media only screen and (max-width: 667px) {
+  .div-sizer {
+    float: none;
+  }
+}
 #header-nav {
   background-color: $color-primary;
 }

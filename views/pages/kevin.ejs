@@ -14,8 +14,11 @@
     }
   </script>
   <% include ../partials/tealium.ejs %>
+    <div class='div-sizer'></div>
 
-      <% include ../partials/tj_header.ejs %>
+
+    <% include ../partials/tj_header.ejs %>
+      <% include ../partials/tj_mobile_header.ejs %>
         <div class="main-content">
           <div class="video-container">
             <div class="video-overlay-image">
@@ -24,10 +27,10 @@
             <script>
               $(document).ready(videoSize);
               $(window).resize(videoSize);
+
               function videoSize() {
                 var w = $(window).width();
                 var h = w * .56216;
-                console.log(w, h)
                 $('.main-video').css({
                   "width": w,
                   "height": h

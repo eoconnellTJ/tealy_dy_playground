@@ -1,0 +1,9 @@
+<span class="top-bar-cart">
+  <a class="button button-bare minicart-toggle ng-scope has-items" data-off-canvas-trigger="minicart-panel" href="/cart" ng-class="{'has-items' : cartIcon.numItems(1) > 0}"
+    ng-controller="CartIconController as cartIcon">
+    <span class="shopping-cart-icon"></span>
+    <span class="shopping-cart-item-count">(
+      <span class="shopping-cart-item-count-number ng-binding" ng-bind="cartIcon.numItems(1)">1</span>)</span>
+  </a>
+
+</span>
