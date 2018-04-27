@@ -1,10 +1,11 @@
 footer {
-  background-color: $color-primary;
+  background-color: #002b31;
   margin-top: 6rem;
 }
 .main-footer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  padding-top: 48px;
 }
 .main-footer-column {
   h2 {

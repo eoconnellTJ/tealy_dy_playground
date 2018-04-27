@@ -66,16 +66,27 @@
 
 .primary-nav-container {
   display: grid;
-  grid-template-columns: 250px calc(100% - 450px);
+  grid-template-columns: repeat(12, 1fr);
 }
 
 .main-logo {
   align-self: center;
+  grid-column: 1/4;
 }
 ul.nav-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   list-style: none;
+}
+
+.list-item-container {
+  grid-column: 4/10;
+}
+
+@media only screen and (max-width: 880px) {
+  .list-item-container {
+    grid-column: 4/112;
+  }
 }
 .nav-section {
   align-self: center;
