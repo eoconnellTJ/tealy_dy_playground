@@ -1,0 +1,131 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-video {
+  height: 56%;
+  width: 100%;
+}
+
+.video-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.tj-kevin-hart-text {
+  position: relative;
+  background-color: #4d4d4d;
+  color: #fff;
+  transform: none;
+  padding: 30px 30px 50px;
+  left: 0;
+  font-size: 10px;
+  text-align: center;
+}
+
+.sides-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  width: 100%;
+}
+
+.side-container {
+  width: 100%;
+  max-height: none;
+}
+
+.image-cta {
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: top center;
+  height: 375px;
+  width: 100%;
+  max-height: none;
+}
+
+#box-2 {
+  background-image: url("//images.ctfassets.net/d2y5sh3u3ysc/5glTNuxyDSiMu0gEcYiy6s/35ed60c22dd2113cee0228a4e2fb2f7b/KH_topquote_800.jpg?q=75&fl=progressive");
+}
+
+#box-3 {
+  background-image: url("//images.ctfassets.net/d2y5sh3u3ysc/1EVgTsoJy8MGgIuMo4igiW/8299eed086b5769deb46d033d27bbd64/KH_002.jpg?q=75&fl=progressive");
+  height: 300px;
+}
+
+.side-container img.image-cta {
+  width: 100%;
+}
+
+.right-side > .text-cta-block {
+  transform: translate(-50%, -50%);
+  left: 50%;
+  bottom: 50%;
+  width: 100%;
+}
+
+.text-block {
+  text-align: center;
+}
+
+.text-block-body {
+  text-align: center;
+}
+
+.text-cta-block {
+  position: relative;
+  margin: 0 auto;
+  max-width: 300px;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.collage-group-three {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.collage-group-three > img {
+  width: 100%;
+}
+
+#box-4 {
+  background-image: url("//images.ctfassets.net/d2y5sh3u3ysc/3GAoBdxP72ayy2ykOUEmEU/6e3b8d0992d0b4ec3ba98222b5563138/KH_006.jpg?q=75&fl=progressive");
+}
+
+#box-5 {
+  background-image: url("//images.ctfassets.net/d2y5sh3u3ysc/6XBqMI8lVeGAQYkmUYYUAE/7dcce12734469933f9a94640eeb02973/SSWaistband_lessgreen2.jpg?q=75&fl=progressive");
+  display: none;
+}
+
+#box-6 {
+  background-image: url("//images.ctfassets.net/d2y5sh3u3ysc/1fVGSDfv9u0wmykeW2q46e/0cd554e764d29a7356eb00818a9a4afc/kh_ss_mic.jpg?q=75&fl=progressive");
+  display: none;
+}
+
+#box-7 {
+  background-image: url("//images.ctfassets.net/d2y5sh3u3ysc/3GAoBdxP72ayy2ykOUEmEU/6e3b8d0992d0b4ec3ba98222b5563138/KH_006.jpg?q=75&fl=progressive");
+  display: none;
+}
+
+#box-8 {
+  background-image: url("//images.ctfassets.net/d2y5sh3u3ysc/6XBqMI8lVeGAQYkmUYYUAE/7dcce12734469933f9a94640eeb02973/SSWaistband_lessgreen2.jpg?q=75&fl=progressive");
+}
+
+#box-9 {
+  background-image: url("//images.ctfassets.net/d2y5sh3u3ysc/1fVGSDfv9u0wmykeW2q46e/0cd554e764d29a7356eb00818a9a4afc/kh_ss_mic.jpg?q=75&fl=progressive");
+  display: none;
+}
+
+#box-10 {
+  background-image: url("//images.ctfassets.net/d2y5sh3u3ysc/2HJKwg69ssI2ygAQs62WuA/8ab1e721e933d7285f718fef2af94450/KH_012.jpg?q=75&fl=progressive");
+}
+
+#box-11 {
+  background-image: url("//images.ctfassets.net/d2y5sh3u3ysc/5oOF325ho4uKYSEw0oQeUa/b350ad330c5ce057ccdb4a68b032980f/KH_015.jpg?q=75&fl=progressive");
+}
+
+#box-12 {
+  background-image: url("//images.ctfassets.net/d2y5sh3u3ysc/TJoWeP7loAc2wggggwUac/e4af4193c344c124091df54a563aa05f/KH_017.jpg?q=75&fl=progressive");
+}

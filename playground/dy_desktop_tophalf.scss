@@ -1,0 +1,99 @@
+body {
+  width: 100%;
+}
+
+.header {
+  border: 2px solid black;
+}
+
+.video-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.main-video {
+  width: 100%;
+  height: 56%;
+}
+
+.tj-kevin-hart-text {
+  position: absolute;
+  color: #fff;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tj-kevin-hart-text h1 {
+  color: #fff;
+}
+
+.video-overlay-image {
+  background-image: url("//images.ctfassets.net/d2y5sh3u3ysc/2jiouRwYLGom8sqkyuOAaU/4328495…/AgentScreenshot2_16x9_dark.jpg?q=75&fl=progressive");
+}
+
+.sides-container {
+  margin: 3rem auto;
+  max-width: 1184px;
+  display: flex;
+}
+
+.side-container {
+  width: calc(50% - 12px);
+}
+
+.side-container.left-side {
+  margin-right: 12px;
+}
+
+.side-container.right-side {
+  margin-left: 12px;
+}
+
+#box-2 {
+  background-image: url("//images.ctfassets.net/d2y5sh3u3ysc/5glTNuxyDSiMu0gEcYiy6s/35ed60c22dd2113cee0228a4e2fb2f7b/KH_topquote_800.jpg?q=75&fl=progressive");
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: top center;
+  max-height: 579px;
+  min-height: 471px;
+  width: 100%;
+  max-width: 100%;
+}
+
+#box-3 {
+  background-image: url("//images.ctfassets.net/d2y5sh3u3ysc/1EVgTsoJy8MGgIuMo4igiW/8299eed086b5769deb46d033d27bbd64/KH_002.jpg?q=75&fl=progressive");
+}
+
+.image-cta {
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: top center;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
+.text-block {
+  text-align: center;
+}
+
+.text-block-body {
+  text-align: center;
+}
+
+.text-cta-block {
+  position: relative;
+  margin: 0 auto;
+  bottom: 50%;
+  width: 51%;
+  text-align: center;
+  color: white;
+}
+
+.text-cta-block-heading {
+  color: white;
+}
